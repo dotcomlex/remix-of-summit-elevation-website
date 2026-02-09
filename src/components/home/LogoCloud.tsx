@@ -2,7 +2,8 @@ import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 
 type Logo = {
-  src: string;
+  src?: string;
+  name?: string;
   alt: string;
   width?: number;
   height?: number;
@@ -21,7 +22,7 @@ export function LogoCloud({ logos }: LogoCloudProps) {
       {/* Minimal label */}
       <div className="relative z-10 text-center mb-4">
         <p className="text-xs uppercase tracking-wider text-mountain-slate/60 font-medium">
-          Trusted Partners
+          Premium Paints We Trust
         </p>
       </div>
 
@@ -35,13 +36,19 @@ export function LogoCloud({ logos }: LogoCloudProps) {
               key={logo.alt}
               className="flex items-center justify-center px-4"
             >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                width={logo.width}
-                height={logo.height}
-                className="h-8 sm:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-all duration-300"
-              />
+              {logo.src ? (
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={logo.width}
+                  height={logo.height}
+                  className="h-8 sm:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-all duration-300"
+                />
+              ) : (
+                <span className="text-lg sm:text-xl font-heading font-bold text-mountain-slate/50 whitespace-nowrap tracking-tight">
+                  {logo.name}
+                </span>
+              )}
             </div>
           ))}
         </InfiniteSlider>
