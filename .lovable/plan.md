@@ -1,36 +1,25 @@
 
-# Footer Overhaul — Left-Aligned, Better Background, No EPA
 
-Fix the footer so it's left-aligned, has a distinct dark background, removes irrelevant certifications (EPA, Lead-Safe), and looks clean on both desktop and mobile.
+# Footer Cleanup — Center Logo, Bigger Size, Remove Clutter
 
 ---
 
-## Changes to `src/components/layout/Footer.tsx`
+## What Changes
 
-### 1. Background
-- Change from `bg-[hsl(var(--charcoal-dark))]` (green-tinted) to `bg-gray-900` for a neutral dark background that contrasts better with the page
-- Keep the top separator line but make it more visible
+### 1. Center and enlarge the logo
+- Center the logo on mobile and desktop (wrap in `flex justify-center`)
+- Increase size: `h-32 sm:h-36 md:h-40` (up from `h-24 sm:h-28 md:h-32`)
 
-### 2. Left-Align Everything
-- Remove `text-center` and `items-center` / `justify-center` classes on mobile
-- All text, links, and contact info left-aligned on all screen sizes
-- Grid columns remain 3-column on desktop, stack on mobile -- but always left-aligned
+### 2. Remove unnecessary sections
+- **Remove "Quick Links"** column entirely — these links are already in the nav and not useful in the footer
+- **Remove "Privacy Policy" and "Terms of Service"** — they're non-functional placeholder text (just spans with `cursor-default`)
+- **Remove the long description paragraph** — redundant with the rest of the site
 
-### 3. Remove EPA / Lead-Safe Certifications
-- Delete "EPA Certified" and "Lead-Safe Certified" from the certifications array
-- Replace with three simple items: "Licensed & Insured", "BBB Accredited", "Serving Colorado Since 2017"
-- Left-align the certifications row instead of centering
-
-### 4. Remove Phone Number
-- Per earlier instruction, no phone numbers in footer (email only via `Paintsemerald@gmail.com`)
-
-### 5. Keep "Powered by Frost Media LLC"
-- Retain the existing credit link at the bottom
-
-### 6. Mobile Responsiveness
-- Single column stack on mobile, all left-aligned
-- Service areas in 2-column grid on all sizes
-- Proper spacing between sections
+### 3. Simplify layout
+- Instead of 3-column grid, use a simpler 2-section layout:
+  - **Top:** Centered logo + email + location (stacked)
+  - **Bottom row:** Service Areas (left) + Certifications (right) on desktop; stacked on mobile
+- Keep copyright + Frost Media credit at the very bottom
 
 ---
 
@@ -38,21 +27,15 @@ Fix the footer so it's left-aligned, has a distinct dark background, removes irr
 
 ### File: `src/components/layout/Footer.tsx`
 
-**Data changes:**
-- Remove `certifications` array
-- Remove "Contact" from `quickLinks` (avoid linking to contact from footer since it has its own CTA elsewhere)
-- Trim `serviceAreas` to 6 items: Denver, Boulder, Lakewood, Aurora, Arvada, Westminster
+**Removals:**
+- Delete `quickLinks` array and its entire column
+- Delete the paragraph ("Colorado's trusted painting professionals...")
+- Delete Privacy Policy / Terms of Service spans
+- Remove `ArrowRight` from imports (no longer used)
 
-**Styling changes:**
-- Footer: `bg-gray-900 text-white` instead of green-tinted charcoal
-- Grid: remove `text-center md:text-left` and `items-center md:items-start` -- just always left
-- Contact info: remove `justify-center md:justify-start` -- just `justify-start`
-- Certifications section: `flex flex-wrap gap-x-6 gap-y-2` without `justify-center`
-- Copyright bar: `items-start` instead of `items-center`
+**Layout restructure:**
+- Logo: centered with `flex justify-center mb-6`, sized `h-32 sm:h-36 md:h-40`
+- Contact info (email + location): centered below logo
+- Grid changes from `grid-cols-1 md:grid-cols-3` to a simpler layout: Service Areas + Certifications side by side on desktop (`md:grid-cols-2`), stacked on mobile
+- Copyright bar stays at bottom with just the year line + Frost Media credit
 
-**Imports:**
-- Remove `CheckCircle2`, add `CheckCircle2` replaced by simple `CheckCircle2` kept for cert icons (or use a simpler dot)
-- Keep `Mail`, `MapPin`, `ArrowRight`
-- No `Phone` import
-
-**Structure stays the same:** 3-column grid (Brand, Quick Links, Service Areas) + certifications bar + copyright bar. Just restyled and cleaned up.
