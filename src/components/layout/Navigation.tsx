@@ -3,14 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logo14er from "@/assets/logo-14er.png";
+import logoEmerald from "@/assets/logo-emerald.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
   { name: "Gallery", path: "/gallery" },
-  { name: "About Us", path: "/about" },
-  { name: "Contact", path: "/contact" },
 ];
 
 export function Navigation() {
@@ -55,8 +53,8 @@ export function Navigation() {
             {/* Logo - Left */}
             <Link to="/" className="flex items-center">
               <img
-                src={logo14er}
-                alt="14ER Renovations"
+                src={logoEmerald}
+                alt="Emerald Paints"
                 className="h-24 xl:h-28 w-auto drop-shadow-xl"
               />
             </Link>
@@ -94,8 +92,8 @@ export function Navigation() {
             {/* Centered Logo */}
             <Link to="/" className="flex items-center justify-self-center">
               <img
-                src={logo14er}
-                alt="14ER Renovations"
+                src={logoEmerald}
+                alt="Emerald Paints"
                 className="h-24 sm:h-28 w-auto drop-shadow-xl"
               />
             </Link>
@@ -147,8 +145,8 @@ export function Navigation() {
             {/* Logo in mobile menu */}
             <div className="flex justify-center mb-6">
               <img
-                src={logo14er}
-                alt="14ER Renovations"
+                src={logoEmerald}
+                alt="Emerald Paints"
                 className="h-16 w-auto"
               />
             </div>
@@ -178,16 +176,16 @@ export function Navigation() {
 
             <div className="mt-8 pt-6 border-t border-white/10">
               <Button asChild className="w-full font-semibold h-14 text-base" size="lg">
-                <a href="tel:+17208189678" onClick={() => setIsOpen(false)}>
+                <a href="tel:+17204475654" onClick={() => setIsOpen(false)}>
                   Get Your Free Quote
                 </a>
               </Button>
 
               <a
-                href="tel:+17208189678"
+                href="tel:+17204475654"
                 className="flex items-center justify-center gap-3 mt-4 py-4 text-snow-white hover:text-primary transition-colors"
               >
-                <span className="font-semibold">(720) 818-9678</span>
+                <span className="font-semibold">(720) 447-5654</span>
               </a>
             </div>
           </div>
@@ -196,7 +194,7 @@ export function Navigation() {
 
       {/* Floating CTA Bar - visible but not intrusive */}
       <a
-        href="tel:+17208189678"
+        href="tel:+17204475654"
         className={cn(
           "fixed bottom-6 right-6 z-40",
           "bg-primary hover:bg-primary/90",
