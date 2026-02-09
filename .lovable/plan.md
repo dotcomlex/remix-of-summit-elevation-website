@@ -1,36 +1,49 @@
 
 
-# Prompt 4: Gallery Carousel — Data & Text Update
+# Prompt 5: "Why Choose Emerald Paints" + "How We Work" Section
 
-This is a straightforward data swap. The circular gallery component and all its behavior remain untouched.
+A content-only update to `src/components/home/WhyChooseUs.tsx`. No structural or layout changes — just text, data, image source, and wave divider color.
 
-## Changes (single file: `src/components/home/GallerySection.tsx`)
+---
 
-### 1. Remove local image imports
-Delete all 8 gallery image imports (lines 7-14: `galleryKitchen`, `galleryBathroom`, `galleryPatio`, `galleryExterior`, and their `-1` variants). We'll use Unsplash URLs directly.
+## Changes (single file)
 
-### 2. Replace the `items` array
-Swap the 8 renovation-themed items with 8 painting-themed items using Unsplash URLs, painting project names (Living Room Refresh, Exterior Repaint, Deck Staining, etc.), Colorado cities, and "Emerald Paints" as the `by` field.
+### 1. Replace image import with Unsplash URL
+- Remove `import teamImage from "@/assets/team-work.jpg";`
+- Define as a constant string: `const teamImage = "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&q=80";`
 
-### 3. Update section header text
-- Subtitle stays: "Our Work"
-- Heading stays: "Work That Speaks For Itself"
-- Description changes to: "A showcase of recent painting projects across Colorado."
+### 2. Update proof cards data
+Replace the 3 card objects with painting-specific copy:
+- "Licensed, Insured & Guaranteed" — satisfaction guarantee messaging
+- "Detailed Prep, Flawless Finish" — mentions 7-10 year paint life
+- "On Time, On Budget, Zero Mess" — respect and cleanliness
 
-### 4. Update CTA button
-- Text: "View Full Gallery" (instead of "Get a Free Estimate")
-- Link: `/gallery` (instead of `/contact`)
-- Remove the ArrowRight icon import if no longer used elsewhere (it is still used, so keep it)
+Icons stay the same (Shield, ClipboardCheck, CalendarCheck).
 
-### 5. Adjust background mesh gradient
-- Change the orange accent glow from `rgba(251,146,60,0.15)` to `rgba(27,67,50,0.20)` (forest green tint)
-- Keep the blue and purple accent glows as-is
+### 3. Update process steps data
+Replace the 3 steps:
+1. "Free Color Consultation" — visit home, discuss vision, assess surfaces
+2. "Detailed Estimate" — written estimate, no hidden fees
+3. "Expert Execution" — prep, painting, cleanup
 
-### What stays untouched
-- `circular-gallery.tsx` — not modified
-- Lightbox modal, keyboard nav, body scroll lock
-- Background base gradient colors
-- Responsive radius logic, IntersectionObserver
-- Auto-rotate speed, carousel behavior
-- Animation and instruction text
+### 4. Update section header text
+- Pill: "Why Homeowners Choose Us"
+- Pill classes: change `bg-mountain-navy/10 text-mountain-navy` to `bg-primary/10 text-primary`
+- Headline: "Why Colorado Homeowners Trust Emerald Paints"
+- Subheadline: "More than just a fresh coat — we deliver lasting quality through meticulous preparation, premium materials, and a process built around your schedule."
 
+### 5. Update image area
+- Alt text: "Professional painter at work"
+- Experience badge: "8+" instead of "15+"
+- Caption: "Professional finish, every time"
+
+### 6. Update wave divider fill color
+- Change from `hsl(225 25% 15%)` to `hsl(153 30% 8%)` to match `--section-dark`
+
+## What stays untouched
+- Entire layout structure (2-column grid, mobile ordering)
+- All AnimatedSection wrappers and delays
+- Proof card styling (white bg, shadow, icon placement)
+- "How It Works" header with horizontal line separators
+- Background `bg-sand` and texture overlay
+- All responsive classes and breakpoints
