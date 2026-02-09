@@ -1,125 +1,61 @@
 
 
-# Hero Section Transformation — Two-Column Split Layout
+# Navigation Enhancement — Larger Logo, CTA Button, Better Visibility
 
-Complete overhaul of `src/components/home/HeroSection.tsx` from centered layout to a unique two-column split design with trust cards.
-
----
-
-## Asset
-
-Copy the uploaded Sherwin-Williams logo to `src/assets/logo-sherwin-williams.png` for potential use in trust cards or logo cloud.
+Updates to `src/components/layout/Navigation.tsx` for logo dominance and a prominent desktop CTA.
 
 ---
 
-## Layout Changes
+## Changes
 
-### Current: Single centered column
-### New: Two-column split (60/40) on desktop, stacked on mobile
+### 1. Desktop Logo — Larger with Enhanced Shadows
+- Increase from `h-24 xl:h-28` to `h-32 xl:h-36`
+- Add inline style with stronger drop-shadow and brightness boost: `drop-shadow(0 4px 20px rgba(0,0,0,0.6)) brightness(110%)`
 
-```text
-Desktop:
-+---------------------------+-------------------+
-|  Trust Badge              |  [Shield Card]    |
-|  HEADLINE (left-aligned)  |  [Palette Card]   |
-|  Subheadline              |  [Award Card]     |
-|  [CTA] [CTA outline]     |                   |
-|  Stars | Years | Homes    |                   |
-+---------------------------+-------------------+
-|        Certifications bar (full width)        |
-+-----------------------------------------------+
+### 2. Desktop Nav Links — Slightly Larger Touch Targets
+- Increase gap from `gap-1` to `gap-2`
+- Change text from `text-sm` to `text-base`, `font-medium` to `font-semibold`
+- Increase padding from `px-4 py-2` to `px-5 py-3`
+- Add `backdrop-blur-sm` for legibility
+- Active state: use `text-primary bg-white/10` with underline
 
-Mobile:
-+---------------------------+
-|  Trust Badge (centered)   |
-|  HEADLINE (centered)      |
-|  Subheadline              |
-|  [CTA stacked]            |
-|  Trust indicators         |
-|  [Trust Cards stacked]    |
-|  Certifications bar       |
-+---------------------------+
-```
+### 3. Desktop CTA Button — New "Free Estimate" Button
+- Add a prominent button next to the nav links on the right side
+- Wraps the nav + button in a flex container with `gap-8`
+- Button links to `tel:+17204475654` (phone call, not /contact)
+- Uses primary green color (brand consistent), not orange
 
----
+### 4. Mobile Logo — Larger with Enhanced Shadows
+- Increase from `h-24 sm:h-28` to `h-28 sm:h-32`
+- Same enhanced drop-shadow/brightness filter as desktop
 
-## Detailed Changes (`src/components/home/HeroSection.tsx`)
+### 5. Mobile Hamburger — Slightly Larger
+- Increase from `w-11 h-11` to `w-12 h-12`
+- Change `rounded-lg` to `rounded-xl`
+- Add `shadow-lg` and `backdrop-blur-sm`
 
-### 1. Background Overlay
-- Change from `bg-gradient-to-b` to `bg-gradient-to-r from-black/70 via-black/50 to-black/60` for better left-side text readability in the split layout
-- Keep existing `heroImage` import (no new background image needed)
+### 6. Mobile Menu Panel
+- Increase menu logo from `h-16` to `h-20`
+- Increase close button from `w-10 h-10` to `w-12 h-12`, move to `top-6 right-6`
+- Add padding top `pt-4` above logo, increase `mb-6` to `mb-8`
+- Nav link font: change `font-medium` to `font-semibold`
+- Add "Licensed & Insured - Serving Colorado Since 2017" text below CTA
 
-### 2. Content Container
-- Change from `flex-col items-center text-center` to `flex flex-col lg:flex-row lg:items-center lg:gap-12`
-- Left column: `lg:w-3/5 text-center lg:text-left`
-- Right column: `lg:w-2/5 mt-12 lg:mt-0`
-
-### 3. Left Column Content
-
-**Trust Badge** (new element):
-- Pill-shaped badge with Shield icon: "Licensed & Insured | EPA Certified"
-- Uses `bg-primary/20 text-primary border border-primary/30 backdrop-blur-sm`
-
-**Headline**:
-- Simplified to two lines: "Premium Painting" / "Done Right" (accent color on second line)
-- Uses `clamp(2.2rem, 6vw, 4.5rem)` for responsive sizing
-- Left-aligned on desktop, centered on mobile
-- Single `h1` with two `span` blocks (no separate mobile/desktop versions)
-
-**Subheadline**:
-- "Transform your Colorado home with expert interior and exterior painting. Premium Sherwin-Williams & Benjamin Moore materials, satisfaction guaranteed."
-
-**Dual CTAs**:
-- Primary: "Get Free Color Consultation" with phone link — uses the site's existing primary color (green)
-- Secondary: Outline button "View Color Portfolio" linking to `/gallery`
-- Stack vertically on mobile, side-by-side on `sm+`
-
-**Trust Indicators Row**:
-- 5.0 rating with 200+ Reviews (keeping star styling)
-- 8+ Years Colorado (corrected from prompt's "15+" to match brand facts)
-- 1,000+ Homes Transformed (corrected from prompt's "500+" to match brand facts)
-- Left-aligned on desktop, centered on mobile
-
-### 4. Right Column — Trust Cards
-Three white glass-morphism cards stacked vertically:
-
-| Card | Icon Color | Title | Description |
-|------|-----------|-------|-------------|
-| Satisfaction Guarantee | Primary (green) | "Satisfaction Guarantee" | "Not happy with the color? We'll repaint at no extra cost until you love it." |
-| Free Color Consultation | Accent/gold | "Free Color Consultation" | "Professional color matching & design advice included with every project." |
-| Premium Materials | Primary dark | "Premium Materials Only" | "Sherwin-Williams & Benjamin Moore paints with manufacturer warranty." |
-
-Cards use `bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl` styling.
-
-### 5. Bottom Certifications Bar
-- Full-width row below both columns with `border-t border-white/20`
-- "Trusted by Colorado homeowners since 2017" (corrected from prompt's 2009)
-- Four certification badges: Licensed & Insured, EPA Certified, Lead-Safe Certified, BBB Accredited A+
-- Uses CheckCircle2 icons with primary color
-
-### 6. Icon Imports
-Add: `Shield, Palette, CheckCircle2` from lucide-react
-Keep: `ArrowRight, Star, Award`
-Remove: `Clock` (replaced by Award for years badge)
+### 7. Floating CTA
+- Change text from "Get a Free Quote" to "Free Color Consult"
+- Keep `tel:` link (not /contact)
+- Keep primary green color for brand consistency
 
 ---
 
-## Brand Fact Corrections
-The prompt contained some numbers that conflict with established brand facts. The implementation will use the correct values:
-- Years: **8+** (not 15+)
-- Since: **2017** (not 2009)
-- Homes: **1,000+** (not 500+)
+## Brand Corrections from Prompt
+- All CTAs use `tel:+17204475654` instead of `/contact` (no contact page exists)
+- Colors stay primary green, not orange (brand consistency)
+- "Since 2017" not "Since 2009" in mobile menu footer text
 
 ---
 
-## Color Approach
-The prompt suggests orange and blue accents. To maintain brand consistency with the existing Emerald Paints green theme, the implementation will use the site's existing `primary` (green) color for accents instead of introducing orange/blue. The trust card icon backgrounds will use variations of the existing palette (primary, accent, gold).
-
----
-
-## Files Modified
+## File Modified
 | File | Changes |
 |------|---------|
-| `src/components/home/HeroSection.tsx` | Complete rewrite — two-column layout, trust cards, dual CTAs, certifications bar |
-| `src/assets/logo-sherwin-williams.png` | Copy uploaded logo asset |
-
+| `src/components/layout/Navigation.tsx` | Logo sizing, shadows, desktop CTA button, mobile enhancements, floating CTA text |
