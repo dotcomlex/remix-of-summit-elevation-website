@@ -8,21 +8,21 @@ import bathroomImage from "@/assets/bathroom-remodel.jpg";
 
 const services = [
   { 
-    title: "Kitchen & Bathroom", 
-    description: "Elevate your spaces with luxurious kitchen and spa-inspired bath remodels.", 
-    link: "/services/kitchen-bath", 
+    title: "Interior Painting", 
+    description: "Transform your living spaces with smooth, clean finishes. We handle everything from single accent walls to full-home interiors — with furniture protection, detailed prep, and zero mess.", 
+    link: "/services", 
     image: kitchenImage 
   },
   { 
-    title: "Concrete & Flatwork", 
-    description: "Enhance your outdoor spaces with premium stamped concrete patios and flatwork.", 
-    link: "/services/concrete", 
+    title: "Exterior Painting", 
+    description: "Boost your curb appeal and protect your home from Colorado's harsh weather. Our durable, weather-resistant exterior finishes are built to last through sun, snow, and everything in between.", 
+    link: "/services", 
     image: concreteImage 
   },
   { 
-    title: "General Contracting", 
-    description: "Full-scale renovations and custom home construction managed professionally.", 
-    link: "/services/general-contracting", 
+    title: "Staining & Specialty Finishes", 
+    description: "Bring out the natural beauty of wood with expert deck, fence, and trim staining. We also offer custom finishes, accent walls, and protective coatings tailored to your vision.", 
+    link: "/services", 
     image: bathroomImage 
   },
 ];
@@ -41,13 +41,12 @@ export function ServicesPreview() {
             <div className="w-16 md:w-24 h-px bg-primary/40" />
           </div>
           
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-3">What We Do</span>
+          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-3">Our Services</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-mountain-charcoal mb-4">
-            Comprehensive Remodeling Solutions
+            Expert Painting for Every Surface
           </h2>
           <p className="text-base md:text-lg text-mountain-slate max-w-3xl mx-auto">
-            We turn your vision into reality with custom, high-quality renovations tailored to your needs. 
-            Explore our core services below.
+            From refreshing a single room to transforming your entire home's exterior, we deliver flawless results with premium materials and meticulous preparation.
           </p>
         </AnimatedSection>
 
@@ -81,7 +80,7 @@ export function ServicesPreview() {
                     {service.description}
                   </p>
                   <div className="inline-flex items-center gap-2 text-primary font-semibold text-sm">
-                    <span>View our services</span>
+                    <span>Learn More</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
@@ -93,7 +92,7 @@ export function ServicesPreview() {
         {/* Bottom CTA Section */}
         <AnimatedSection delay={0.3} className="text-center">
           <p className="text-mountain-slate text-base md:text-lg mb-6">
-            Need electrical work, HVAC services, or a custom project? We've got you covered.
+            Need cabinet refinishing, commercial painting, or a custom color consultation? We've got you covered.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -112,7 +111,7 @@ export function ServicesPreview() {
               size="lg" 
               className="text-base font-semibold h-12 px-8 border-mountain-charcoal bg-mountain-charcoal text-snow-white hover:bg-mountain-charcoal/90 hover:text-snow-white hover:-translate-y-0.5 transition-all duration-300"
             >
-              <Link to="/contact">Get a Free Estimate</Link>
+              <a href="tel:+17204475654">Get a Free Estimate</a>
             </Button>
           </div>
         </AnimatedSection>
