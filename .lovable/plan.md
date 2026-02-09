@@ -1,41 +1,66 @@
 
 
-# Footer Cleanup — Center Logo, Bigger Size, Remove Clutter
+# Modern Footer Redesign — 4-Column Grid Layout
+
+Redesign the footer from the current centered minimal layout into a modern 4-column grid with more content and interactivity.
 
 ---
 
 ## What Changes
 
-### 1. Center and enlarge the logo
-- Center the logo on mobile and desktop (wrap in `flex justify-center`)
-- Increase size: `h-32 sm:h-36 md:h-40` (up from `h-24 sm:h-28 md:h-32`)
+### 1. Layout: 4-column grid on desktop, stacked on mobile
+- **Column 1 — Brand**: Logo, description, contact info (email + phone)
+- **Column 2 — Quick Links**: Home, Services, Gallery, Get Quote
+- **Column 3 — Service Areas**: 6 Denver metro cities
+- **Column 4 — Request Quote + Social**: Email capture form with submit button, plus social media icons
 
-### 2. Remove unnecessary sections
-- **Remove "Quick Links"** column entirely — these links are already in the nav and not useful in the footer
-- **Remove "Privacy Policy" and "Terms of Service"** — they're non-functional placeholder text (just spans with `cursor-default`)
-- **Remove the long description paragraph** — redundant with the rest of the site
+### 2. Background
+- Switch from `bg-gray-900` to `bg-gray-800` for slightly lighter contrast
 
-### 3. Simplify layout
-- Instead of 3-column grid, use a simpler 2-section layout:
-  - **Top:** Centered logo + email + location (stacked)
-  - **Bottom row:** Service Areas (left) + Certifications (right) on desktop; stacked on mobile
-- Keep copyright + Frost Media credit at the very bottom
+### 3. Quote Request Form
+- Simple email input + "Send" button
+- Loading and success/error states with auto-reset after 3 seconds
+- Simulated submission (no backend wired up yet)
+
+### 4. Social Media Icons
+- Facebook, Instagram, Twitter icons with hover effects
+- Placeholder `#` links (to be updated with real URLs later)
+
+### 5. Bottom Bar
+- Certifications row: Licensed & Insured, BBB Accredited, Since 2017
+- Copyright line
+- Keep "Powered by Frost Media LLC" credit
+
+### 6. What's removed from current footer
+- Centered logo layout replaced with left-aligned brand column
+- "Serving All of Colorado" replaced with phone number + email in brand column
 
 ---
 
 ## Technical Details
 
-### File: `src/components/layout/Footer.tsx`
+### File: `src/components/layout/Footer.tsx` (full rewrite)
 
-**Removals:**
-- Delete `quickLinks` array and its entire column
-- Delete the paragraph ("Colorado's trusted painting professionals...")
-- Delete Privacy Policy / Terms of Service spans
-- Remove `ArrowRight` from imports (no longer used)
+**New imports:**
+- `useState` from React
+- `Phone`, `Mail`, `MapPin`, `ArrowRight`, `Facebook`, `Instagram`, `Twitter` from lucide-react (replace current `Mail`, `MapPin`, `CheckCircle2`)
+- `Input` from `@/components/ui/input`
+- `Button` from `@/components/ui/button`
+- `cn` from `@/lib/utils`
 
-**Layout restructure:**
-- Logo: centered with `flex justify-center mb-6`, sized `h-32 sm:h-36 md:h-40`
-- Contact info (email + location): centered below logo
-- Grid changes from `grid-cols-1 md:grid-cols-3` to a simpler layout: Service Areas + Certifications side by side on desktop (`md:grid-cols-2`), stacked on mobile
-- Copyright bar stays at bottom with just the year line + Frost Media credit
+**New data arrays:**
+- `quickLinks`: 4 items (Home, Services, Gallery, Get Quote via tel link)
+- `serviceAreas`: 6 cities (unchanged)
+- `socialLinks`: 3 social platforms with icons
+
+**New state:**
+- `email`, `isSubmitting`, `subscriptionStatus` for the quote form
+
+**Grid structure:**
+- `grid-cols-1 md:grid-cols-2 lg:grid-cols-4` with `gap-12 lg:gap-8`
+- Each column left-aligned
+
+**Bottom section:**
+- Full-width bar with certifications + copyright + Frost Media credit
+- Separated by `border-t border-gray-700`
 
