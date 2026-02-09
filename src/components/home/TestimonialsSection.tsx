@@ -68,24 +68,58 @@ export function TestimonialsSection() {
           <p className="text-base md:text-lg text-white/60 max-w-2xl mx-auto">Real 5-star reviews from Colorado homeowners</p>
         </AnimatedSection>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* Mobile: Horizontal scroll */}
+        <div className="md:hidden">
+          <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="flex-shrink-0 w-[85%] snap-center">
+                <div className="relative bg-white/[0.08] backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-lg overflow-hidden transition-all duration-300 h-full">
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" />
+                  <div className="flex items-center gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-gold fill-gold" />
+                    ))}
+                  </div>
+                  <blockquote className="text-base text-white/90 leading-relaxed mb-6 font-light">
+                    "{testimonial.text}"
+                  </blockquote>
+                  <div className="h-px bg-white/10 mb-5" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-primary font-semibold text-sm">{testimonial.name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <div className="text-base font-semibold text-white">{testimonial.name}</div>
+                      <div className="text-sm text-white/50">{testimonial.location} • {testimonial.project}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Scroll indicator dots */}
+          <div className="flex justify-center gap-1.5 mt-4">
+            {testimonials.map((_, i) => (
+              <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Grid layout */}
+        <StaggerContainer className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <StaggerItem key={index}>
               <div className="relative bg-white/[0.08] backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10 shadow-lg overflow-hidden transition-all duration-300 hover:bg-white/[0.12] hover:border-white/20 h-full">
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" />
-
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-gold fill-gold" />
                   ))}
                 </div>
-
                 <blockquote className="text-base text-white/90 leading-relaxed mb-6 font-light">
                   "{testimonial.text}"
                 </blockquote>
-
                 <div className="h-px bg-white/10 mb-5" />
-
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                     <span className="text-primary font-semibold text-sm">{testimonial.name.charAt(0)}</span>
