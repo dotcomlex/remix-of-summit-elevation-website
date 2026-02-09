@@ -19,7 +19,6 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate submission
     await new Promise((r) => setTimeout(r, 1000));
     setIsSubmitting(false);
     setSubmitted(true);
@@ -29,20 +28,20 @@ const Contact = () => {
   const reviews = [
     {
       name: "Sarah M.",
-      project: "Kitchen Remodel",
-      quote: "They transformed our outdated kitchen into something straight out of a magazine. Professional, clean, and on budget!",
+      project: "Interior Painting",
+      quote: "They transformed our outdated living room into something straight out of a magazine. Professional, clean, and on budget!",
       avatar: avatarSarah
     },
     {
       name: "Mike R.",
-      project: "Concrete Patio",
-      quote: "Best concrete work in Denver. Our new patio is beautiful and has held up perfectly through Colorado winters.",
+      project: "Exterior Painting",
+      quote: "Best exterior paint job in Denver. Our home looks brand new and has held up perfectly through Colorado winters.",
       avatar: avatarMike
     },
     {
       name: "Maria L.",
-      project: "Bathroom Renovation",
-      quote: "From design to completion, the team was incredible. They made the whole process stress-free.",
+      project: "Cabinet Refinishing",
+      quote: "From color selection to completion, the team was incredible. They made the whole process stress-free.",
       avatar: avatarMaria
     }
   ];
@@ -71,11 +70,11 @@ const Contact = () => {
             {/* Quick Contact Row */}
             <div className="flex justify-center mb-8 text-sm">
               <a 
-                href="mailto:info@14errenovations.com" 
+                href="mailto:Paintsemerald@gmail.com" 
                 className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                info@14errenovations.com
+                Paintsemerald@gmail.com
               </a>
             </div>
 
@@ -100,11 +99,12 @@ const Contact = () => {
                   <Select name="service" required>
                     <SelectTrigger className="h-12"><SelectValue placeholder="Service Interested In *" /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="remodeling">Kitchen/Bath Remodeling</SelectItem>
-                      <SelectItem value="concrete">Concrete Work</SelectItem>
-                      <SelectItem value="general">General Contracting</SelectItem>
-                      <SelectItem value="hvac">HVAC Services</SelectItem>
-                      <SelectItem value="electrical">Electrical Services</SelectItem>
+                      <SelectItem value="interior">Interior Painting</SelectItem>
+                      <SelectItem value="exterior">Exterior Painting</SelectItem>
+                      <SelectItem value="staining">Wood Staining</SelectItem>
+                      <SelectItem value="cabinets">Cabinet Refinishing</SelectItem>
+                      <SelectItem value="commercial">Commercial Painting</SelectItem>
+                      <SelectItem value="color">Color Consultation</SelectItem>
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
@@ -158,7 +158,6 @@ const Contact = () => {
               </div>
             ))}
           </div>
-
         </div>
       </section>
     </Layout>

@@ -8,20 +8,20 @@ import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
 
-import logoNahb from "@/assets/logo-nahb.png";
-import logoHomeadvisor from "@/assets/logo-homeadvisor.png";
-import logoQualifiedRemodeler from "@/assets/logo-qualified-remodeler.png";
-import logoInstallationMasters from "@/assets/logo-installation-masters.png";
-import logoEnergyStar from "@/assets/logo-energy-star.png";
-import logoBbb from "@/assets/logo-bbb.png";
+import logoBehr from "@/assets/logo-behr.png";
+import logoBenjaminMoore from "@/assets/logo-benjamin-moore.png";
+import logoAngi from "@/assets/logo-angi.png";
+import logoHomeadvisorElite from "@/assets/logo-homeadvisor-elite.png";
+import logoBbbAccredited from "@/assets/logo-bbb-accredited.png";
 
 const partnerLogos = [
-  { src: logoNahb, alt: "NAHB - National Association of Home Builders" },
-  { src: logoHomeadvisor, alt: "HomeAdvisor Elite Service" },
-  { src: logoQualifiedRemodeler, alt: "Qualified Remodeler Top 500 2025" },
-  { src: logoInstallationMasters, alt: "Installation Masters Certification" },
-  { src: logoEnergyStar, alt: "Energy Star Partner" },
-  { src: logoBbb, alt: "Better Business Bureau" },
+  { src: logoBehr, alt: "Behr Premium Paints" },
+  { src: logoBenjaminMoore, alt: "Benjamin Moore" },
+  { name: "Sherwin-Williams", alt: "Sherwin-Williams" },
+  { src: logoAngi, alt: "Angi Certified Pro" },
+  { src: logoHomeadvisorElite, alt: "HomeAdvisor Elite Service" },
+  { src: logoBbbAccredited, alt: "BBB Accredited Business" },
+  { name: "Valspar", alt: "Valspar" },
 ];
 
 const Index = () => {
