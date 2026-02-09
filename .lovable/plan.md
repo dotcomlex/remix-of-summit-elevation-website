@@ -1,57 +1,61 @@
 
 
-# Contact Page Simplification
+# Contact Page — Match Site Style + Remove Phone Number
 
-Strip the cluttered, multi-column contact page down to a clean, focused single-column layout with only 4 form fields.
+Two issues to fix: the page looks like a generic template (doesn't match the dark hero / textured style of the rest of the site), and the phone number section at the bottom needs to be removed.
 
 ---
 
-## What Gets Removed
+## Changes to `src/pages/Contact.tsx`
 
-- Hero section with background image and trust badges
-- Right sidebar column (contact info cards, "Why Choose Us", testimonial)
-- Form fields: phone, timeline, address, project details
-- All "Free Color Consultation" copy
-- Unused imports and data arrays (`projectTypes`, `timelines`, `whyChooseUs`, hero image, most icons)
+### 1. Add Dark Hero Banner (matching ServiceHero pattern)
+- Background image using `services-hero-bg.jpg`
+- Dark gradient overlay: `from-mountain-charcoal/90 via-mountain-charcoal/75 to-mountain-charcoal/60`
+- Top gradient for transparent nav: `from-black/50 via-transparent to-transparent`
+- "Get Your Free Estimate" heading in `text-snow-white` with primary accent
+- Subtitle in lighter text
+- Padding: `pt-40 pb-24` to match other hero sections
 
-## What Replaces It
+### 2. Form Section on Textured Background
+- Replace plain `bg-background` with a section using `paper-texture-light.jpg` as background
+- Section padding `py-16`
+- Uppercase tracking-widest section label ("Get In Touch") matching other page sections
 
-A single centered section with:
+### 3. Restyle Form Card
+- Change to `bg-white/95 backdrop-blur-sm rounded-3xl shadow-lg border border-black/5` for a more polished look matching the site
+- Inputs use `rounded-xl` instead of `rounded-lg`
 
-1. **Header** -- "Get Your Free Estimate" title + one-line subtitle
-2. **4-field form** inside a clean card (max-width `xl`):
-   - Name (text input, required)
-   - Email (email input, required)
-   - Project Type (native `<select>` dropdown: Interior, Exterior, Commercial, Deck/Fence Staining, Other -- required)
-   - Message (textarea, optional)
-3. **Submit button** -- "Send My Request" with arrow icon
-4. **Phone CTA** -- "Prefer to talk?" with clickable `tel:+17204475654` link below the form
+### 4. Remove Phone CTA
+- Delete the entire "Prefer to talk?" section and phone number link (lines 124-134)
+- Remove `Phone` from lucide-react imports
 
-Toast feedback on submit ("Request sent! We'll be in touch within 24 hours.") with form reset.
-
-## Layout
-
-- Single column, centered (`max-w-xl mx-auto`)
-- Top padding to clear nav (`pt-32 pb-16`)
-- Clean background (`bg-background`)
-- Form card with `rounded-2xl shadow-xl border`
+### 5. Updated Imports
+- Add: `import heroImage from "@/assets/services-hero-bg.jpg"`
+- Add: `import paperTexture from "@/assets/paper-texture-light.jpg"`
+- Remove: `Phone` icon import
 
 ---
 
 ## Technical Details
 
 ### File: `src/pages/Contact.tsx`
-Complete rewrite. New imports: only `useState`, `Button`, `ArrowRight`, `Phone`, `Layout`, `useToast`. Uses native HTML `<input>`, `<select>`, and `<textarea>` elements instead of Radix UI components for simplicity.
+Full rewrite with this structure:
 
-### Form state
 ```text
-{ name: "", email: "", projectType: "", message: "" }
+<Layout>
+  <!-- Hero Banner -->
+  <section> with hero image + gradient overlays (min-h-[50vh])
+    h1: "Get Your Free" + "Estimate" (primary accent)
+    p: "Ready to transform your home? Tell us about your project."
+
+  <!-- Form Section -->
+  <section> with paper texture background, py-16
+    Section label: "-- Get In Touch --"
+    Form card: bg-white/95, rounded-3xl, shadow-lg, max-w-xl centered
+      4 fields (name, email, projectType, message) -- unchanged logic
+      Submit button -- unchanged
+</Layout>
 ```
 
-### Validation
-- Requires name, email, and projectType before submit
-- Shows destructive toast if missing
-
-### No changes needed to `src/App.tsx`
-The `/contact` route already exists.
+Form logic, validation, toast behavior all stay the same. Only visual and structural changes.
 
