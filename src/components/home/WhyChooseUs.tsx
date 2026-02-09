@@ -1,40 +1,41 @@
 import { Shield, ClipboardCheck, CalendarCheck } from "lucide-react";
-import teamImage from "@/assets/team-work.jpg";
 import { AnimatedSection } from "@/components/ui/animated-section";
+
+const teamImage = "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&q=80";
 
 const proofCards = [
   {
     icon: Shield,
-    title: "Licensed & Insured",
-    description: "Fully covered, code-compliant work.",
+    title: "Licensed, Insured & Guaranteed",
+    description: "Fully licensed and insured with a satisfaction guarantee on every project. Your home is protected.",
   },
   {
     icon: ClipboardCheck,
-    title: "Clear Scope, No Surprises",
-    description: "Detailed estimates, transparent line items.",
+    title: "Detailed Prep, Flawless Finish",
+    description: "We sand, patch, prime, and protect before a single brushstroke. Proper prep is why our paint lasts 7-10 years.",
   },
   {
     icon: CalendarCheck,
-    title: "Clean, On-Schedule Builds",
-    description: "Professional timelines and communication.",
+    title: "On Time, On Budget, Zero Mess",
+    description: "We show up when we say we will, respect your home, and leave it cleaner than we found it.",
   },
 ];
 
 const processSteps = [
   {
     number: "1",
-    title: "Project Walkthrough",
-    description: "On-site review of your project and goals.",
+    title: "Free Color Consultation",
+    description: "We visit your home, discuss your vision, assess surfaces, and help you choose the perfect colors.",
   },
   {
     number: "2",
-    title: "Free Estimate",
-    description: "Clear scope, timeline, and pricing.",
+    title: "Detailed Estimate",
+    description: "You'll receive a clear, written estimate with no hidden fees — covering prep, materials, and timeline.",
   },
   {
     number: "3",
-    title: "Start Building",
-    description: "Professional construction with clear communication.",
+    title: "Expert Execution",
+    description: "Our crew handles prep, painting, and cleanup. You just enjoy the transformation.",
   },
 ];
 
@@ -54,18 +55,18 @@ export function WhyChooseUs() {
               {/* Section Header */}
               <AnimatedSection className="text-center lg:text-left mb-6 lg:mb-8">
                 {/* Pill */}
-                <div className="inline-flex items-center gap-2 bg-mountain-navy/10 text-mountain-navy px-4 py-2 rounded-full text-sm font-medium mb-4 uppercase tracking-wide">
-                  Why Homeowners Trust Us
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4 uppercase tracking-wide">
+                  Why Homeowners Choose Us
                 </div>
                 
                 {/* Headline */}
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl font-bold text-charcoal mb-3 lg:mb-4 leading-tight">
-                  Why Homeowners Trust 14er Renovations
+                  Why Colorado Homeowners Trust Emerald Paints
                 </h2>
                 
                 {/* Subheadline */}
                 <p className="text-mountain-slate text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
-                  Trusted craftsmanship, clear estimates, and professional builds across Colorado.
+                  More than just a fresh coat — we deliver lasting quality through meticulous preparation, premium materials, and a process built around your schedule.
                 </p>
               </AnimatedSection>
 
@@ -105,20 +106,20 @@ export function WhyChooseUs() {
                   <div className="relative rounded-2xl overflow-hidden shadow-elevated">
                     <img
                       src={teamImage}
-                      alt="Active Colorado jobsite with mountains in the background"
+                      alt="Professional painter at work"
                       className="w-full h-52 sm:h-60 md:h-72 lg:h-[440px] object-cover"
                     />
                     
                     {/* Experience Badge - Inside image top-right */}
                     <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-16 h-16 sm:w-[72px] sm:h-[72px] md:w-20 md:h-20 lg:w-[88px] lg:h-[88px] rounded-full bg-sand/95 backdrop-blur-sm shadow-lg flex flex-col items-center justify-center border-2 border-white/60">
-                      <span className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-bold text-primary leading-none">15+</span>
+                      <span className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-bold text-primary leading-none">8+</span>
                       <span className="text-[9px] sm:text-[10px] md:text-xs text-charcoal font-medium leading-tight text-center mt-0.5">Years<br/>Experience</span>
                     </div>
                   </div>
                   
                   {/* Caption */}
                   <p className="text-center text-mountain-slate text-sm italic mt-2.5">
-                    Active Colorado jobsite
+                    Professional finish, every time
                   </p>
                 </div>
               </AnimatedSection>
@@ -199,7 +200,7 @@ export function WhyChooseUs() {
         >
           <path
             d="M0,0 C300,100 900,20 1200,80 L1200,120 L0,120 Z"
-            fill="hsl(225 25% 15%)"
+            fill="hsl(153 30% 8%)"
           />
         </svg>
       </div>
