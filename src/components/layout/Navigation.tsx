@@ -11,97 +11,86 @@ const navLinks = [
   { name: "Gallery", path: "/gallery" },
 ];
 
+const logoFilter = "drop-shadow(0 4px 20px rgba(0,0,0,0.6)) brightness(110%)";
+
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [showFloatingCTA, setShowFloatingCTA] = useState(false);
   const location = useLocation();
 
-  // Close menu on route change
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
+  useEffect(() => { setIsOpen(false); }, [location.pathname]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
-  // Show floating CTA after scrolling
   useEffect(() => {
-    const handleScroll = () => {
-      setShowFloatingCTA(window.scrollY > 200);
-    };
+    const handleScroll = () => setShowFloatingCTA(window.scrollY > 200);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
-      {/* Header - Absolute overlay, transparent */}
       <header className="absolute top-0 left-0 right-0 z-50">
         <div className="container mx-auto px-4 lg:px-8 py-4 lg:py-6">
-          
-          {/* Desktop Navigation - Logo left, nav right */}
+
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-between">
-            {/* Logo - Left */}
             <Link to="/" className="flex items-center">
               <img
                 src={logoEmerald}
                 alt="Emerald Paints"
-                className="h-24 xl:h-28 w-auto drop-shadow-xl"
+                className="h-32 xl:h-36 w-auto"
+                style={{ filter: logoFilter, maxWidth: "none" }}
               />
             </Link>
 
-            {/* Desktop Nav Links - Right */}
-            <nav className="flex items-center">
-              <ul className="flex items-center gap-1">
-                {navLinks.map((link) => (
-                  <li key={link.path}>
-                    <Link
-                      to={link.path}
-                      className={cn(
-                        "relative px-4 py-2 font-medium text-sm transition-colors rounded-md",
-                        location.pathname === link.path
-                          ? "text-primary"
-                          : "text-snow-white/90 hover:text-snow-white hover:bg-white/10"
-                      )}
-                    >
-                      {link.name}
-                      {location.pathname === link.path && (
-                        <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary rounded-full" />
-                      )}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <div className="flex items-center gap-8">
+              <nav>
+                <ul className="flex items-center gap-2">
+                  {navLinks.map((link) => (
+                    <li key={link.path}>
+                      <Link
+                        to={link.path}
+                        className={cn(
+                          "relative px-5 py-3 font-semibold text-base transition-all duration-300 rounded-lg backdrop-blur-sm",
+                          location.pathname === link.path
+                            ? "text-primary bg-white/10"
+                            : "text-snow-white/90 hover:text-snow-white hover:bg-white/10"
+                        )}
+                      >
+                        {link.name}
+                        {location.pathname === link.path && (
+                          <span className="absolute bottom-1 left-5 right-5 h-0.5 bg-primary rounded-full" />
+                        )}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <Button asChild size="lg" className="font-semibold px-6 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+                <a href="tel:+17204475654">Free Estimate</a>
+              </Button>
+            </div>
           </div>
 
-          {/* Mobile Header - Logo center, hamburger right */}
+          {/* Mobile Header */}
           <div className="lg:hidden grid grid-cols-3 items-center">
-            {/* Empty left column for balance */}
             <div />
-
-            {/* Centered Logo */}
             <Link to="/" className="flex items-center justify-self-center">
               <img
                 src={logoEmerald}
                 alt="Emerald Paints"
-                className="h-24 sm:h-28 w-auto drop-shadow-xl"
+                className="h-28 sm:h-32 w-auto"
+                style={{ filter: logoFilter, maxWidth: "none" }}
               />
             </Link>
-
-            {/* Hamburger Menu Button - Right */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="justify-self-end flex items-center justify-center w-11 h-11 rounded-lg bg-white/90 shadow-md text-mountain-charcoal hover:bg-white transition-colors"
+              className="justify-self-end flex items-center justify-center w-12 h-12 rounded-xl bg-white/90 shadow-lg text-mountain-charcoal hover:bg-white transition-colors backdrop-blur-sm"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -110,59 +99,36 @@ export function Navigation() {
         </div>
       </header>
 
-      {/* Mobile Menu - Slide down panel */}
+      {/* Mobile Menu Overlay */}
       <div
         className={cn(
           "lg:hidden fixed inset-0 top-0 z-50 transition-all duration-300 ease-out",
-          isOpen
-            ? "opacity-100 visible"
-            : "opacity-0 invisible pointer-events-none"
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         )}
       >
-        {/* Backdrop */}
-        <div
-          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-          onClick={() => setIsOpen(false)}
-        />
-
-        {/* Menu Panel */}
-        <div
-          className={cn(
-            "relative bg-black transition-transform duration-300",
-            isOpen ? "translate-y-0" : "-translate-y-4"
-          )}
-        >
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
+        <div className={cn("relative bg-black transition-transform duration-300", isOpen ? "translate-y-0" : "-translate-y-4")}>
           <div className="container mx-auto px-4 py-8">
-            {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-snow-white hover:bg-white/20 transition-colors"
+              className="absolute top-6 right-6 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-snow-white hover:bg-white/20 transition-colors"
               aria-label="Close menu"
             >
               <X className="h-5 w-5" />
             </button>
 
-            {/* Logo in mobile menu */}
-            <div className="flex justify-center mb-6">
-              <img
-                src={logoEmerald}
-                alt="Emerald Paints"
-                className="h-16 w-auto"
-              />
+            <div className="flex justify-center mb-8 pt-4">
+              <img src={logoEmerald} alt="Emerald Paints" className="h-20 w-auto" />
             </div>
 
             <ul className="flex flex-col gap-2">
               {navLinks.map((link, index) => (
-                <li
-                  key={link.path}
-                  style={{ animationDelay: `${index * 50}ms` }}
-                  className={cn(isOpen && "animate-fade-up")}
-                >
+                <li key={link.path} style={{ animationDelay: `${index * 50}ms` }} className={cn(isOpen && "animate-fade-up")}>
                   <Link
                     to={link.path}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "flex items-center px-5 py-4 rounded-xl font-medium text-lg transition-colors",
+                      "flex items-center px-5 py-4 rounded-xl font-semibold text-lg transition-colors",
                       location.pathname === link.path
                         ? "bg-primary/20 text-primary"
                         : "text-snow-white hover:bg-white/10"
@@ -176,23 +142,20 @@ export function Navigation() {
 
             <div className="mt-8 pt-6 border-t border-white/10">
               <Button asChild className="w-full font-semibold h-14 text-base" size="lg">
-                <a href="tel:+17204475654" onClick={() => setIsOpen(false)}>
-                  Get Your Free Quote
-                </a>
+                <a href="tel:+17204475654" onClick={() => setIsOpen(false)}>Get Your Free Estimate</a>
               </Button>
-
-              <a
-                href="tel:+17204475654"
-                className="flex items-center justify-center gap-3 mt-4 py-4 text-snow-white hover:text-primary transition-colors"
-              >
+              <a href="tel:+17204475654" className="flex items-center justify-center gap-3 mt-4 py-4 text-snow-white hover:text-primary transition-colors">
                 <span className="font-semibold">(720) 447-5654</span>
               </a>
+              <p className="text-center text-snow-white/50 text-sm mt-2">
+                Licensed & Insured · Serving Colorado Since 2017
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Floating CTA Bar - visible but not intrusive */}
+      {/* Floating CTA */}
       <a
         href="tel:+17204475654"
         className={cn(
@@ -202,12 +165,10 @@ export function Navigation() {
           "px-6 py-3 rounded-full",
           "shadow-lg hover:shadow-xl",
           "transition-all duration-300 hover:scale-105",
-          showFloatingCTA 
-            ? "opacity-100 translate-y-0" 
-            : "opacity-0 translate-y-4 pointer-events-none"
+          showFloatingCTA ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         )}
       >
-        Get a Free Quote
+        Free Color Consult
       </a>
     </>
   );
