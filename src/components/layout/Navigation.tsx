@@ -9,6 +9,7 @@ const navLinks = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
   { name: "Gallery", path: "/gallery" },
+  { name: "Contact", path: "/contact" },
 ];
 
 const logoFilter = "drop-shadow(0 4px 20px rgba(0,0,0,0.6)) brightness(110%)";
