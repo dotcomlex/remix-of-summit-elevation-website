@@ -5,6 +5,7 @@ import { ServicesPreview } from "@/components/home/ServicesPreview";
 import { GallerySection } from "@/components/home/GallerySection";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { FAQSection } from "@/components/home/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
 
 import logoNahb from "@/assets/logo-nahb.png";
@@ -32,6 +33,7 @@ const Index = () => {
       <GallerySection />
       <WhyChooseUs />
       <TestimonialsSection />
+      <FAQSection />
       <CTASection />
     </Layout>
   );

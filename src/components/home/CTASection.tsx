@@ -34,14 +34,14 @@ export function CTASection() {
 
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight text-shadow-strong">
-            Let's Build
+            Ready to Transform
             <br />
-            <span className="text-primary">Something Beautiful</span>
+            <span className="text-primary">Your Space</span>
           </h2>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed text-shadow-strong">
-            Schedule your free consultation today and discover how we can bring your vision to life with expert craftsmanship and attention to detail.
+            Get a free, no-pressure estimate from Colorado's trusted painting professionals. We'll walk through your project, answer every question, and provide a clear quote — no hidden fees, no surprises.
           </p>
 
           {/* CTA Button */}
@@ -50,8 +50,8 @@ export function CTASection() {
             size="lg"
             className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg shadow-warm"
           >
-            <a href="tel:+17208189678">
-              Get Free Quote
+            <a href="tel:+17204475654">
+              Get Your Free Estimate
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </Button>
@@ -65,7 +65,7 @@ export function CTASection() {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                <span>15+ Years Experience</span>
+                <span>8+ Years Experience</span>
               </div>
             </div>
           </div>
