@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
-import logo14er from "@/assets/logo-14er.png";
+import logoEmerald from "@/assets/logo-emerald.png";
 
 const quickLinks = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
-  { name: "About Us", path: "/about" },
-  { name: "Contact", path: "/contact" },
+  { name: "Gallery", path: "/gallery" },
 ];
 
 const serviceAreas = [
@@ -30,31 +29,31 @@ export function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link to="/" className="inline-block mb-4">
               <img 
-                src={logo14er} 
-                alt="14ER Renovations" 
+                src={logoEmerald} 
+                alt="Emerald Paints" 
                 className="h-16 sm:h-20 w-auto"
               />
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-5">
-              Denver's premier home renovation contractor. We transform Colorado homes with quality
-              craftsmanship and exceptional service.
+              Colorado's trusted painting professionals. Quality interior, exterior, and commercial
+              painting services for homes and businesses.
             </p>
             
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="tel:+17208189678"
+                href="tel:+17204475654"
                 className="flex items-center gap-3 text-sm text-white/70 hover:text-primary transition-colors"
               >
                 <Phone className="w-4 h-4 text-primary" />
-                (720) 818-9678
+                (720) 447-5654
               </a>
               <a
-                href="mailto:info@14errenovations.com"
+                href="mailto:Paintsemerald@gmail.com"
                 className="flex items-center gap-3 text-sm text-white/70 hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4 text-primary" />
-                info@14errenovations.com
+                Paintsemerald@gmail.com
               </a>
               <div className="flex items-start gap-3 text-sm text-white/70">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
@@ -98,7 +97,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-10 md:mt-12 pt-6 border-t border-white/10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/50">
-            <p>© {new Date().getFullYear()} 14er Renovations. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Emerald Paints LLC. All rights reserved.</p>
             <div className="flex gap-6">
               <Link to="/privacy" className="hover:text-white transition-colors">
                 Privacy Policy
