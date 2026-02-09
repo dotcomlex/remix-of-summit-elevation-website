@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ArrowRight, Star, Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-home-new.webp";
@@ -10,7 +9,7 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Luxury Colorado mountain home"
+          alt="Freshly painted Colorado home exterior"
           className="w-full h-full object-cover"
         />
         {/* Overlay for text readability - stronger at top for header */}
@@ -25,7 +24,7 @@ export function HeroSection() {
             className="block text-snow-white font-extrabold tracking-tight leading-[1.05] whitespace-nowrap"
             style={{ fontSize: "clamp(1.8rem, 7.5vw, 2.8rem)" }}
           >
-            Remodels Done <span className="text-primary">Right,</span>
+            Painting Done <span className="text-primary">Right,</span>
           </span>
           <span 
             className="block text-snow-white font-extrabold tracking-tight leading-[1.05] whitespace-nowrap"
@@ -40,7 +39,7 @@ export function HeroSection() {
           className="hidden lg:block font-heading text-shadow-strong animate-fade-up text-snow-white font-extrabold tracking-tight leading-[1.05] whitespace-nowrap"
           style={{ fontSize: "clamp(2.5rem, 4.5vw, 4.5rem)" }}
         >
-          Remodels Done <span className="text-primary">Right,</span> The First Time.
+          Painting Done <span className="text-primary">Right,</span> The First Time.
         </h1>
 
         {/* Subheadline */}
@@ -48,7 +47,7 @@ export function HeroSection() {
           className="text-snow-white/90 leading-relaxed mt-8 text-shadow-strong animate-fade-up max-w-xl lg:max-w-none lg:whitespace-nowrap"
           style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)", animationDelay: "100ms" }}
         >
-          Clear scope, clean work, and a finished result you're proud to show off.
+          Clean prep, flawless finishes, and results you'll love showing off.
         </p>
 
         {/* CTA */}
@@ -61,10 +60,10 @@ export function HeroSection() {
             size="lg" 
             className="text-base lg:text-lg font-semibold h-14 lg:h-16 px-10 lg:px-12 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
           >
-            <Link to="/contact">
+            <a href="tel:+17204475654">
               Get a Free Estimate
               <ArrowRight className="ml-2 h-5 w-5 lg:h-6 lg:w-6" />
-            </Link>
+            </a>
           </Button>
         </div>
 
@@ -84,12 +83,12 @@ export function HeroSection() {
           
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-snow-white/20 bg-snow-white/10 backdrop-blur-sm whitespace-nowrap">
             <Clock className="w-3.5 h-3.5 text-snow-white/70" />
-            <span className="text-snow-white/90 text-sm font-medium">15+ Years</span>
+            <span className="text-snow-white/90 text-sm font-medium">8+ Years</span>
           </div>
           
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-snow-white/20 bg-snow-white/10 backdrop-blur-sm whitespace-nowrap">
             <Award className="w-3.5 h-3.5 text-snow-white/70" />
-            <span className="text-snow-white/90 text-sm font-medium">500+ Projects</span>
+            <span className="text-snow-white/90 text-sm font-medium">1,000+ Homes</span>
           </div>
         </div>
 
@@ -98,7 +97,7 @@ export function HeroSection() {
           className="mt-6 text-snow-white/70 text-sm lg:text-base animate-fade-up lg:whitespace-nowrap"
           style={{ animationDelay: "400ms" }}
         >
-          Licensed & insured · Serving Colorado homeowners
+          Licensed & insured · Serving Denver & the Front Range
         </p>
       </div>
     </section>
