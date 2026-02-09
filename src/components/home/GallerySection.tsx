@@ -5,14 +5,6 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { CircularGallery, GalleryItem } from "@/components/ui/circular-gallery";
 
-import galleryKitchen from "@/assets/gallery-kitchen.jpg";
-import galleryBathroom from "@/assets/gallery-bathroom.jpg";
-import galleryPatio from "@/assets/gallery-patio.jpg";
-import galleryExterior from "@/assets/gallery-exterior.jpg";
-import galleryKitchen1 from "@/assets/gallery-kitchen-1.jpg";
-import galleryBathroom1 from "@/assets/gallery-bathroom-1.jpg";
-import galleryPatio1 from "@/assets/gallery-patio-1.jpg";
-import galleryExterior1 from "@/assets/gallery-exterior-1.jpg";
 
 export function GallerySection() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -47,14 +39,14 @@ export function GallerySection() {
 
   const items: GalleryItem[] = useMemo(
     () => [
-      { common: "Kitchen Remodel", binomial: "Denver, CO", photo: { url: galleryKitchen, text: "Modern kitchen remodel", by: "14er Renovations" } },
-      { common: "Bathroom Remodel", binomial: "Boulder, CO", photo: { url: galleryBathroom, text: "Luxury bathroom renovation", by: "14er Renovations" } },
-      { common: "Stamped Patio", binomial: "Lakewood, CO", photo: { url: galleryPatio, text: "Stamped concrete patio", by: "14er Renovations" } },
-      { common: "Home Renovation", binomial: "Aurora, CO", photo: { url: galleryExterior, text: "Complete home exterior", by: "14er Renovations" } },
-      { common: "Kitchen Update", binomial: "Arvada, CO", photo: { url: galleryKitchen1, text: "Kitchen update project", by: "14er Renovations" } },
-      { common: "Spa Bathroom", binomial: "Littleton, CO", photo: { url: galleryBathroom1, text: "Spa-style bathroom", by: "14er Renovations" } },
-      { common: "Outdoor Living", binomial: "Thornton, CO", photo: { url: galleryPatio1, text: "Outdoor patio space", by: "14er Renovations" } },
-      { common: "Exterior Work", binomial: "Centennial, CO", photo: { url: galleryExterior1, text: "Exterior renovation", by: "14er Renovations" } },
+      { common: "Living Room Refresh", binomial: "Denver, CO", photo: { url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80", text: "Modern living room interior paint", by: "Emerald Paints" } },
+      { common: "Exterior Repaint", binomial: "Lakewood, CO", photo: { url: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", text: "Full home exterior repaint", by: "Emerald Paints" } },
+      { common: "Deck Staining", binomial: "Boulder, CO", photo: { url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", text: "Cedar deck staining project", by: "Emerald Paints" } },
+      { common: "Kitchen Cabinet Paint", binomial: "Aurora, CO", photo: { url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80", text: "White kitchen cabinet refinish", by: "Emerald Paints" } },
+      { common: "Bedroom Makeover", binomial: "Arvada, CO", photo: { url: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80", text: "Master bedroom accent wall", by: "Emerald Paints" } },
+      { common: "Commercial Office", binomial: "Westminster, CO", photo: { url: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80", text: "Commercial office painting", by: "Emerald Paints" } },
+      { common: "Fence Staining", binomial: "Thornton, CO", photo: { url: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80", text: "Cedar fence staining", by: "Emerald Paints" } },
+      { common: "Exterior Trim Work", binomial: "Centennial, CO", photo: { url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", text: "Detailed exterior trim painting", by: "Emerald Paints" } },
     ],
     []
   );
@@ -109,7 +101,7 @@ export function GallerySection() {
         className="absolute inset-0 opacity-30"
         style={{
           backgroundImage: `
-            radial-gradient(at 20% 80%, rgba(251,146,60,0.15) 0%, transparent 50%),
+            radial-gradient(at 20% 80%, rgba(27,67,50,0.20) 0%, transparent 50%),
             radial-gradient(at 80% 20%, rgba(59,130,246,0.1) 0%, transparent 50%),
             radial-gradient(at 50% 50%, rgba(139,92,246,0.08) 0%, transparent 60%)
           `,
@@ -130,7 +122,7 @@ export function GallerySection() {
             Work That Speaks For Itself
           </h2>
           <p className="text-white/70 text-sm md:text-base mt-2 max-w-md mx-auto">
-            A quick look at recent projects across Colorado.
+            A showcase of recent painting projects across Colorado.
           </p>
         </AnimatedSection>
 
@@ -158,8 +150,8 @@ export function GallerySection() {
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-base shadow-lg btn-shine"
           >
-            <Link to="/contact">
-              Get a Free Estimate
+            <Link to="/gallery">
+              View Full Gallery
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
