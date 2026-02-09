@@ -1,59 +1,57 @@
 
 
-# Hero Section — Mobile-First Simplification
+# Contact Page Simplification
 
-Streamline `src/components/home/HeroSection.tsx` from a two-column layout with trust cards to a clean, centered single-column design optimized for mobile readability and conversion.
-
----
-
-## What Changes
-
-### Remove
-- Trust cards array and right column (lines 6-25, 130-150)
-- "View Color Portfolio" outline button
-- Bottom certifications bar
-- References to Sherwin-Williams and Benjamin Moore
-- Unused imports: `Palette`, `CheckCircle2`, `Link`
-
-### Trust Badge (currently green, invisible on dark bg)
-- Change from `bg-primary/20 text-primary border-primary/30` to `bg-white/95 text-gray-900 shadow-lg`
-- Text: "Licensed & Insured - Since 2017"
-
-### Headlines
-- **Mobile** (visible below `lg`): Two lines — "Beautiful Homes" (white) / "Start with Paint" (primary accent)
-- **Desktop** (visible at `lg+`): Single line — "Beautiful Homes Start with Great Paint" with "Great Paint" in primary
-- Font sizing: mobile `clamp(2.2rem, 8vw, 3.5rem)`, desktop `clamp(3.5rem, 5vw, 5.5rem)`
-
-### Subheadline
-- "Transform your home's value and curb appeal with Colorado's most trusted painting professionals."
-
-### CTA — Single Button
-- "Get Free Estimate" with phone link (`tel:+17204475654`)
-- Centered, no secondary button
-
-### Trust Indicators — Simplified to 2 Badges
-- "5.0 Rating" with stars
-- "1,000+ Homes" with Award icon
-- Styled as pill badges with `border border-snow-white/20 bg-snow-white/10 backdrop-blur-sm`
-
-### Bottom Text
-- Simple line: "8+ years serving Colorado homeowners"
-
-### Layout
-- Switch from two-column flex to single centered column (`flex flex-col items-center text-center`)
-- Stronger gradient: `from-black/80 via-black/60 to-black/40`
-- More bottom padding: `pb-24` instead of `pb-16`
+Strip the cluttered, multi-column contact page down to a clean, focused single-column layout with only 4 form fields.
 
 ---
 
-## Background Gradient
-- Strengthen left side darkness from `from-black/70` to `from-black/80`
-- Lighten right side from `to-black/60` to `to-black/40`
+## What Gets Removed
+
+- Hero section with background image and trust badges
+- Right sidebar column (contact info cards, "Why Choose Us", testimonial)
+- Form fields: phone, timeline, address, project details
+- All "Free Color Consultation" copy
+- Unused imports and data arrays (`projectTypes`, `timelines`, `whyChooseUs`, hero image, most icons)
+
+## What Replaces It
+
+A single centered section with:
+
+1. **Header** -- "Get Your Free Estimate" title + one-line subtitle
+2. **4-field form** inside a clean card (max-width `xl`):
+   - Name (text input, required)
+   - Email (email input, required)
+   - Project Type (native `<select>` dropdown: Interior, Exterior, Commercial, Deck/Fence Staining, Other -- required)
+   - Message (textarea, optional)
+3. **Submit button** -- "Send My Request" with arrow icon
+4. **Phone CTA** -- "Prefer to talk?" with clickable `tel:+17204475654` link below the form
+
+Toast feedback on submit ("Request sent! We'll be in touch within 24 hours.") with form reset.
+
+## Layout
+
+- Single column, centered (`max-w-xl mx-auto`)
+- Top padding to clear nav (`pt-32 pb-16`)
+- Clean background (`bg-background`)
+- Form card with `rounded-2xl shadow-xl border`
 
 ---
 
-## File Modified
-| File | Changes |
-|------|---------|
-| `src/components/home/HeroSection.tsx` | Complete rewrite — centered layout, simplified content, single CTA, no trust cards |
+## Technical Details
+
+### File: `src/pages/Contact.tsx`
+Complete rewrite. New imports: only `useState`, `Button`, `ArrowRight`, `Phone`, `Layout`, `useToast`. Uses native HTML `<input>`, `<select>`, and `<textarea>` elements instead of Radix UI components for simplicity.
+
+### Form state
+```text
+{ name: "", email: "", projectType: "", message: "" }
+```
+
+### Validation
+- Requires name, email, and projectType before submit
+- Shows destructive toast if missing
+
+### No changes needed to `src/App.tsx`
+The `/contact` route already exists.
 
