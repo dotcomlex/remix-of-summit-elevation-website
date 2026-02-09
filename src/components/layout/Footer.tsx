@@ -1,76 +1,58 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Mail, MapPin, ArrowRight, CheckCircle2 } from "lucide-react";
 import logoEmerald from "@/assets/logo-emerald.png";
 
 const quickLinks = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
   { name: "Gallery", path: "/gallery" },
-];
-
-const serviceLinks = [
-  "Interior Painting",
-  "Exterior Painting",
-  "Wood Staining",
-  "Cabinet Refinishing",
-  "Commercial Painting",
-  "Color Consultation",
+  { name: "Contact", path: "/contact" },
 ];
 
 const serviceAreas = [
-  "Denver",
-  "Boulder",
-  "Lakewood",
-  "Aurora",
-  "Arvada",
-  "Westminster",
-  "Thornton",
-  "Centennial",
-  "Littleton",
-  "Broomfield",
+  "Denver", "Boulder", "Aurora", "Lakewood",
+  "Arvada", "Westminster", "Thornton", "Littleton",
+];
+
+const certifications = [
+  "EPA Certified",
+  "Lead-Safe Certified",
+  "BBB Accredited A+",
+  "Insured & Bonded",
 ];
 
 export function Footer() {
   return (
-    <footer className="relative bg-charcoal-dark text-white">
-      {/* Top separator line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+    <footer className="relative bg-[hsl(var(--charcoal-dark))] text-snow-white">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-snow-white/20 to-transparent" />
 
       <div className="container px-4 md:px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-          {/* Brand Column */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <Link to="/" className="inline-block mb-4">
-              <img 
-                src={logoEmerald} 
-                alt="Emerald Paints" 
-                className="h-16 sm:h-20 w-auto"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 text-center md:text-left">
+          {/* Brand & Contact */}
+          <div className="flex flex-col items-center md:items-start">
+            <Link to="/" className="inline-block mb-5">
+              <img
+                src={logoEmerald}
+                alt="Emerald Paints"
+                className="h-24 sm:h-28 md:h-32 w-auto"
+                style={{ filter: "brightness(110%) drop-shadow(0 2px 8px rgba(0,0,0,0.4))" }}
               />
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-5">
-              Colorado's trusted painting professionals. Quality interior, exterior, and commercial
-              painting services for homes and businesses.
+            <p className="text-snow-white/60 text-sm leading-relaxed mb-6 max-w-xs">
+              Colorado's trusted painting professionals. Transforming homes with premium
+              craftsmanship and expert color consultation since 2017.
             </p>
-            
-            {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="tel:+17204475654"
-                className="flex items-center gap-3 text-sm text-white/70 hover:text-primary transition-colors"
-              >
-                <Phone className="w-4 h-4 text-primary" />
-                (720) 447-5654
-              </a>
-              <a
                 href="mailto:Paintsemerald@gmail.com"
-                className="flex items-center gap-3 text-sm text-white/70 hover:text-primary transition-colors"
+                className="flex items-center justify-center md:justify-start gap-3 text-sm text-snow-white/70 hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4 text-primary" />
                 Paintsemerald@gmail.com
               </a>
-              <div className="flex items-start gap-3 text-sm text-white/70">
-                <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                <span>Denver, CO 80202</span>
+              <div className="flex items-center justify-center md:justify-start gap-3 text-sm text-snow-white/70">
+                <MapPin className="w-4 h-4 text-primary" />
+                Serving All of Colorado
               </div>
             </div>
           </div>
@@ -83,27 +65,10 @@ export function Footer() {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="group flex items-center gap-2 text-sm text-white/60 hover:text-primary transition-colors"
+                    className="group inline-flex items-center gap-2 text-sm text-snow-white/60 hover:text-primary transition-colors"
                   >
                     <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     <span>{link.name}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-base font-bold mb-4">Services</h3>
-            <ul className="space-y-2.5">
-              {serviceLinks.map((service) => (
-                <li key={service}>
-                  <Link
-                    to="/services"
-                    className="text-sm text-white/60 hover:text-primary transition-colors"
-                  >
-                    {service}
                   </Link>
                 </li>
               ))}
@@ -115,34 +80,48 @@ export function Footer() {
             <h3 className="text-base font-bold mb-4">Service Areas</h3>
             <ul className="grid grid-cols-2 gap-2">
               {serviceAreas.map((area) => (
-                <li key={area} className="text-sm text-white/60">
-                  {area}
-                </li>
+                <li key={area} className="text-sm text-snow-white/60">{area}</li>
               ))}
             </ul>
+            <p className="text-primary text-xs font-medium mt-3">+ 50-mile radius from Denver</p>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-10 md:mt-12 pt-6 border-t border-white/10">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/50">
+        {/* Certifications */}
+        <div className="mt-10 pt-8 border-t border-snow-white/10 text-center">
+          <p className="text-snow-white/40 text-xs font-semibold uppercase tracking-wider mb-4">
+            Licensed & Certified Professionals
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            {certifications.map((cert) => (
+              <span key={cert} className="flex items-center gap-1.5 text-xs text-snow-white/60">
+                <CheckCircle2 className="w-3 h-3 text-primary" />
+                {cert}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-8 pt-6 border-t border-snow-white/10">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-snow-white/50">
             <div>
               <p>© {new Date().getFullYear()} Emerald Paints LLC. All rights reserved.</p>
-              <p className="text-xs text-white/30 mt-2">
+              <p className="text-xs text-snow-white/30 mt-2">
                 Powered by{" "}
-                <a 
-                  href="https://frostmediallc.com" 
-                  target="_blank" 
+                <a
+                  href="https://frostmediallc.com"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white/50 transition-colors"
+                  className="hover:text-snow-white/50 transition-colors"
                 >
                   Frost Media LLC
                 </a>
               </p>
             </div>
             <div className="flex gap-6">
-              <span className="text-white/30 cursor-default">Privacy Policy</span>
-              <span className="text-white/30 cursor-default">Terms of Service</span>
+              <span className="text-snow-white/30 cursor-default">Privacy Policy</span>
+              <span className="text-snow-white/30 cursor-default">Terms of Service</span>
             </div>
           </div>
         </div>
