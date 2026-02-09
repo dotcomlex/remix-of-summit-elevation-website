@@ -1,99 +1,125 @@
 
 
-# Section Fix 6 & 7: Footer Polish, Logo Cloud, and Site-Wide Cleanup
+# Hero Section Transformation — Two-Column Split Layout
 
-Two combined fixes covering the footer, logo marquee, 404 page, and a full sweep for leftover 14er/renovation references.
-
----
-
-## Section Fix 6: Footer & Cleanup
-
-### A. Footer Updates (`src/components/layout/Footer.tsx`)
-
-1. **Add Services column** — Insert a 4th column between Quick Links and Service Areas with 6 painting service links (all pointing to `/services`)
-2. **Update grid** — Change from `lg:grid-cols-3` to `lg:grid-cols-4` with `lg:gap-10`
-3. **Expand service areas** — Add Thornton, Centennial, Littleton, Broomfield (10 total)
-4. **Remove Privacy/Terms links** — Replace with non-clickable `<span>` elements styled `text-white/30`
-5. **Add Frost Media credit** — Below the copyright line, add a subtle "Powered by Frost Media LLC" link to `https://frostmediallc.com`
-
-### B. NotFound Page (`src/pages/NotFound.tsx`)
-
-- Update text to "Page Not Found" / "The page you're looking for doesn't exist."
-- Add "Back to Home" link and a phone CTA: "Call Us: (720) 447-5654"
-
-### C. About Page (`src/pages/About.tsx`)
-
-- Replace "14er Renovations team" alt text with "Emerald Paints team"
-- Rewrite "Our Story" paragraphs: remove all "14er" and "renovation" references, replace with Emerald Paints painting-focused copy
-- Change "15+" years to "8+" years in the experience badge
-- Change "Since 2009" to "Since 2017" in the hero
-- Update "Building Colorado Dreams" to "Painting Colorado Homes"
-- Update value descriptions to be painting-relevant (e.g., "Every nail, every beam" becomes "Every surface, every detail")
-
-### D. BenefitsSection (`src/components/services/BenefitsSection.tsx`)
-
-- Replace `<Link to="/contact">` with `<a href="tel:+17204475654">` (last remaining `/contact` reference)
-
-### E. Contact Page (`src/pages/Contact.tsx`)
-
-- Replace `info@14errenovations.com` with `Paintsemerald@gmail.com`
-- Replace "Kitchen Remodel" and "Bathroom Renovation" project names with painting projects
-- Replace service select options (remodeling, concrete, general) with painting services
-- Remove any other 14er/renovation references
+Complete overhaul of `src/components/home/HeroSection.tsx` from centered layout to a unique two-column split design with trust cards.
 
 ---
 
-## Section Fix 7: Logo Cloud — Paint Brand Marquee
+## Asset
 
-### A. Copy uploaded brand logos into project
-
-Copy the 5 uploaded images to `src/assets/`:
-- `user-uploads://image.png` -> `src/assets/logo-behr.png`
-- `user-uploads://image-2.png` -> `src/assets/logo-angi.png`
-- `user-uploads://image-3.png` -> `src/assets/logo-homeadvisor-elite.png`
-- `user-uploads://image-4.png` -> `src/assets/logo-bbb-accredited.png`
-- `user-uploads://image-5.png` -> `src/assets/logo-benjamin-moore.png`
-
-### B. Update `src/pages/Index.tsx`
-
-Replace the `partnerLogos` array with the new brand logos plus text-based entries for Sherwin-Williams and Valspar (no uploaded logos for those). The LogoCloud component accepts `src` (image) entries. For brands without logos, we'll render them as text inside the component.
-
-Update the array to use the new imports:
-- Behr logo
-- Benjamin Moore logo
-- Angi Certified Pro logo
-- HomeAdvisor Elite Service logo (new uploaded version)
-- BBB Accredited Business logo (new uploaded version)
-- Sherwin-Williams (text-based, no logo file)
-- Valspar (text-based, no logo file)
-
-Remove old logo imports (logo-nahb, logo-qualified-remodeler, logo-installation-masters, logo-energy-star) and their unused asset files.
-
-### C. Update `src/components/home/LogoCloud.tsx`
-
-- Change label from "Trusted Partners" to "Premium Paints We Trust"
-- Update the Logo type to support an optional `name` field for text-based entries
-- Render text-based brands as styled `<span>` elements when no `src` is provided
-- Keep InfiniteSlider and ProgressiveBlur behavior unchanged
+Copy the uploaded Sherwin-Williams logo to `src/assets/logo-sherwin-williams.png` for potential use in trust cards or logo cloud.
 
 ---
 
-## Technical Details
+## Layout Changes
 
-### Files Modified
+### Current: Single centered column
+### New: Two-column split (60/40) on desktop, stacked on mobile
+
+```text
+Desktop:
++---------------------------+-------------------+
+|  Trust Badge              |  [Shield Card]    |
+|  HEADLINE (left-aligned)  |  [Palette Card]   |
+|  Subheadline              |  [Award Card]     |
+|  [CTA] [CTA outline]     |                   |
+|  Stars | Years | Homes    |                   |
++---------------------------+-------------------+
+|        Certifications bar (full width)        |
++-----------------------------------------------+
+
+Mobile:
++---------------------------+
+|  Trust Badge (centered)   |
+|  HEADLINE (centered)      |
+|  Subheadline              |
+|  [CTA stacked]            |
+|  Trust indicators         |
+|  [Trust Cards stacked]    |
+|  Certifications bar       |
++---------------------------+
+```
+
+---
+
+## Detailed Changes (`src/components/home/HeroSection.tsx`)
+
+### 1. Background Overlay
+- Change from `bg-gradient-to-b` to `bg-gradient-to-r from-black/70 via-black/50 to-black/60` for better left-side text readability in the split layout
+- Keep existing `heroImage` import (no new background image needed)
+
+### 2. Content Container
+- Change from `flex-col items-center text-center` to `flex flex-col lg:flex-row lg:items-center lg:gap-12`
+- Left column: `lg:w-3/5 text-center lg:text-left`
+- Right column: `lg:w-2/5 mt-12 lg:mt-0`
+
+### 3. Left Column Content
+
+**Trust Badge** (new element):
+- Pill-shaped badge with Shield icon: "Licensed & Insured | EPA Certified"
+- Uses `bg-primary/20 text-primary border border-primary/30 backdrop-blur-sm`
+
+**Headline**:
+- Simplified to two lines: "Premium Painting" / "Done Right" (accent color on second line)
+- Uses `clamp(2.2rem, 6vw, 4.5rem)` for responsive sizing
+- Left-aligned on desktop, centered on mobile
+- Single `h1` with two `span` blocks (no separate mobile/desktop versions)
+
+**Subheadline**:
+- "Transform your Colorado home with expert interior and exterior painting. Premium Sherwin-Williams & Benjamin Moore materials, satisfaction guaranteed."
+
+**Dual CTAs**:
+- Primary: "Get Free Color Consultation" with phone link — uses the site's existing primary color (green)
+- Secondary: Outline button "View Color Portfolio" linking to `/gallery`
+- Stack vertically on mobile, side-by-side on `sm+`
+
+**Trust Indicators Row**:
+- 5.0 rating with 200+ Reviews (keeping star styling)
+- 8+ Years Colorado (corrected from prompt's "15+" to match brand facts)
+- 1,000+ Homes Transformed (corrected from prompt's "500+" to match brand facts)
+- Left-aligned on desktop, centered on mobile
+
+### 4. Right Column — Trust Cards
+Three white glass-morphism cards stacked vertically:
+
+| Card | Icon Color | Title | Description |
+|------|-----------|-------|-------------|
+| Satisfaction Guarantee | Primary (green) | "Satisfaction Guarantee" | "Not happy with the color? We'll repaint at no extra cost until you love it." |
+| Free Color Consultation | Accent/gold | "Free Color Consultation" | "Professional color matching & design advice included with every project." |
+| Premium Materials | Primary dark | "Premium Materials Only" | "Sherwin-Williams & Benjamin Moore paints with manufacturer warranty." |
+
+Cards use `bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl` styling.
+
+### 5. Bottom Certifications Bar
+- Full-width row below both columns with `border-t border-white/20`
+- "Trusted by Colorado homeowners since 2017" (corrected from prompt's 2009)
+- Four certification badges: Licensed & Insured, EPA Certified, Lead-Safe Certified, BBB Accredited A+
+- Uses CheckCircle2 icons with primary color
+
+### 6. Icon Imports
+Add: `Shield, Palette, CheckCircle2` from lucide-react
+Keep: `ArrowRight, Star, Award`
+Remove: `Clock` (replaced by Award for years badge)
+
+---
+
+## Brand Fact Corrections
+The prompt contained some numbers that conflict with established brand facts. The implementation will use the correct values:
+- Years: **8+** (not 15+)
+- Since: **2017** (not 2009)
+- Homes: **1,000+** (not 500+)
+
+---
+
+## Color Approach
+The prompt suggests orange and blue accents. To maintain brand consistency with the existing Emerald Paints green theme, the implementation will use the site's existing `primary` (green) color for accents instead of introducing orange/blue. The trust card icon backgrounds will use variations of the existing palette (primary, accent, gold).
+
+---
+
+## Files Modified
 | File | Changes |
 |------|---------|
-| `src/components/layout/Footer.tsx` | Add Services column, expand areas, remove privacy links, add Frost Media credit |
-| `src/pages/NotFound.tsx` | Rebrand with painting copy and phone CTA |
-| `src/pages/About.tsx` | Remove all 14er/renovation references, update to Emerald Paints |
-| `src/components/services/BenefitsSection.tsx` | Fix `/contact` link to phone number |
-| `src/pages/Contact.tsx` | Replace 14er email, renovation project names, service options |
-| `src/pages/Index.tsx` | Replace logo imports and data array |
-| `src/components/home/LogoCloud.tsx` | Update label, support text-based brand entries |
-
-### New Assets
-5 logo images copied from user uploads to `src/assets/`
-
-### Removed References
-After all changes, zero instances of "14er", "renovation", "remodel", "Miguel", or `/contact` will remain in the codebase.
+| `src/components/home/HeroSection.tsx` | Complete rewrite — two-column layout, trust cards, dual CTAs, certifications bar |
+| `src/assets/logo-sherwin-williams.png` | Copy uploaded logo asset |
 
