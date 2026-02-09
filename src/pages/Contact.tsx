@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
+import heroImage from "@/assets/services-hero-bg.jpg";
+import paperTexture from "@/assets/paper-texture-light.jpg";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -32,24 +34,40 @@ export default function Contact() {
 
   return (
     <Layout>
-      <section className="bg-background pt-32 pb-16">
-        <div className="container mx-auto px-4 max-w-xl">
-          {/* Header */}
-          <div className="text-center mb-10">
-            <h1 className="text-3xl sm:text-4xl font-heading font-extrabold text-foreground mb-3">
-              Get Your Free Estimate
-            </h1>
-            <p className="text-muted-foreground text-lg">
-              Ready to transform your home? Let's discuss your painting project.
-            </p>
-          </div>
+      {/* Hero Banner */}
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-mountain-charcoal/90 via-mountain-charcoal/75 to-mountain-charcoal/60" />
 
-          {/* Form Card */}
-          <div className="bg-card rounded-2xl shadow-xl border border-border p-6 sm:p-10">
+        <div className="relative z-10 container mx-auto px-4 lg:px-8 pt-40 pb-24 text-center">
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-snow-white mb-6 text-shadow-strong">
+            Get Your Free <span className="text-primary">Estimate</span>
+          </h1>
+          <p className="text-snow-white/80 text-lg md:text-xl max-w-2xl mx-auto">
+            Ready to transform your home? Tell us about your project.
+          </p>
+        </div>
+      </section>
+
+      {/* Form Section */}
+      <section
+        className="relative py-16"
+        style={{ backgroundImage: `url(${paperTexture})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+        <div className="container mx-auto px-4 max-w-xl">
+          <p className="text-center text-sm font-heading uppercase tracking-widest text-muted-foreground mb-8">
+            — Get In Touch —
+          </p>
+
+          <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-lg border border-black/5 p-6 sm:p-10">
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Name */}
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium text-foreground">
+                <label htmlFor="name" className="text-sm font-heading font-medium text-foreground">
                   Name <span className="text-destructive">*</span>
                 </label>
                 <input
@@ -57,14 +75,14 @@ export default function Contact() {
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                  className="w-full px-4 py-3 border border-border rounded-xl bg-white text-foreground focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
                   required
                 />
               </div>
 
               {/* Email */}
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium text-foreground">
+                <label htmlFor="email" className="text-sm font-heading font-medium text-foreground">
                   Email <span className="text-destructive">*</span>
                 </label>
                 <input
@@ -72,21 +90,21 @@ export default function Contact() {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                  className="w-full px-4 py-3 border border-border rounded-xl bg-white text-foreground focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
                   required
                 />
               </div>
 
               {/* Project Type */}
               <div className="space-y-2">
-                <label htmlFor="projectType" className="text-sm font-medium text-foreground">
+                <label htmlFor="projectType" className="text-sm font-heading font-medium text-foreground">
                   Project Type <span className="text-destructive">*</span>
                 </label>
                 <select
                   id="projectType"
                   value={formData.projectType}
                   onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                  className="w-full px-4 py-3 border border-border rounded-xl bg-white text-foreground focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
                   required
                 >
                   <option value="">Select a project type</option>
@@ -100,7 +118,7 @@ export default function Contact() {
 
               {/* Message */}
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-foreground">
+                <label htmlFor="message" className="text-sm font-heading font-medium text-foreground">
                   Message
                 </label>
                 <textarea
@@ -108,7 +126,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={4}
-                  className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition resize-none"
+                  className="w-full px-4 py-3 border border-border rounded-xl bg-white text-foreground focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
@@ -119,18 +137,6 @@ export default function Contact() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </form>
-          </div>
-
-          {/* Phone CTA */}
-          <div className="text-center mt-10">
-            <p className="text-muted-foreground mb-3">Prefer to talk? Give us a call:</p>
-            <a
-              href="tel:+17204475654"
-              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-xl transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              (720) 447-5654
-            </a>
           </div>
         </div>
       </section>
