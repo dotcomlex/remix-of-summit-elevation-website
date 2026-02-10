@@ -1,38 +1,40 @@
 
 
-# Hero Section Redesign — Full Rewrite
+# Hero Section Updates
 
-## Summary
-Replace the entire `HeroSection.tsx` with a simplified full-bleed cinematic hero. This removes the split-panel layout (58/42 grid) and uses a single image + single content wrapper for all breakpoints.
+## Overview
+Three changes to the hero section: swap in the new uploaded hero image, add a green-tinted overlay on mobile for better text contrast (matching the desktop feel), and center the content horizontally on desktop.
 
-## What Changes
+## Changes
 
-**Layout**: Split-panel grid replaced with full-bleed background image on all screen sizes. One `<img>` tag instead of two. One content wrapper instead of two.
+### 1. Replace hero image
+Copy the uploaded image (`hf_20260210_044225...webp`) to `src/assets/hero-home-colorado.webp`, replacing the existing file. No import changes needed since the filename stays the same.
 
-**Copy updates**:
-- Headline: "Beautiful Homes Start with Great Paint" becomes "Fall in Love With Your Home Again"
-- Subheadline: outcome/pain-point focused copy
-- CTA: "Get Your Free Estimate" (was "Get Free Estimate")
-- Trust pill: "5.0 on Google" (was "5.0 Rating")
-- Bottom text removed (was "8+ years serving Colorado homeowners")
+### 2. Add green overlay on mobile
+The desktop gradient already uses the `--section-dark` color (a deep green, `153 30% 8%`), giving it that subtle green tint. On mobile, the gradient is lighter and doesn't provide enough contrast. The fix: increase the mobile gradient opacity values so the dark green overlay is stronger, similar to the desktop experience.
 
-**Mobile improvements**: Content vertically centered, lighter gradient so hero image is visible, `object-[60%_30%]` crops to show the house properly in portrait viewports.
+Current mobile gradient:
+- `from-section-dark/0.9 via-section-dark/0.5 to-section-dark/0.1`
 
-## Steps
+New mobile gradient (stronger mid and top):
+- `from-section-dark/0.92 via-section-dark/0.65 to-section-dark/0.3`
 
-1. **Rewrite `src/components/home/HeroSection.tsx`** — full replacement with the new single-layout component:
-   - Single full-bleed `<img>` with `object-[60%_30%] lg:object-center`
-   - Two gradient overlays (mobile: bottom-to-top, desktop: left-to-right via `lg:bg-gradient-to-r`)
-   - Single centered content block with updated copy
-   - Same Framer Motion animation structure and delays
-   - Same imports (heroImage, Button, Link, icons)
+This keeps the image visible but adds enough of the green-dark tint to make white text pop.
 
-2. **No other files change** — no CSS, no Tailwind config, no new dependencies
+### 3. Center content on desktop
+Currently the content wrapper uses `px-5 lg:px-16 xl:px-20` which left-aligns everything. On desktop, we'll center the content block by adding `lg:mx-auto lg:text-center lg:flex lg:flex-col lg:items-center` to the inner wrapper and removing the left padding override.
 
 ## Technical Details
 
-- Removes the `HeroContent` sub-component — everything is inline in `HeroSection`
-- Gradient approach: mobile uses `bg-gradient-to-t from-section-dark/90 via-section-dark/50 to-section-dark/10`, desktop overrides with `lg:bg-gradient-to-r lg:from-section-dark lg:via-section-dark/80 lg:to-transparent`
-- Image focal point: `object-[60%_30%]` on mobile to crop toward the house, `lg:object-center` on desktop
-- Uses existing utility classes: `text-shadow-hero`, `text-shadow-subtle`, `text-gold`, `bg-snow-white/*`, `font-heading`
-- ~40 lines of code removed vs the current version (no more duplicate img/content wrappers)
+**File: `src/assets/hero-home-colorado.webp`**
+- Replaced with the uploaded image (copy operation)
+
+**File: `src/components/home/HeroSection.tsx`**
+- Line 20: Update mobile gradient opacity values to `0.92 / 0.65 / 0.3`
+- Line 27-28: Change the content container to center on desktop:
+  - Outer div: add `lg:justify-center` and keep `items-center`
+  - Inner div (line 28): change from `w-full max-w-2xl px-5 lg:px-16 xl:px-20 py-20` to `w-full max-w-2xl px-5 lg:px-0 py-20 lg:mx-auto lg:text-center`
+- Trust badge, CTA, and trust indicators: add `lg:justify-center` or `lg:mx-auto` as needed so they center properly
+- The `max-w-lg` on subheadline gets `lg:mx-auto` to center within the centered layout
+
+No other files change. No new dependencies.
