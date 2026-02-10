@@ -1,47 +1,49 @@
 
 
-# About Page — Simplify & Fix Text Visibility
+# Why Choose Us — Redesign
 
 ---
 
 ## What Changes
 
-### 1. Fix text visibility in hero
-- The `text-primary` (green) badge and headline accent are invisible against the dark background
-- Change the badge text and "1,000+ Beautiful Homes" accent to **white** instead of green
-- Strengthen the gradient overlay to `from-black/90 via-black/70 to-black/50`
+### 1. Stats row at top
+- 4-column horizontal stats bar: "1,000+ Homes Transformed", "5.0 Star Rating", "8+ Years Experience", "100% Satisfaction Rate"
+- Each with an emoji icon, bold number, and label
+- White cards on the sand background
 
-### 2. Generate a fresh hero background
-- Create a new AI-generated image: a bright, well-lit Colorado home with professional painters, good contrast for white text
-- Replace the current `hero-crew-working.jpg` import
+### 2. Two-column layout below stats
+- **Left column**: Section header ("Why Choose Emerald Paints" pill, "More Than Just Paint — It's Peace of Mind" headline), 3 vertical reason items with green checkmark icons, and a CTA button
+- **Right column**: Single large image with rounded corners and a floating testimonial card overlay (5 stars, quote, attribution)
 
-### 3. Simplify the page structure
-- **Remove**: Journey Timeline section and Expertise cards section (too complex)
-- **Keep**: Hero, Stats, and CTA sections
-- **Add**: A simple "Our Mission" text block with 3 value icons (Quality Craftsmanship, Licensed & Insured, Reliable Service) between hero and stats
+### 3. Generate fresh image
+- AI-generated image for the right column: professional painting crew on a modern Colorado home, golden hour, mountains in background
+- Saved as a new asset (replacing the Unsplash placeholder)
 
-### 4. Simplify stats section
-- Reduce from 4 stats to 3: "1,000+ Homes Painted", "5.0 Star Rating", "8+ Years Experience"
-- Clean white text on dark background (keep existing charcoal bg)
+### 4. Remove old elements
+- Remove the "How It Works" process steps section
+- Remove the proof cards (Licensed/Insured, Detailed Prep, On Time)
+- Remove the wave SVG divider at the bottom
+- Remove the experience badge overlay
 
-### 5. Keep CTA section
-- Existing CTA with team-work.jpg background stays, already works well
+### 5. Keep existing patterns
+- Use `AnimatedSection` and `StaggerContainer`/`StaggerItem` for entrance animations
+- Keep the sand background with paper texture
+- Maintain responsive behavior (stack on mobile)
 
 ---
 
 ## Technical Details
 
-### File: `src/pages/About.tsx` (rewrite)
+### File: `src/components/home/WhyChooseUs.tsx` (full rewrite)
 
-- Remove imports: `AnimatedSection`, `StaggerContainer`, `StaggerItem`, `Star`, `Home`, `Users` icons, `heroImage` (crew-working)
-- Add: new generated hero image import
-- Remove: `journey` array, `expertise` array, complex `stats` array
-- Add: simple `values` array (3 items: Paintbrush, Shield, Clock icons)
-- Hero: all text white, stronger gradient, no green accents
-- New mission section: white bg, centered text + 3 icon cards in a grid
-- Stats: 3-column grid, white text on charcoal
-- CTA: unchanged
+- Remove old imports: `Shield`, `ClipboardCheck`, `CalendarCheck`, old `teamImage` URL
+- Add imports: `Shield`, `Award`, `Clock`, `Star`, `ArrowRight`, `CheckCircle2` from lucide-react; `Button` from ui; `Link` from react-router-dom
+- New data arrays: `stats` (4 items with emoji/number/label), `reasons` (3 items with title/description)
+- New image import from generated asset
+- Layout: container with stats grid (2-col mobile, 4-col desktop), then 2-col grid (left content, right image)
+- Floating testimonial card: absolute positioned bottom-left of image, white bg, 5 gold stars, quote text
+- No bottom wave divider (removed)
 
-### New image: `src/assets/hero-about-page.jpg`
-- AI-generated: bright Colorado home exterior, professional painters, golden hour, mountains, strong contrast for white text overlay
+### New image: `src/assets/hero-painting-crew.jpg` (overwrite or new file)
+- AI-generated: professional painters on modern Colorado home, golden hour, mountains, clean composition
 
