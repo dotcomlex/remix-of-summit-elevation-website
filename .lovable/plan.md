@@ -1,72 +1,42 @@
 
 
-# Hero Section Redesign — Split Layout
+# Hero Section Fix — Structure and Responsiveness
 
-## Current Problem
-The current hero uses a centered full-screen background image with stacked content, which looks too similar to the 14ers Renovations website.
+## Problems Identified
 
-## New Design: Split Layout
-A two-column hero with content on the left and a striking image on the right, creating a distinct, modern look.
+### Mobile
+- Image section (`h-[45vh]`) is too tall, pushing content down
+- Trust indicators and "8+ years" text get cut off below the fold
+- Too much spacing between elements (mt-10, mt-8, mt-6)
+- Content padding is too generous for small screens
 
-### Layout
-- **Left side (55%)**: Dark background with headline, subtext, CTA button, and trust indicators — all left-aligned
-- **Right side (45%)**: A large, high-quality painting image with a subtle rounded corner or diagonal clip for visual interest
-- **Mobile**: Stacks vertically — image on top (shorter), content below
+### Desktop
+- Image panel uses `absolute inset-4` which clips the image awkwardly on the right edge
+- Left content panel isn't properly vertically centered
+- Too much bottom dead space — trust indicators feel disconnected
+- The green accent line on the left of the image feels random
 
-### Content (Left Side)
-- Small trust badge pill: "Licensed & Insured · Since 2017"
-- Headline: **"Beautiful Homes Start with Great Paint"** — left-aligned, with "Great Paint" in gold/primary accent
-- Subheadline paragraph
-- CTA button: "Get Free Estimate"
-- Trust indicators row (5.0 Rating, 1,000+ Homes) inline below the button
+## Fixes
 
-### Image (Right Side)
-- Generate a new hero image specifically composed for a portrait/tall crop — showing a beautifully painted Colorado home exterior or a stunning interior result
-- Slight decorative overlay or border accent in the brand green color
+### Mobile Adjustments
+- Reduce mobile image height from `h-[45vh]` to `h-[35vh]`
+- Tighten spacing: reduce margins between badge, headline, subtext, CTA, and trust indicators
+- Reduce padding on the content area for mobile
+- Ensure all elements (including trust badges and "8+ years" text) fit above the fold
 
-### Visual Differentiators from 14ers
-- Left-aligned text instead of centered
-- No full-bleed background image — clean split with a solid dark left panel
-- Image is a contained element, not a background
-- More whitespace, more editorial/premium feel
-- Subtle entrance animations (text slides in from left, image fades in from right)
+### Desktop Adjustments
+- Change image container from `absolute inset-4` to `absolute inset-0` with padding only on top/bottom/left (let image bleed to the right edge for a cleaner look)
+- Better vertical centering of the left content panel
+- Remove the decorative green accent line (it looks out of place)
+- Tighten the spacing between elements so content feels more cohesive
 
-## Technical Details
+### File to modify
+- `src/components/home/HeroSection.tsx` — Adjust spacing, image container, and responsive breakpoints
 
-### Files to modify
-- **`src/components/home/HeroSection.tsx`** — Complete rewrite of the layout to a CSS Grid / Flexbox two-column split
-- **Generate 1 new hero image** — Tall-crop composition optimized for the right panel
-
-### Structure
-```text
-+----------------------------------+---------------------+
-|  [Badge]                         |                     |
-|  Beautiful Homes                 |    [Hero Image]     |
-|  Start with Great Paint          |    (contained,      |
-|                                  |     rounded)        |
-|  Subheadline text...             |                     |
-|                                  |                     |
-|  [Get Free Estimate -->]         |                     |
-|  [5.0 Rating] [1,000+ Homes]    |                     |
-+----------------------------------+---------------------+
-```
-
-### Mobile Stack
-```text
-+---------------------------+
-|      [Hero Image]         |
-|      (shorter crop)       |
-+---------------------------+
-|  [Badge]                  |
-|  Beautiful Homes          |
-|  Start with Great Paint   |
-|  Subheadline...           |
-|  [Get Free Estimate -->]  |
-|  [5.0] [1,000+ Homes]    |
-+---------------------------+
-```
-
-- Background: solid dark color (`section-dark` or `mountain-charcoal`) on the left panel
-- Framer Motion animations: text content slides up/left, image fades in from the right
-- Fully responsive with clean mobile stacking
-
+### Key changes
+- Mobile image: `h-[45vh]` changed to `h-[35vh] min-h-[220px]`
+- Mobile spacing: `mt-10` to `mt-6`, `mt-8` to `mt-4`, `mt-6` to `mt-3`, `mb-8` to `mb-5`
+- Desktop image container: remove `inset-4 xl:inset-6 rounded-2xl` and use a cleaner edge-to-edge approach with rounding only on the left side
+- Remove the green accent line div
+- Add `lg:min-h-screen` to ensure proper height on desktop
+- Content panel: add proper vertical centering with `lg:py-20`
