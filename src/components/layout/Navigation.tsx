@@ -39,7 +39,7 @@ export function Navigation() {
         <div className="container mx-auto px-4 lg:px-8 py-3 lg:py-4">
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center justify-between">
+          <div className="hidden lg:flex items-start justify-between">
             <Link to="/" className="flex items-center">
               <img
                 src={logoEmerald}
@@ -49,7 +49,7 @@ export function Navigation() {
               />
             </Link>
 
-            <nav>
+            <nav className="pt-6">
               <ul className="flex items-center gap-2">
                 {navLinks.map((link) => (
                   <li key={link.path}>
