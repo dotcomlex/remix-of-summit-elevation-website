@@ -108,6 +108,7 @@ export default {
         },
         // Unified dark section background (#1D2130)
         "section-dark": "hsl(var(--section-dark))",
+        "testimonial-bg": "hsl(var(--testimonial-bg))",
       },
       fontFamily: {
         heading: ['Montserrat', 'system-ui', 'sans-serif'],
