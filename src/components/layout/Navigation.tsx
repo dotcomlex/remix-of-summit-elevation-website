@@ -87,10 +87,11 @@ export function Navigation() {
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="justify-self-end flex items-center justify-center w-12 h-12 rounded-xl bg-white/90 shadow-lg text-mountain-charcoal hover:bg-white transition-colors backdrop-blur-sm"
+              className="justify-self-end flex items-center justify-center w-12 h-12 text-snow-white hover:text-white/80 transition-colors"
+              style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.8))" }}
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
             </button>
           </div>
         </div>
