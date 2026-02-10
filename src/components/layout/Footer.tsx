@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import { Phone, Mail, ArrowRight, Facebook, Instagram, Twitter, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Facebook, Instagram, Twitter, CheckCircle2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import logoEmerald from "@/assets/logo-emerald.png";
-
-const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Get Quote", href: "tel:+17204475654" },
-];
 
 const serviceAreas = [
   "Denver", "Boulder", "Lakewood",
@@ -46,49 +39,24 @@ export function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
 
       <div className="container px-4 md:px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Column 1 — Brand */}
-          <div className="space-y-4">
-            <Link to="/" className="inline-flex items-center gap-3">
-              <img src={logoEmerald} alt="Emerald Paints" className="h-12 w-auto" style={{ filter: "brightness(110%) drop-shadow(0 2px 8px rgba(0,0,0,0.4))" }} />
-              <span className="text-lg font-bold">Emerald Paints</span>
-            </Link>
-            <p className="text-sm text-white/60 leading-relaxed">
-              Colorado's trusted painting professionals since 2017. Quality interior, exterior, and commercial painting services that stand the test of time.
-            </p>
-            <div className="space-y-2">
-              <a href="tel:+17204475654" className="flex items-center gap-2 text-sm text-white/70 hover:text-primary transition-colors">
-                <Phone className="w-4 h-4 text-primary" />
-                (720) 447-5654
-              </a>
-              <a href="mailto:Paintsemerald@gmail.com" className="flex items-center gap-2 text-sm text-white/70 hover:text-primary transition-colors">
-                <Mail className="w-4 h-4 text-primary" />
-                Paintsemerald@gmail.com
-              </a>
-            </div>
-          </div>
+        {/* Centered Logo */}
+        <div className="flex justify-center mb-10">
+          <Link to="/">
+            <img
+              src={logoEmerald}
+              alt="Emerald Paints"
+              className="h-36 md:h-40 w-auto"
+              style={{ filter: "brightness(110%) drop-shadow(0 4px 20px rgba(0,0,0,0.6))", maxWidth: "none" }}
+            />
+          </Link>
+        </div>
 
-          {/* Column 2 — Quick Links */}
-          <div>
-            <h3 className="text-base font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  {link.href.startsWith('tel:') ? (
-                    <a href={link.href} className="text-sm text-white/60 hover:text-primary transition-colors">
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link to={link.href} className="text-sm text-white/60 hover:text-primary transition-colors">
-                      {link.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <p className="text-center text-sm text-white/60 leading-relaxed max-w-lg mx-auto mb-10">
+          Colorado's trusted painting professionals since 2017. Quality interior, exterior, and commercial painting services that stand the test of time.
+        </p>
 
-          {/* Column 3 — Service Areas */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-8">
+          {/* Service Areas */}
           <div>
             <h3 className="text-base font-bold mb-4">Service Areas</h3>
             <ul className="grid grid-cols-2 gap-2">
@@ -99,7 +67,19 @@ export function Footer() {
             <p className="text-primary text-xs font-medium mt-3">+ 50-mile radius from Denver</p>
           </div>
 
-          {/* Column 4 — Quote Form + Social */}
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-base font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li><Link to="/" className="text-sm text-white/60 hover:text-primary transition-colors">Home</Link></li>
+              <li><Link to="/services" className="text-sm text-white/60 hover:text-primary transition-colors">Services</Link></li>
+              <li><Link to="/gallery" className="text-sm text-white/60 hover:text-primary transition-colors">Gallery</Link></li>
+              <li><Link to="/about" className="text-sm text-white/60 hover:text-primary transition-colors">About</Link></li>
+              <li><Link to="/contact" className="text-sm text-white/60 hover:text-primary transition-colors">Contact</Link></li>
+            </ul>
+          </div>
+
+          {/* Quote Form + Social */}
           <div className="space-y-6">
             <div>
               <h3 className="text-base font-bold mb-2">Request Free Quote</h3>

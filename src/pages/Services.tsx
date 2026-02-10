@@ -15,12 +15,14 @@ import {
 
 import heroImage from "@/assets/services-hero-bg.jpg";
 import paperTexture from "@/assets/paper-texture-light.jpg";
-import kitchenImage from "@/assets/services-kitchen.jpg";
-import bathroomImage from "@/assets/services-bathroom.jpg";
-import concreteImage from "@/assets/services-concrete.jpg";
-import constructionImage from "@/assets/services-general-contracting.jpg";
-import hvacImage from "@/assets/services-hvac.jpg";
-import electricalImage from "@/assets/services-electrical.jpg";
+import interiorImage from "@/assets/service-interior-painting.jpg";
+import exteriorImage from "@/assets/service-exterior-painting.jpg";
+import woodStainImage from "@/assets/service-wood-staining.jpg";
+import vinylImage from "@/assets/service-vinyl-painting.jpg";
+import commercialImage from "@/assets/service-commercial-painting.jpg";
+import touchupsImage from "@/assets/service-touchups.jpg";
+import customFinishesImage from "@/assets/service-custom-finishes.jpg";
+import colorConsultImage from "@/assets/service-color-consultation.jpg";
 
 const Services = () => {
   const cards = [
@@ -28,49 +30,49 @@ const Services = () => {
       icon: Paintbrush,
       title: "Interior Painting",
       desc: "Transform any room with a flawless, smooth finish. We protect your furniture, prep every surface, and apply premium paints from Sherwin-Williams and Benjamin Moore. From accent walls to full-home interiors.",
-      image: kitchenImage,
+      image: interiorImage,
     },
     {
       icon: Home,
       title: "Exterior Painting",
       desc: "Protect your home from Colorado's intense sun, snow, and wind with durable exterior finishes. We scrape, sand, prime, and apply weather-resistant coatings that last 7-10 years.",
-      image: bathroomImage,
+      image: exteriorImage,
     },
     {
       icon: TreePine,
       title: "Wood Staining",
       desc: "Restore and protect your decks, fences, pergolas, and trim with expert-grade stains. We prep the wood properly and apply UV-resistant finishes that bring out the natural grain.",
-      image: concreteImage,
+      image: woodStainImage,
     },
     {
       icon: Layers,
       title: "Vinyl & Aluminum Painting",
       desc: "Give your siding, shutters, and trim a brand-new look without replacement. We use specialty bonding primers and flexible paints designed for non-wood surfaces.",
-      image: constructionImage,
+      image: vinylImage,
     },
     {
       icon: Building2,
       title: "Commercial Painting",
       desc: "Offices, retail spaces, and multi-unit buildings — painted on your schedule with minimal disruption. We work evenings and weekends to keep your business running smoothly.",
-      image: hvacImage,
+      image: commercialImage,
     },
     {
       icon: Wrench,
       title: "Touch-Ups & Repairs",
       desc: "Scuffs, nail holes, peeling, or water damage? We patch, prime, and repaint problem areas to match your existing walls perfectly. No full repaint needed.",
-      image: electricalImage,
+      image: touchupsImage,
     },
     {
       icon: Sparkles,
       title: "Custom Finishes & Specialty Coatings",
       desc: "Accent walls, textured finishes, cabinet refinishing, and epoxy garage floors. If it can be coated, we can make it look amazing with the right products and technique.",
-      image: kitchenImage,
+      image: customFinishesImage,
     },
     {
       icon: Palette,
       title: "Free Color Consultation",
       desc: "Overwhelmed by 3,000+ paint swatches? Our team helps you narrow down the perfect colors based on your home's lighting, architecture, and style. We bring samples so you can see them in your space before committing.",
-      image: bathroomImage,
+      image: colorConsultImage,
     },
   ];
 

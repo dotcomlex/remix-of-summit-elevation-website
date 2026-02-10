@@ -1,4 +1,5 @@
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, MessageSquare, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import denverImage from "@/assets/denver-skyline.jpg";
 
@@ -34,27 +35,40 @@ export function CTASection() {
 
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight text-shadow-strong">
-            Ready to Transform
+            Let's Bring Your
             <br />
-            <span className="text-primary">Your Space</span>
+            <span className="text-primary">Vision to Life</span>
           </h2>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed text-shadow-strong">
-            Get a free, no-pressure estimate from Colorado's trusted painting professionals. We'll walk through your project, answer every question, and provide a clear quote — no hidden fees, no surprises.
+            Whether it's a single room refresh or a full exterior makeover, we'll handle every detail. Call today for a free, same-day estimate — zero pressure, zero hidden fees.
           </p>
 
-          {/* CTA Button */}
-          <Button
-            asChild
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg shadow-warm"
-          >
-            <a href="tel:+17204475654">
-              Get Your Free Estimate
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-          </Button>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg shadow-warm"
+            >
+              <a href="tel:+17204475654">
+                Get Your Free Estimate
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-lg"
+            >
+              <Link to="/gallery">
+                <Eye className="mr-2 h-5 w-5" />
+                View Our Work
+              </Link>
+            </Button>
+          </div>
 
           {/* Trust indicators */}
           <div className="mt-12 pt-10 border-t border-white/10">
