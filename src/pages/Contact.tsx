@@ -53,7 +53,7 @@ export default function Contact() {
 
         <div className="relative z-10 container mx-auto px-4 lg:px-8 pt-40 pb-24 text-center">
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-snow-white mb-6 text-shadow-strong">
-            Get Your Free <span className="text-primary">Estimate</span>
+            Get Your Free <span className="text-snow-white">Estimate</span>
           </h1>
           <p className="text-snow-white/80 text-lg md:text-xl max-w-2xl mx-auto">
             Ready to transform your home? Tell us about your project.
