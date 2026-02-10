@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import {
@@ -104,9 +105,9 @@ const Services = () => {
           </p>
 
           <Button asChild size="lg" className="text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-8 rounded-full shadow-lg hover:shadow-[0_0_20px_rgba(234,88,12,0.4)] transition-all duration-300 mb-6 sm:mb-8 md:mb-12">
-            <a href="tel:+17204475654">
+            <Link to="/contact">
               Get a Free Estimate <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-            </a>
+            </Link>
           </Button>
 
           <div className="flex items-center justify-center text-snow-white/90 text-[11px] sm:text-sm">
@@ -198,9 +199,9 @@ const Services = () => {
             Get your free estimate today — we'll walk through your project, answer every question, and provide a clear quote with no hidden fees.
           </p>
           <Button asChild size="lg" className="text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-8 rounded-full shadow-lg hover:shadow-[0_0_20px_rgba(234,88,12,0.4)] transition-all duration-300">
-            <a href="tel:+17204475654">
+            <Link to="/contact">
               Get Your Free Estimate <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-            </a>
+            </Link>
           </Button>
         </div>
       </section>

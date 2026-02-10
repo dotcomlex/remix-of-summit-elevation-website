@@ -38,22 +38,21 @@ export function Footer() {
     <footer className="relative bg-black text-white">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
 
-      <div className="container px-4 md:px-6 py-12 md:py-16">
-        {/* Logo - centered on mobile, left-aligned on desktop */}
-        <div className="flex justify-center md:justify-start mb-6 md:mb-10">
-          <Link to="/">
+      <div className="container px-4 md:px-6 py-10 md:py-12">
+        {/* Logo + Description — side by side on desktop */}
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 mb-8">
+          <Link to="/" className="flex justify-center md:justify-start flex-shrink-0">
             <img
               src={logoEmerald}
               alt="Emerald Paints"
-              className="h-36 md:h-24 w-auto"
+              className="h-28 md:h-20 w-auto"
               style={{ filter: "brightness(110%) drop-shadow(0 4px 20px rgba(0,0,0,0.6))", maxWidth: "none" }}
             />
           </Link>
+          <p className="text-sm text-white/60 leading-relaxed max-w-lg text-center md:text-left">
+            Colorado's trusted painting professionals since 2017. Quality interior, exterior, and commercial painting services that stand the test of time.
+          </p>
         </div>
-
-        <p className="text-sm text-white/60 leading-relaxed max-w-lg text-center md:text-left mx-auto md:mx-0 mb-10">
-          Colorado's trusted painting professionals since 2017. Quality interior, exterior, and commercial painting services that stand the test of time.
-        </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-8">
           {/* Service Areas */}

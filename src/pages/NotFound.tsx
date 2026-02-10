@@ -1,6 +1,5 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { Phone } from "lucide-react";
 
 const NotFound = () => {
   const location = useLocation();
@@ -18,10 +17,9 @@ const NotFound = () => {
           <a href="/" className="text-primary underline hover:text-primary/90 text-lg">
             Back to Home
           </a>
-          <a href="tel:+17204475654" className="flex items-center gap-2 text-primary underline hover:text-primary/90 text-lg justify-center">
-            <Phone className="h-4 w-4" />
-            Call Us: (720) 447-5654
-          </a>
+          <Link to="/contact" className="text-primary underline hover:text-primary/90 text-lg">
+            Contact Us
+          </Link>
         </div>
       </div>
     </div>
