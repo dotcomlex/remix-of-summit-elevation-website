@@ -51,7 +51,7 @@ export function Footer() {
           </Link>
         </div>
 
-        <p className="text-center text-sm text-white/60 leading-relaxed max-w-lg mx-auto mb-10">
+        <p className="text-sm text-white/60 leading-relaxed max-w-lg mx-auto mb-10">
           Colorado's trusted painting professionals since 2017. Quality interior, exterior, and commercial painting services that stand the test of time.
         </p>
 
