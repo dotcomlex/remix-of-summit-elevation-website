@@ -1,34 +1,20 @@
 
 
-# Fix Text Readability + Clean Hamburger Menu
+# Fix Mobile Logo Centering
 
 ## Overview
-Three targeted changes across 2 files. No layout, copy, or structural changes.
+Single change in Navigation.tsx to replace the mobile header layout. The grid-based approach constrains the logo to the middle third of the viewport. Switching to flexbox with an absolutely-positioned hamburger lets the logo center across the full width.
 
-## Changes
+## Change
 
-### 1. Strengthen text shadows (src/index.css)
-The shadows ARE applied but need to be even stronger per the new values provided.
+**File: `src/components/layout/Navigation.tsx` (lines 78-96)**
 
-- `.text-shadow-hero`: Bump opacity values from `0.8/0.6/0.4/0.3` to `0.9/0.7/0.5/0.4`, and change the last layer from `16px 60px` to `20px 60px`
-- `.text-shadow-subtle`: Bump from `0.7/0.5/0.3` to `0.8/0.6/0.4`
-- `.text-shadow-strong`: unchanged
+Replace the entire Mobile Header block:
+- `grid grid-cols-3` becomes `relative flex justify-center` so the logo centers across full viewport width
+- Remove the empty `<div />` spacer (no longer needed)
+- Hamburger button becomes `absolute right-4`, removed from centering flow
+- `pr-14` on the Link offsets the logo slightly to avoid hamburger overlap
+- Logo bumped from `h-44 sm:h-48` to `h-48 sm:h-52`
 
-### 2. Add subtle frosted backdrop on desktop (src/components/home/HeroSection.tsx)
-The content wrapper div (line 33) gets desktop-only classes added: `lg:bg-black/20 lg:backdrop-blur-[2px] lg:rounded-3xl lg:py-16`. Also changes `lg:px-0` to `lg:px-8` for padding inside the backdrop. Mobile stays identical.
-
-### 3. Clean hamburger button (src/components/layout/Navigation.tsx)
-Replace the white rounded box (line 88-94) with a cleaner white icon using a drop-shadow filter. Remove `rounded-xl bg-white/90 shadow-lg text-mountain-charcoal backdrop-blur-sm`. Add `text-snow-white` with inline `drop-shadow` filter. Bump icon size from `h-6 w-6` to `h-7 w-7`.
-
-## Technical Details
-
-**src/index.css** (lines 103-115)
-- Update `.text-shadow-hero` opacity values to `0.9, 0.7, 0.5, 0.4` and last spread to `20px`
-- Update `.text-shadow-subtle` opacity values to `0.8, 0.6, 0.4`
-
-**src/components/home/HeroSection.tsx** (line 33)
-- Change `className` from `"w-full max-w-3xl px-5 lg:px-0 py-20 lg:mx-auto lg:text-center"` to `"w-full max-w-3xl px-5 lg:px-8 py-20 lg:mx-auto lg:text-center lg:bg-black/20 lg:backdrop-blur-[2px] lg:rounded-3xl lg:py-16"`
-
-**src/components/layout/Navigation.tsx** (lines 88-94)
-- Replace hamburger button: remove background/border styles, add white text with drop-shadow filter, increase icon to h-7
+Nothing else changes: desktop nav, mobile overlay, logo filter, animations all stay as-is.
 
