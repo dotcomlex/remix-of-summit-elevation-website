@@ -11,9 +11,8 @@ const serviceAreas = [
 ];
 
 const socialLinks = [
-  { label: "Facebook", href: "#", icon: Facebook },
-  { label: "Instagram", href: "#", icon: Instagram },
-  { label: "Twitter", href: "#", icon: Twitter },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61575693606448", icon: Facebook },
+  { label: "Instagram", href: "https://www.instagram.com/emeraldpaintsllc/", icon: Instagram },
 ];
 
 export function Footer() {
