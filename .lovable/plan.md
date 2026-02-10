@@ -1,47 +1,25 @@
 
 
-# Testimonials + Navigation + Why Choose Us Fixes
+# Fix Desktop Nav Spacing Without Shrinking Logo
 
-## 1. Testimonials Section -- Complete Redesign
+## Problem
+The `items-center` on the desktop nav flex container vertically centers the nav links relative to the tall logo. Since the logo is `h-48`/`h-56`, the nav links get pushed way down.
 
-**Background**: Change from `bg-sand` to `bg-white` so it no longer matches the FAQ section.
+## Solution
+Change `items-center` to `items-start` on the desktop nav flex container, and add top padding to the nav element so the links sit at a comfortable position near the top of the header -- independent of logo height.
 
-**Desktop layout**: Replace the stacked 3-column grid with a single-row horizontal scroll carousel using `overflow-x-auto` with `snap-x`. Cards sit side by side and users scroll through them -- much more elegant and modern than a stacked grid.
+### Change in `src/components/layout/Navigation.tsx`
 
-**Card styling**: Give cards a light sand/cream background (`bg-sand`) instead of white-on-white. This makes them visually distinct against the white section background. Keep the green left accent bar, shadow, and border.
+**Line 42**: Change `items-center` to `items-start`
 
-**Google rating badge**: Center-align it properly using `flex justify-center` (currently left-aligned on desktop).
+```
+<div className="hidden lg:flex items-start justify-between">
+```
 
-**Marquee row**: Increase text opacity from `text-charcoal/50` to `text-charcoal/70` so the micro-reviews are actually readable.
+**Line 52**: Add top padding to the nav so links align nicely near the top:
 
-**File**: `src/components/home/TestimonialsSection.tsx`
+```
+<nav className="pt-6">
+```
 
----
-
-## 2. Navigation -- Reduce Top Spacing
-
-The logo is extremely tall (`h-48 xl:h-56` on desktop, `h-40 sm:h-44` on mobile), pushing the nav links far down from the top of the viewport. Reduce the logo height to something more reasonable:
-- Desktop: `h-48 xl:h-56` down to `h-24 xl:h-28`
-- Mobile: `h-40 sm:h-44` down to `h-20 sm:h-24`
-- Reduce container padding from `py-4 lg:py-6` to `py-3 lg:py-4`
-
-**File**: `src/components/layout/Navigation.tsx`
-
----
-
-## 3. Why Choose Us -- Remove Trust Strip Line
-
-Remove the entire "1,000+ Homes / 5.0 Rating / 8+ Years / 100% Satisfaction" inline stat strip (lines 51-59 in WhyChooseUs.tsx). The paragraph above it already mentions "1,000 homes" and these stats are redundant clutter.
-
-**File**: `src/components/home/WhyChooseUs.tsx`
-
----
-
-## Files Modified
-
-| File | Change |
-|------|--------|
-| `src/components/home/TestimonialsSection.tsx` | White bg, horizontal scroll on desktop, sand-colored cards, centered badge, visible marquee |
-| `src/components/layout/Navigation.tsx` | Smaller logo, less top padding |
-| `src/components/home/WhyChooseUs.tsx` | Remove trust strip line |
-
+This way the logo stays massive, and the nav links stay near the top of the viewport regardless of logo height. Nothing else is touched.
