@@ -17,15 +17,20 @@ export function HeroSection() {
         />
 
         {/* Mobile gradient — light enough to see the image */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--section-dark)/0.92)] via-[hsl(var(--section-dark)/0.65)] to-[hsl(var(--section-dark)/0.3)] lg:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--section-dark)/0.92)] via-[hsl(var(--section-dark)/0.72)] to-[hsl(var(--section-dark)/0.35)] lg:hidden" />
 
         {/* Desktop gradient — left-to-right fade for text readability */}
-        <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-[hsl(var(--section-dark))] via-[hsl(var(--section-dark)/0.8)] to-transparent" />
+        <div
+          className="absolute inset-0 hidden lg:block"
+          style={{
+            background: "radial-gradient(ellipse 80% 70% at 50% 55%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.1) 100%)"
+          }}
+        />
       </div>
 
       {/* Content — vertically centered on all breakpoints */}
       <div className="relative z-10 flex items-center lg:justify-center min-h-[100dvh]">
-        <div className="w-full max-w-2xl px-5 lg:px-0 py-20 lg:mx-auto lg:text-center">
+        <div className="w-full max-w-3xl px-5 lg:px-0 py-20 lg:mx-auto lg:text-center">
 
           {/* Trust Badge */}
           <motion.div
@@ -42,7 +47,7 @@ export function HeroSection() {
           {/* Headline */}
           <motion.h1
             className="font-heading text-snow-white font-extrabold tracking-tight leading-[1.08] text-shadow-hero"
-            style={{ fontSize: "clamp(2rem, 5vw, 4.2rem)" }}
+            style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -55,7 +60,7 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <motion.p
-            className="text-snow-white/75 leading-relaxed mt-4 lg:mt-6 max-w-lg lg:mx-auto text-shadow-subtle"
+            className="text-snow-white/75 leading-relaxed mt-4 lg:mt-6 max-w-xl lg:mx-auto text-shadow-subtle"
             style={{ fontSize: "clamp(0.95rem, 2vw, 1.2rem)" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
