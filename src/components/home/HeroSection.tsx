@@ -30,7 +30,7 @@ export function HeroSection() {
 
       {/* Content — vertically centered on all breakpoints */}
       <div className="relative z-10 flex items-center lg:justify-center min-h-[100dvh]">
-        <div className="w-full max-w-3xl px-5 lg:px-0 py-20 lg:mx-auto lg:text-center">
+        <div className="w-full max-w-3xl px-5 lg:px-8 py-20 lg:mx-auto lg:text-center lg:bg-black/20 lg:backdrop-blur-[2px] lg:rounded-3xl lg:py-16">
 
           {/* Trust Badge */}
           <motion.div
