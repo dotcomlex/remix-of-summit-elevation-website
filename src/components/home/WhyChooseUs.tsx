@@ -50,6 +50,28 @@ export function WhyChooseUs() {
                 </p>
               </AnimatedSection>
 
+              {/* Mobile-only image */}
+              <div className="block lg:hidden mb-6">
+                <div className="relative">
+                  <img
+                    src={paintingCrewImage}
+                    alt="Professional painting crew working on a Colorado home"
+                    className="w-full rounded-2xl shadow-elevated object-cover aspect-[4/5] sm:aspect-[3/4]"
+                  />
+                  <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-[280px] bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+                    <div className="flex gap-0.5 mb-2">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-aspen-gold text-aspen-gold" />
+                      ))}
+                    </div>
+                    <p className="text-charcoal text-sm italic leading-snug mb-2">
+                      "Best painting crew in Colorado. Our exterior looks incredible 2 years later!"
+                    </p>
+                    <span className="text-mountain-slate text-xs font-medium">— Sarah M., Denver</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Reasons */}
               <StaggerContainer className="space-y-4 mb-8">
                 {reasons.map((reason) => (
@@ -81,7 +103,7 @@ export function WhyChooseUs() {
             </div>
 
             {/* Right: Image + Testimonial */}
-            <AnimatedSection delay={0.2} direction="right">
+            <AnimatedSection delay={0.2} direction="right" className="hidden lg:block">
               <div className="relative">
                 <img
                   src={paintingCrewImage}
