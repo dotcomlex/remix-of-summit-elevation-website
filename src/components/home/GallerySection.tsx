@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { CircularGallery, GalleryItem } from "@/components/ui/circular-gallery";
 
-import interiorLivingRoom from "@/assets/gallery/interior-living-room.jpg";
-import exteriorCraftsman from "@/assets/gallery/exterior-craftsman.jpg";
+import interiorLivingRoom from "@/assets/gallery/interior-living-room.webp";
+import exteriorCraftsman from "@/assets/gallery/exterior-craftsman.webp";
 import stainingDeck from "@/assets/gallery/staining-deck.jpg";
-import cabinetsKitchenWhite from "@/assets/gallery/cabinets-kitchen-white.jpg";
-import interiorBedroomNavy from "@/assets/gallery/interior-bedroom-navy.jpg";
+import cabinetsKitchenWhite from "@/assets/gallery/cabinets-kitchen-white.webp";
+import interiorBedroomNavy from "@/assets/gallery/interior-bedroom-navy.webp";
 import commercialLobby from "@/assets/gallery/commercial-lobby.jpg";
 import stainingFence from "@/assets/gallery/staining-fence.jpg";
 import exteriorTrimDetail from "@/assets/gallery/exterior-trim-detail.jpg";
