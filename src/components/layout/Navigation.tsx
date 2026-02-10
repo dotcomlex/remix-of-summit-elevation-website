@@ -44,7 +44,7 @@ export function Navigation() {
               <img
                 src={logoEmerald}
                 alt="Emerald Paints"
-                className="h-24 xl:h-28 w-auto"
+                className="h-48 xl:h-56 w-auto"
                 style={{ filter: logoFilter, maxWidth: "none" }}
               />
             </Link>
@@ -80,7 +80,7 @@ export function Navigation() {
               <img
                 src={logoEmerald}
                 alt="Emerald Paints"
-                className="h-20 sm:h-24 w-auto"
+                className="h-40 sm:h-44 w-auto"
                 style={{ filter: logoFilter, maxWidth: "none" }}
               />
             </Link>
