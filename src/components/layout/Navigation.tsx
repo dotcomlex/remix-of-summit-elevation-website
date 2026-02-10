@@ -86,7 +86,7 @@ export function Navigation() {
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="absolute right-4 flex items-center justify-center w-12 h-12 text-snow-white hover:text-white/80 transition-colors"
+              className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 text-snow-white hover:text-white/80 transition-colors"
               style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.8))" }}
               aria-label="Toggle menu"
             >
