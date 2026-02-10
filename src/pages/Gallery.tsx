@@ -8,6 +8,26 @@ import { Layout } from "@/components/layout/Layout";
 // Import hero/CTA background
 import heroImage from "@/assets/hero-gallery.jpg";
 
+// Gallery images
+import interiorLivingRoom from "@/assets/gallery/interior-living-room.jpg";
+import interiorBedroomNavy from "@/assets/gallery/interior-bedroom-navy.jpg";
+import interiorDiningSage from "@/assets/gallery/interior-dining-sage.jpg";
+import interiorHallway from "@/assets/gallery/interior-hallway.jpg";
+import exteriorCraftsman from "@/assets/gallery/exterior-craftsman.jpg";
+import exteriorRanch from "@/assets/gallery/exterior-ranch.jpg";
+import exteriorTrimDetail from "@/assets/gallery/exterior-trim-detail.jpg";
+import exteriorTwostory from "@/assets/gallery/exterior-twostory.jpg";
+import stainingDeck from "@/assets/gallery/staining-deck.jpg";
+import stainingFence from "@/assets/gallery/staining-fence.jpg";
+import stainingDoor from "@/assets/gallery/staining-door.jpg";
+import commercialLobby from "@/assets/gallery/commercial-lobby.jpg";
+import commercialStorefront from "@/assets/gallery/commercial-storefront.jpg";
+import commercialHallway from "@/assets/gallery/commercial-hallway.jpg";
+import cabinetsKitchenWhite from "@/assets/gallery/cabinets-kitchen-white.jpg";
+import cabinetsBathroom from "@/assets/gallery/cabinets-bathroom.jpg";
+import cabinetsTwotone from "@/assets/gallery/cabinets-twotone.jpg";
+import cabinetsLaundry from "@/assets/gallery/cabinets-laundry.jpg";
+
 interface GalleryImage {
   id: number;
   category: string;
@@ -18,18 +38,24 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-  { id: 1, title: "Living Room Refresh", location: "Denver, CO", category: "interior", src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80", alt: "Living room interior painting" },
-  { id: 2, title: "Full Home Exterior", location: "Lakewood, CO", category: "exterior", src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80", alt: "Full home exterior painting" },
-  { id: 3, title: "Cedar Deck Staining", location: "Boulder, CO", category: "staining", src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80", alt: "Cedar deck staining" },
-  { id: 4, title: "Kitchen Cabinet Refinish", location: "Aurora, CO", category: "cabinets", src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80", alt: "Kitchen cabinet refinishing" },
-  { id: 5, title: "Master Bedroom Accent Wall", location: "Arvada, CO", category: "interior", src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80", alt: "Master bedroom accent wall" },
-  { id: 6, title: "Office Suite Repaint", location: "Westminster, CO", category: "commercial", src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80", alt: "Office suite repaint" },
-  { id: 7, title: "Fence Staining", location: "Thornton, CO", category: "staining", src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80", alt: "Fence staining" },
-  { id: 8, title: "Exterior Trim & Detail Work", location: "Centennial, CO", category: "exterior", src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80", alt: "Exterior trim and detail work" },
-  { id: 9, title: "Dining Room Transformation", location: "Littleton, CO", category: "interior", src: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=600&q=80", alt: "Dining room transformation" },
-  { id: 10, title: "White Cabinet Makeover", location: "Denver, CO", category: "cabinets", src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80", alt: "White cabinet makeover" },
-  { id: 11, title: "Retail Space Repaint", location: "Aurora, CO", category: "commercial", src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80", alt: "Retail space repaint" },
-  { id: 12, title: "Victorian Exterior Restoration", location: "Boulder, CO", category: "exterior", src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80", alt: "Victorian exterior restoration" },
+  { id: 1, title: "Living Room Refresh", location: "Denver, CO", category: "interior", src: interiorLivingRoom, alt: "Freshly painted white living room with mountain view" },
+  { id: 2, title: "Navy Accent Wall", location: "Arvada, CO", category: "interior", src: interiorBedroomNavy, alt: "Master bedroom with bold navy accent wall" },
+  { id: 3, title: "Sage Dining Room", location: "Littleton, CO", category: "interior", src: interiorDiningSage, alt: "Dining room with warm sage green walls and crown molding" },
+  { id: 4, title: "Hallway Repaint", location: "Centennial, CO", category: "interior", src: interiorHallway, alt: "Freshly painted hallway with clean trim edges" },
+  { id: 5, title: "Craftsman Exterior", location: "Boulder, CO", category: "exterior", src: exteriorCraftsman, alt: "Colorado craftsman home with fresh two-tone exterior paint" },
+  { id: 6, title: "Ranch Home Repaint", location: "Lakewood, CO", category: "exterior", src: exteriorRanch, alt: "Ranch-style home with newly painted siding and trim" },
+  { id: 7, title: "Exterior Trim Detail", location: "Thornton, CO", category: "exterior", src: exteriorTrimDetail, alt: "Close-up of clean exterior trim and window detail work" },
+  { id: 8, title: "Two-Story Paint Job", location: "Westminster, CO", category: "exterior", src: exteriorTwostory, alt: "Two-story home with professional exterior paint job" },
+  { id: 9, title: "Cedar Deck Staining", location: "Evergreen, CO", category: "staining", src: stainingDeck, alt: "Cedar deck freshly stained with honey tone" },
+  { id: 10, title: "Fence Staining", location: "Aurora, CO", category: "staining", src: stainingFence, alt: "Wooden fence with fresh semi-transparent stain" },
+  { id: 11, title: "Front Door Stain", location: "Golden, CO", category: "staining", src: stainingDoor, alt: "Front door with deep mahogany stain" },
+  { id: 12, title: "Office Lobby", location: "Denver, CO", category: "commercial", src: commercialLobby, alt: "Modern office lobby with clean painted walls" },
+  { id: 13, title: "Retail Storefront", location: "Aurora, CO", category: "commercial", src: commercialStorefront, alt: "Retail storefront with freshly painted exterior" },
+  { id: 14, title: "Commercial Hallway", location: "Broomfield, CO", category: "commercial", src: commercialHallway, alt: "Commercial hallway with bright painted walls" },
+  { id: 15, title: "White Kitchen Cabinets", location: "Denver, CO", category: "cabinets", src: cabinetsKitchenWhite, alt: "Kitchen with freshly painted white cabinets" },
+  { id: 16, title: "Bathroom Vanity Refresh", location: "Lakewood, CO", category: "cabinets", src: cabinetsBathroom, alt: "Bathroom vanity with painted gray cabinets" },
+  { id: 17, title: "Two-Tone Kitchen", location: "Parker, CO", category: "cabinets", src: cabinetsTwotone, alt: "Kitchen with two-tone painted cabinets" },
+  { id: 18, title: "Sage Laundry Room", location: "Castle Rock, CO", category: "cabinets", src: cabinetsLaundry, alt: "Laundry room with sage green painted cabinets" },
 ];
 
 type CategoryFilter = "all" | "interior" | "exterior" | "staining" | "commercial" | "cabinets";
