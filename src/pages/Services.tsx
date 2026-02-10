@@ -16,14 +16,14 @@ import {
 
 import heroImage from "@/assets/services-hero-bg.jpg";
 import paperTexture from "@/assets/paper-texture-light.jpg";
-import interiorImage from "@/assets/service-interior-painting.jpg";
-import exteriorImage from "@/assets/service-exterior-painting.jpg";
-import woodStainImage from "@/assets/service-wood-staining.jpg";
-import vinylImage from "@/assets/service-vinyl-painting.jpg";
-import commercialImage from "@/assets/service-commercial-painting.jpg";
-import touchupsImage from "@/assets/service-touchups.jpg";
-import customFinishesImage from "@/assets/service-custom-finishes.jpg";
-import colorConsultImage from "@/assets/service-color-consultation.jpg";
+import interiorImage from "@/assets/service-interior-painting-wide.webp";
+import exteriorImage from "@/assets/service-exterior-painting-wide.webp";
+import woodStainImage from "@/assets/service-wood-staining-wide.webp";
+import vinylImage from "@/assets/service-vinyl-painting-wide.webp";
+import commercialImage from "@/assets/service-commercial-painting-wide.webp";
+import touchupsImage from "@/assets/service-touchups-wide.webp";
+import customFinishesImage from "@/assets/service-custom-finishes-wide.webp";
+import colorConsultImage from "@/assets/service-color-consultation-wide.webp";
 
 const Services = () => {
   const cards = [
