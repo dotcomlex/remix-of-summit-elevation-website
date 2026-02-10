@@ -42,7 +42,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-gray-800 text-white">
+    <footer className="relative bg-black text-white">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
 
       <div className="container px-4 md:px-6 py-12 md:py-16">
@@ -144,7 +144,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-6 border-t border-gray-700">
+        <div className="mt-12 pt-6 border-t border-gray-600">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="flex flex-wrap items-center gap-4">
               <span className="flex items-center gap-1.5 text-xs text-white/50">
