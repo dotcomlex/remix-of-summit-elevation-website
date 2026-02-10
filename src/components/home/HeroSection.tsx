@@ -17,15 +17,15 @@ export function HeroSection() {
         />
 
         {/* Mobile gradient — light enough to see the image */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--section-dark)/0.9)] via-[hsl(var(--section-dark)/0.5)] to-[hsl(var(--section-dark)/0.1)] lg:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--section-dark)/0.92)] via-[hsl(var(--section-dark)/0.65)] to-[hsl(var(--section-dark)/0.3)] lg:hidden" />
 
         {/* Desktop gradient — left-to-right fade for text readability */}
         <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-[hsl(var(--section-dark))] via-[hsl(var(--section-dark)/0.8)] to-transparent" />
       </div>
 
       {/* Content — vertically centered on all breakpoints */}
-      <div className="relative z-10 flex items-center min-h-[100dvh]">
-        <div className="w-full max-w-2xl px-5 lg:px-16 xl:px-20 py-20">
+      <div className="relative z-10 flex items-center lg:justify-center min-h-[100dvh]">
+        <div className="w-full max-w-2xl px-5 lg:px-0 py-20 lg:mx-auto lg:text-center">
 
           {/* Trust Badge */}
           <motion.div
@@ -33,7 +33,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className="inline-flex items-center gap-2 bg-snow-white/10 backdrop-blur-sm text-snow-white/90 px-4 py-2 rounded-full text-sm font-medium mb-5 lg:mb-8 border border-snow-white/15">
+            <div className="inline-flex items-center gap-2 bg-snow-white/10 backdrop-blur-sm text-snow-white/90 px-4 py-2 rounded-full text-sm font-medium mb-5 lg:mb-8 border border-snow-white/15 lg:mx-auto">
               <Shield className="w-4 h-4 text-gold" />
               <span>Licensed & Insured · Since 2017</span>
             </div>
@@ -55,7 +55,7 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <motion.p
-            className="text-snow-white/75 leading-relaxed mt-4 lg:mt-6 max-w-lg text-shadow-subtle"
+            className="text-snow-white/75 leading-relaxed mt-4 lg:mt-6 max-w-lg lg:mx-auto text-shadow-subtle"
             style={{ fontSize: "clamp(0.95rem, 2vw, 1.2rem)" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -85,7 +85,7 @@ export function HeroSection() {
 
           {/* Trust Indicators */}
           <motion.div
-            className="mt-4 lg:mt-8 flex flex-wrap gap-3"
+            className="mt-4 lg:mt-8 flex flex-wrap gap-3 lg:justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
