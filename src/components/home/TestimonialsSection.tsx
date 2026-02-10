@@ -59,7 +59,7 @@ const microReviews = [
 
 export function TestimonialsSection() {
   return (
-    <section className="relative py-16 md:py-24 bg-mountain-charcoal overflow-hidden">
+    <section className="relative py-16 md:py-24 bg-testimonial-bg overflow-hidden">
       <div className="absolute inset-0 texture-grain opacity-50" />
       <div className="container relative z-10 px-4 md:px-6">
         <AnimatedSection className="text-center mb-10 md:mb-14">
@@ -151,8 +151,8 @@ export function TestimonialsSection() {
         {/* Marquee Row */}
         <div className="mt-14 overflow-hidden">
           <div className="relative">
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-mountain-charcoal to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-mountain-charcoal to-transparent z-10" />
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-testimonial-bg to-transparent z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-testimonial-bg to-transparent z-10" />
             <div className="flex animate-marquee">
               {[...microReviews, ...microReviews].map((review, i) => (
                 <div key={i} className="flex-shrink-0 mx-6 flex items-center gap-2">
