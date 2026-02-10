@@ -59,7 +59,7 @@ const microReviews = [
 
 export function TestimonialsSection() {
   return (
-    <section className="relative py-16 md:py-24 bg-sand overflow-hidden">
+    <section className="relative py-16 md:py-24 bg-white overflow-hidden">
       <div className="container relative z-10 px-4 md:px-6">
         <AnimatedSection className="text-center mb-10 md:mb-14">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-3">Client Reviews</span>
@@ -72,7 +72,7 @@ export function TestimonialsSection() {
           <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="flex-shrink-0 w-[85%] snap-center">
-                <div className="relative bg-white rounded-2xl p-6 border border-border shadow-lg overflow-hidden transition-all duration-300 h-full">
+                <div className="relative bg-sand rounded-2xl p-6 border border-border shadow-lg overflow-hidden transition-all duration-300 h-full">
                    <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-primary" />
                   <div className="flex items-center gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -103,38 +103,40 @@ export function TestimonialsSection() {
           </div>
         </div>
 
-        {/* Desktop: Grid layout */}
-        <StaggerContainer className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <StaggerItem key={index}>
-              <div className="relative bg-white rounded-2xl p-6 md:p-8 border border-border shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/20 h-full">
-                 <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-primary" />
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-gold fill-gold" />
-                  ))}
-                </div>
-                <blockquote className="text-base text-charcoal/80 leading-relaxed mb-6">
-                  "{testimonial.text}"
-                </blockquote>
-                <div className="h-px bg-border mb-5" />
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                     <span className="text-white font-semibold text-sm">{testimonial.name.charAt(0)}</span>
+        {/* Desktop: Horizontal scroll carousel */}
+        <div className="hidden md:block">
+          <div className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="flex-shrink-0 w-[400px] lg:w-[420px] snap-start">
+                <div className="relative bg-sand rounded-2xl p-6 md:p-8 border border-border shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/20 h-full">
+                   <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-primary" />
+                  <div className="flex items-center gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-gold fill-gold" />
+                    ))}
                   </div>
-                  <div>
-                    <div className="text-base font-semibold text-charcoal">{testimonial.name}</div>
-                    <div className="text-sm text-mountain-slate">{testimonial.location} • {testimonial.project}</div>
+                  <blockquote className="text-base text-charcoal/80 leading-relaxed mb-6">
+                    "{testimonial.text}"
+                  </blockquote>
+                  <div className="h-px bg-border mb-5" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                       <span className="text-white font-semibold text-sm">{testimonial.name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <div className="text-base font-semibold text-charcoal">{testimonial.name}</div>
+                      <div className="text-sm text-mountain-slate">{testimonial.location} • {testimonial.project}</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+            ))}
+          </div>
+        </div>
 
         {/* Google rating summary */}
-        <AnimatedSection delay={0.3} className="mt-10">
-          <div className="inline-flex items-center gap-3 bg-white border border-border rounded-full px-5 py-2.5 shadow-sm">
+        <AnimatedSection delay={0.3} className="mt-10 flex justify-center">
+          <div className="inline-flex items-center gap-3 bg-sand border border-border rounded-full px-5 py-2.5 shadow-sm">
              <div className="flex items-center gap-1">
                {[...Array(5)].map((_, i) => (
                  <Star key={i} className="w-4 h-4 text-gold fill-gold" />
@@ -149,13 +151,13 @@ export function TestimonialsSection() {
         {/* Marquee Row */}
         <div className="mt-14 pt-10 border-t border-border overflow-hidden">
            <div className="relative">
-             <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-sand to-transparent z-10" />
-             <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-sand to-transparent z-10" />
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
             <div className="flex animate-marquee">
               {[...microReviews, ...microReviews].map((review, i) => (
                 <div key={i} className="flex-shrink-0 mx-6 flex items-center gap-2">
                   <Star className="h-4 w-4 text-gold fill-gold" />
-                  <span className="text-charcoal/50 text-sm whitespace-nowrap">"{review.text}" — <span className="text-charcoal/70">{review.author}</span></span>
+                  <span className="text-charcoal/70 text-sm whitespace-nowrap">"{review.text}" — <span className="text-charcoal/90">{review.author}</span></span>
                 </div>
               ))}
             </div>

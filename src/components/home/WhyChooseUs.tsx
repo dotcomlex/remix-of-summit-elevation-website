@@ -44,19 +44,10 @@ export function WhyChooseUs() {
                   <span className="text-primary">It's Peace of Mind</span>
                 </h2>
 
-                <p className="text-mountain-slate text-base sm:text-lg mb-4 max-w-xl">
+                <p className="text-mountain-slate text-base sm:text-lg mb-8 max-w-xl">
                   We've painted over 1,000 homes across Colorado. Here's what
                   sets us apart from the rest.
                 </p>
-                <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-mountain-slate/70 uppercase tracking-wider mb-8">
-                  <span>1,000+ Homes</span>
-                  <span className="w-1 h-1 rounded-full bg-primary" />
-                  <span>5.0 ★ Rating</span>
-                  <span className="w-1 h-1 rounded-full bg-primary" />
-                  <span>8+ Years</span>
-                  <span className="w-1 h-1 rounded-full bg-primary" />
-                  <span>100% Satisfaction</span>
-                </div>
               </AnimatedSection>
 
               {/* Reasons */}
