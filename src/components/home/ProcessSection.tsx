@@ -58,7 +58,7 @@ export function ProcessSection() {
 
                   {/* Icon circle */}
                   <div className="relative inline-flex items-center justify-center w-24 h-24 rounded-full bg-primary/10 border-2 border-primary/30 mb-6 group-hover:border-primary/60 transition-colors duration-300">
-                    <Icon className="w-10 h-10 text-primary" />
+                    <Icon className="w-10 h-10 text-white" />
                     <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center shadow-lg">
                       {step.number}
                     </span>

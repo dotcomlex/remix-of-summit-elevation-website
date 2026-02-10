@@ -33,7 +33,7 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/50" />
         </div>
 
-        <div className="relative container mx-auto px-4 lg:px-8 py-32 text-center">
+        <div className="relative container mx-auto px-4 lg:px-8 pt-28 pb-16 text-center">
           <span className="inline-block bg-white/15 backdrop-blur-sm text-white text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full mb-6 border border-white/10">
             Colorado's Painting Professionals
           </span>
@@ -105,28 +105,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={teamImage} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/70" />
-        </div>
-
-        <div className="relative container mx-auto px-4 lg:px-8 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-            Ready to Transform Your Home?
-          </h2>
-          <p className="text-white/70 text-lg max-w-xl mx-auto mb-8">
-            Join over 1,000 satisfied Colorado homeowners who trust Emerald Paints.
-          </p>
-          <Button asChild size="lg" className="font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
-            <Link to="/contact">
-              Get Your Free Estimate
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-          </Button>
-        </div>
-      </section>
     </Layout>
   );
 }
