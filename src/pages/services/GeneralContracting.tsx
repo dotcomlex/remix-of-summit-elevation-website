@@ -7,6 +7,7 @@ import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { Building2 } from "lucide-react";
 
 import constructionImage from "@/assets/construction-site.jpg";
+import heroGeneralContracting from "@/assets/hero-general-contracting.jpg";
 import teamImage from "@/assets/team-work.jpg";
 import galleryExterior from "@/assets/gallery-exterior.jpg";
 import kitchenImage from "@/assets/kitchen-remodel.jpg";
@@ -70,7 +71,7 @@ const GeneralContracting = () => {
         title="General"
         highlight="Contracting"
         description="Full-service construction and renovation from concept to completion. New builds, additions, and commercial projects."
-        backgroundImage={constructionImage}
+        backgroundImage={heroGeneralContracting}
       />
       
       <BenefitsSection

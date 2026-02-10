@@ -7,6 +7,7 @@ import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { Bath } from "lucide-react";
 
 import kitchenImage from "@/assets/kitchen-remodel.jpg";
+import heroKitchenBath from "@/assets/hero-kitchen-bath.jpg";
 import bathroomImage from "@/assets/bathroom-remodel.jpg";
 import galleryKitchen from "@/assets/gallery-kitchen.jpg";
 import galleryBathroom from "@/assets/gallery-bathroom.jpg";
@@ -70,7 +71,7 @@ const KitchenBath = () => {
         title="Kitchen & Bathroom"
         highlight="Remodeling"
         description="Transform your Colorado home with stunning renovations that blend mountain-inspired aesthetics with modern functionality."
-        backgroundImage={kitchenImage}
+        backgroundImage={heroKitchenBath}
       />
       
       <BenefitsSection

@@ -7,6 +7,7 @@ import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { HardHat } from "lucide-react";
 
 import concreteImage from "@/assets/concrete-patio.jpg";
+import heroConcrete from "@/assets/hero-concrete.jpg";
 import galleryPatio from "@/assets/gallery-patio.jpg";
 import galleryExterior from "@/assets/gallery-exterior.jpg";
 
@@ -69,7 +70,7 @@ const Concrete = () => {
         title="Concrete &"
         highlight="Flatwork"
         description="Durable driveways, patios, and foundations built to withstand Colorado's demanding weather conditions."
-        backgroundImage={concreteImage}
+        backgroundImage={heroConcrete}
       />
       
       <BenefitsSection

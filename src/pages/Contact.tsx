@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
-import heroImage from "@/assets/services-hero-bg.jpg";
+import heroImage from "@/assets/hero-contact.jpg";
 import paperTexture from "@/assets/paper-texture-light.jpg";
 
 export default function Contact() {
