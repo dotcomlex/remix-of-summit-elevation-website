@@ -50,17 +50,18 @@ export function Navigation() {
             </Link>
 
             <nav>
-              <ul className="flex items-center gap-2">
+              <ul className="flex items-center gap-2 bg-black/25 backdrop-blur-md rounded-xl px-2 py-1">
                 {navLinks.map((link) => (
                   <li key={link.path}>
                     <Link
                       to={link.path}
                       className={cn(
-                        "relative px-5 py-3 font-semibold text-base transition-all duration-300 rounded-lg backdrop-blur-sm",
+                        "relative px-5 py-3 font-semibold text-base transition-all duration-300 rounded-lg",
                         location.pathname === link.path
                           ? "text-snow-white bg-white/15"
                           : "text-snow-white/90 hover:text-snow-white hover:bg-white/10"
                       )}
+                      style={{ textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}
                     >
                       {link.name}
                       {location.pathname === link.path && (
