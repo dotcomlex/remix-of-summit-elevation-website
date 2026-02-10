@@ -1,25 +1,20 @@
 
-
-# Fix Desktop Nav Spacing Without Shrinking Logo
+# Fix Navigation Alignment (Desktop + Mobile)
 
 ## Problem
-The `items-center` on the desktop nav flex container vertically centers the nav links relative to the tall logo. Since the logo is `h-48`/`h-56`, the nav links get pushed way down.
+The desktop logo (`h-48`/`h-56`) is extremely tall, causing a huge vertical gap between the nav links at the top and the logo hanging far below. On mobile, `h-40`/`h-44` also creates excessive top spacing.
 
 ## Solution
-Change `items-center` to `items-start` on the desktop nav flex container, and add top padding to the nav element so the links sit at a comfortable position near the top of the header -- independent of logo height.
+Reduce logo sizes to reasonable dimensions and re-align everything properly.
 
-### Change in `src/components/layout/Navigation.tsx`
+### Desktop (`Navigation.tsx`)
+- Reduce logo from `h-48 xl:h-56` to `h-24 xl:h-28` -- still prominent but not absurdly tall
+- Change `items-start` back to `items-center` so logo and nav links sit on the same horizontal line
+- Remove the `pt-6` from `<nav>` since vertical centering handles alignment now
 
-**Line 42**: Change `items-center` to `items-start`
+### Mobile (`Navigation.tsx`)
+- Reduce logo from `h-40 sm:h-44` to `h-20 sm:h-24`
+- Reduce container top padding from `py-3` to `py-2` to minimize the gap above the logo
 
-```
-<div className="hidden lg:flex items-start justify-between">
-```
-
-**Line 52**: Add top padding to the nav so links align nicely near the top:
-
-```
-<nav className="pt-6">
-```
-
-This way the logo stays massive, and the nav links stay near the top of the viewport regardless of logo height. Nothing else is touched.
+### File
+- `src/components/layout/Navigation.tsx` -- only file changed
