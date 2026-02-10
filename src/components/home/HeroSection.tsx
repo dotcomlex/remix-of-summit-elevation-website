@@ -1,8 +1,7 @@
 import { ArrowRight, Star, Award, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoEmerald from "@/assets/logo-emerald.png";
-
-const heroImage = "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1200&q=80";
+import heroImage from "@/assets/hero-painting-crew.jpg";
 
 export function HeroSection() {
   return (
