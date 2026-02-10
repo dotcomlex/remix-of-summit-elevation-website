@@ -1,32 +1,47 @@
 
-# Hero Section Update — Large Centered Logo + New Background
+
+# About Page — Simplify & Fix Text Visibility
 
 ---
 
 ## What Changes
 
-### 1. Add large centered Emerald Paints logo
-- Import `logo-emerald.png` and place it prominently above the trust badge
-- Size: `h-40 md:h-48 lg:h-56 xl:h-64` — very large and dominant
-- Centered with `mx-auto`, enhanced with drop-shadow filter for visibility against the dark background
-- No "Emerald Paints" text — the logo speaks for itself
+### 1. Fix text visibility in hero
+- The `text-primary` (green) badge and headline accent are invisible against the dark background
+- Change the badge text and "1,000+ Beautiful Homes" accent to **white** instead of green
+- Strengthen the gradient overlay to `from-black/90 via-black/70 to-black/50`
 
-### 2. Replace background image
-- Swap `hero-home-new.webp` for a new Unsplash image of a professional painting scene: `https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1200&q=80`
-- Keep the existing dark gradient overlay (`from-black/80 via-black/60 to-black/40`) for text readability
+### 2. Generate a fresh hero background
+- Create a new AI-generated image: a bright, well-lit Colorado home with professional painters, good contrast for white text
+- Replace the current `hero-crew-working.jpg` import
 
-### 3. Everything else stays the same
-- Trust badge, headlines, subheadline, CTA button, trust indicators, and bottom text all remain unchanged
-- Animations and responsive behavior preserved
+### 3. Simplify the page structure
+- **Remove**: Journey Timeline section and Expertise cards section (too complex)
+- **Keep**: Hero, Stats, and CTA sections
+- **Add**: A simple "Our Mission" text block with 3 value icons (Quality Craftsmanship, Licensed & Insured, Reliable Service) between hero and stats
+
+### 4. Simplify stats section
+- Reduce from 4 stats to 3: "1,000+ Homes Painted", "5.0 Star Rating", "8+ Years Experience"
+- Clean white text on dark background (keep existing charcoal bg)
+
+### 5. Keep CTA section
+- Existing CTA with team-work.jpg background stays, already works well
 
 ---
 
 ## Technical Details
 
-### File: `src/components/home/HeroSection.tsx`
+### File: `src/pages/About.tsx` (rewrite)
 
-**Changes:**
-- Add import: `import logoEmerald from "@/assets/logo-emerald.png";`
-- Replace `heroImage` import (remove webp asset import, use Unsplash URL string instead)
-- Insert logo `<img>` element before the trust badge, wrapped in a `div` with `flex justify-center mb-8 animate-fade-up`
-- Logo styling: `h-40 md:h-48 lg:h-56 xl:h-64 w-auto` with `drop-shadow(0 4px 24px rgba(0,0,0,0.5))` filter
+- Remove imports: `AnimatedSection`, `StaggerContainer`, `StaggerItem`, `Star`, `Home`, `Users` icons, `heroImage` (crew-working)
+- Add: new generated hero image import
+- Remove: `journey` array, `expertise` array, complex `stats` array
+- Add: simple `values` array (3 items: Paintbrush, Shield, Clock icons)
+- Hero: all text white, stronger gradient, no green accents
+- New mission section: white bg, centered text + 3 icon cards in a grid
+- Stats: 3-column grid, white text on charcoal
+- CTA: unchanged
+
+### New image: `src/assets/hero-about-page.jpg`
+- AI-generated: bright Colorado home exterior, professional painters, golden hour, mountains, strong contrast for white text overlay
+
