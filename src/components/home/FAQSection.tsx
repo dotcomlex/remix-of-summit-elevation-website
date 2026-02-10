@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AnimatedSection } from "@/components/ui/animated-section";
 
@@ -38,6 +36,9 @@ const faqs = [
   },
 ];
 
+const leftFaqs = faqs.slice(0, 4);
+const rightFaqs = faqs.slice(4);
+
 export function FAQSection() {
   return (
     <section className="relative py-16 md:py-24 bg-sand overflow-hidden">
@@ -56,35 +57,42 @@ export function FAQSection() {
           </p>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.2} className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-3">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`faq-${index}`}
-                className="bg-white rounded-xl border border-border/50 px-6 shadow-sm data-[state=open]:shadow-md transition-shadow"
-              >
-                <AccordionTrigger className="text-left text-base md:text-lg font-semibold text-charcoal hover:no-underline py-5">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-mountain-slate text-base leading-relaxed pb-5">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </AnimatedSection>
-
-        {/* CTA below FAQ */}
-        <AnimatedSection delay={0.4} className="text-center mt-12">
-          <p className="text-charcoal font-semibold text-lg mb-3">Still have questions?</p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg transition-colors"
-          >
-            Contact us
-            <ArrowRight className="w-5 h-5" />
-          </Link>
+        <AnimatedSection delay={0.2} className="max-w-6xl mx-auto">
+          {/* Two-column on desktop, single on mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+            <Accordion type="single" collapsible className="space-y-3">
+              {leftFaqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`faq-left-${index}`}
+                  className="bg-white rounded-xl border border-border/50 px-6 shadow-sm data-[state=open]:shadow-md transition-shadow"
+                >
+                  <AccordionTrigger className="text-left text-base font-semibold text-charcoal hover:no-underline py-5">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-mountain-slate text-base leading-relaxed pb-5">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+            <Accordion type="single" collapsible className="space-y-3">
+              {rightFaqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`faq-right-${index}`}
+                  className="bg-white rounded-xl border border-border/50 px-6 shadow-sm data-[state=open]:shadow-md transition-shadow"
+                >
+                  <AccordionTrigger className="text-left text-base font-semibold text-charcoal hover:no-underline py-5">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-mountain-slate text-base leading-relaxed pb-5">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </AnimatedSection>
       </div>
     </section>

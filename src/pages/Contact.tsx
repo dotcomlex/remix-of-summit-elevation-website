@@ -62,10 +62,7 @@ export default function Contact() {
       </section>
 
       {/* Form + Trust Panel Section */}
-      <section
-        className="relative py-16"
-        style={{ backgroundImage: `url(${paperTexture})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-      >
+      <section className="relative py-16 bg-white">
         <div className="container mx-auto px-4 max-w-5xl">
           {/* Decorative diamond */}
           <div className="flex items-center justify-center gap-4 mb-10">

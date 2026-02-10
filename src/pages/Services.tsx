@@ -120,14 +120,7 @@ const Services = () => {
       </section>
 
       {/* SERVICES GRID */}
-      <section className="py-12 sm:py-16 md:py-20 relative overflow-hidden scroll-mt-20">
-        <div className="absolute inset-0">
-          <img
-            src={paperTexture}
-            alt=""
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <section className="py-12 sm:py-16 md:py-20 relative overflow-hidden scroll-mt-20 bg-white">
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">

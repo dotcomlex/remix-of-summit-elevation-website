@@ -15,24 +15,21 @@ type LogoCloudProps = React.ComponentProps<"div"> & {
 
 export function LogoCloud({ logos }: LogoCloudProps) {
   return (
-    <section className="relative py-10 sm:py-12 overflow-hidden bg-gradient-to-b from-[#0f2419] via-[#132e1f] to-[#0f2419]">
+    <section className="relative py-10 sm:py-12 overflow-hidden bg-white">
       {/* Gold accent borders */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-      
-      {/* Subtle texture */}
-      <div className="absolute inset-0 texture-paper opacity-10" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
       {/* Label */}
       <div className="relative z-10 text-center mb-6">
-        <p className="text-sm sm:text-base uppercase tracking-widest text-snow-white/70 font-heading font-semibold">
+        <p className="text-sm sm:text-base uppercase tracking-widest text-charcoal/60 font-heading font-semibold">
           Trusted By Colorado's Best
         </p>
       </div>
 
       {/* Logo Slider */}
       <div className="relative z-10">
-        <ProgressiveBlur direction="left" bgColor="rgb(15, 36, 25)" className="z-20" />
+        <ProgressiveBlur direction="left" bgColor="rgb(255, 255, 255)" className="z-20" />
 
         <InfiniteSlider duration={35} durationOnHover={80} gap={48} className="py-2">
           {logos.map((logo) => (
@@ -46,10 +43,10 @@ export function LogoCloud({ logos }: LogoCloudProps) {
                   alt={logo.alt}
                   width={logo.width}
                   height={logo.height}
-                  className="h-10 sm:h-14 w-auto object-contain opacity-80 hover:opacity-100 transition-all duration-300 brightness-0 invert"
+                  className="h-10 sm:h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300"
                 />
               ) : (
-                <span className="text-xl sm:text-2xl font-heading font-bold text-snow-white/50 whitespace-nowrap tracking-tight">
+                <span className="text-xl sm:text-2xl font-heading font-bold text-charcoal/40 whitespace-nowrap tracking-tight">
                   {logo.name}
                 </span>
               )}
@@ -57,7 +54,7 @@ export function LogoCloud({ logos }: LogoCloudProps) {
           ))}
         </InfiniteSlider>
 
-        <ProgressiveBlur direction="right" bgColor="rgb(15, 36, 25)" className="z-20" />
+        <ProgressiveBlur direction="right" bgColor="rgb(255, 255, 255)" className="z-20" />
       </div>
     </section>
   );
