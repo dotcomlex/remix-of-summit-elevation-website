@@ -1,28 +1,47 @@
 
-# Testimonials Section Redesign
 
-## Problem
-The section is all white -- white background, white cards, white everywhere. Nothing pops or stands out. It feels flat and washed out.
+# Testimonials + Navigation + Why Choose Us Fixes
 
-## Solution
-Use a soft warm sand/cream background for the section, and give the cards a distinct elevated look with stronger shadows and a subtle green accent treatment.
+## 1. Testimonials Section -- Complete Redesign
 
-### Design Changes
+**Background**: Change from `bg-sand` to `bg-white` so it no longer matches the FAQ section.
 
-**Section background**: Switch from `bg-white` to `bg-sand` (the warm cream tone already in your palette) -- this immediately separates it from the white sections above/below.
+**Desktop layout**: Replace the stacked 3-column grid with a single-row horizontal scroll carousel using `overflow-x-auto` with `snap-x`. Cards sit side by side and users scroll through them -- much more elegant and modern than a stacked grid.
 
-**Testimonial cards**: 
-- Background stays `bg-white` -- now they contrast against the sand background
-- Increase shadow from `shadow-md` to `shadow-lg` with a warm-toned shadow
-- Thicken the left green accent bar from `w-1` to `w-1.5`
-- Add a subtle top gradient shine on hover for polish
-- Slightly larger rounded corners (`rounded-2xl` stays)
+**Card styling**: Give cards a light sand/cream background (`bg-sand`) instead of white-on-white. This makes them visually distinct against the white section background. Keep the green left accent bar, shadow, and border.
 
-**Avatar circles**: Change from the faint `bg-primary/10` to a solid `bg-primary` with white text -- makes the initials pop instead of blending in.
+**Google rating badge**: Center-align it properly using `flex justify-center` (currently left-aligned on desktop).
 
-**Marquee row**: Add a thin top border (`border-t border-border`) to visually separate it from the cards above. Update gradient fade masks from `from-white` to `from-sand`.
+**Marquee row**: Increase text opacity from `text-charcoal/50` to `text-charcoal/70` so the micro-reviews are actually readable.
 
-**Google rating badge**: Wrap it in a small pill/badge with a subtle border for emphasis instead of plain floating text.
+**File**: `src/components/home/TestimonialsSection.tsx`
 
-### File modified
-- `src/components/home/TestimonialsSection.tsx` -- all changes are in this single file
+---
+
+## 2. Navigation -- Reduce Top Spacing
+
+The logo is extremely tall (`h-48 xl:h-56` on desktop, `h-40 sm:h-44` on mobile), pushing the nav links far down from the top of the viewport. Reduce the logo height to something more reasonable:
+- Desktop: `h-48 xl:h-56` down to `h-24 xl:h-28`
+- Mobile: `h-40 sm:h-44` down to `h-20 sm:h-24`
+- Reduce container padding from `py-4 lg:py-6` to `py-3 lg:py-4`
+
+**File**: `src/components/layout/Navigation.tsx`
+
+---
+
+## 3. Why Choose Us -- Remove Trust Strip Line
+
+Remove the entire "1,000+ Homes / 5.0 Rating / 8+ Years / 100% Satisfaction" inline stat strip (lines 51-59 in WhyChooseUs.tsx). The paragraph above it already mentions "1,000 homes" and these stats are redundant clutter.
+
+**File**: `src/components/home/WhyChooseUs.tsx`
+
+---
+
+## Files Modified
+
+| File | Change |
+|------|--------|
+| `src/components/home/TestimonialsSection.tsx` | White bg, horizontal scroll on desktop, sand-colored cards, centered badge, visible marquee |
+| `src/components/layout/Navigation.tsx` | Smaller logo, less top padding |
+| `src/components/home/WhyChooseUs.tsx` | Remove trust strip line |
+
