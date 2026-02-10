@@ -1,66 +1,32 @@
 
-
-# Modern Footer Redesign — 4-Column Grid Layout
-
-Redesign the footer from the current centered minimal layout into a modern 4-column grid with more content and interactivity.
+# Hero Section Update — Large Centered Logo + New Background
 
 ---
 
 ## What Changes
 
-### 1. Layout: 4-column grid on desktop, stacked on mobile
-- **Column 1 — Brand**: Logo, description, contact info (email + phone)
-- **Column 2 — Quick Links**: Home, Services, Gallery, Get Quote
-- **Column 3 — Service Areas**: 6 Denver metro cities
-- **Column 4 — Request Quote + Social**: Email capture form with submit button, plus social media icons
+### 1. Add large centered Emerald Paints logo
+- Import `logo-emerald.png` and place it prominently above the trust badge
+- Size: `h-40 md:h-48 lg:h-56 xl:h-64` — very large and dominant
+- Centered with `mx-auto`, enhanced with drop-shadow filter for visibility against the dark background
+- No "Emerald Paints" text — the logo speaks for itself
 
-### 2. Background
-- Switch from `bg-gray-900` to `bg-gray-800` for slightly lighter contrast
+### 2. Replace background image
+- Swap `hero-home-new.webp` for a new Unsplash image of a professional painting scene: `https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1200&q=80`
+- Keep the existing dark gradient overlay (`from-black/80 via-black/60 to-black/40`) for text readability
 
-### 3. Quote Request Form
-- Simple email input + "Send" button
-- Loading and success/error states with auto-reset after 3 seconds
-- Simulated submission (no backend wired up yet)
-
-### 4. Social Media Icons
-- Facebook, Instagram, Twitter icons with hover effects
-- Placeholder `#` links (to be updated with real URLs later)
-
-### 5. Bottom Bar
-- Certifications row: Licensed & Insured, BBB Accredited, Since 2017
-- Copyright line
-- Keep "Powered by Frost Media LLC" credit
-
-### 6. What's removed from current footer
-- Centered logo layout replaced with left-aligned brand column
-- "Serving All of Colorado" replaced with phone number + email in brand column
+### 3. Everything else stays the same
+- Trust badge, headlines, subheadline, CTA button, trust indicators, and bottom text all remain unchanged
+- Animations and responsive behavior preserved
 
 ---
 
 ## Technical Details
 
-### File: `src/components/layout/Footer.tsx` (full rewrite)
+### File: `src/components/home/HeroSection.tsx`
 
-**New imports:**
-- `useState` from React
-- `Phone`, `Mail`, `MapPin`, `ArrowRight`, `Facebook`, `Instagram`, `Twitter` from lucide-react (replace current `Mail`, `MapPin`, `CheckCircle2`)
-- `Input` from `@/components/ui/input`
-- `Button` from `@/components/ui/button`
-- `cn` from `@/lib/utils`
-
-**New data arrays:**
-- `quickLinks`: 4 items (Home, Services, Gallery, Get Quote via tel link)
-- `serviceAreas`: 6 cities (unchanged)
-- `socialLinks`: 3 social platforms with icons
-
-**New state:**
-- `email`, `isSubmitting`, `subscriptionStatus` for the quote form
-
-**Grid structure:**
-- `grid-cols-1 md:grid-cols-2 lg:grid-cols-4` with `gap-12 lg:gap-8`
-- Each column left-aligned
-
-**Bottom section:**
-- Full-width bar with certifications + copyright + Frost Media credit
-- Separated by `border-t border-gray-700`
-
+**Changes:**
+- Add import: `import logoEmerald from "@/assets/logo-emerald.png";`
+- Replace `heroImage` import (remove webp asset import, use Unsplash URL string instead)
+- Insert logo `<img>` element before the trust badge, wrapped in a `div` with `flex justify-center mb-8 animate-fade-up`
+- Logo styling: `h-40 md:h-48 lg:h-56 xl:h-64 w-auto` with `drop-shadow(0 4px 24px rgba(0,0,0,0.5))` filter
