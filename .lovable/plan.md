@@ -1,23 +1,35 @@
 
+# Replace 5 Images + Fix Hero Loading
 
-# Fix Mobile Hero — Center Content Vertically
+## Image Replacements
 
-## Problem
-On mobile, the content is pushed to the very bottom of the viewport (`items-end` on line 50), leaving a massive empty space at the top where only the background image shows. This wastes prime screen real estate and makes the hero feel unbalanced.
+| Section | Current Image | New Image |
+|---------|--------------|-----------|
+| Hero (both mobile + desktop) | `hero-split-right.jpg` | Beautiful Colorado home at sunset |
+| Why Choose Us | `hero-painting-crew.jpg` | Painter on ladder, exterior work |
+| Interior Painting service card | `service-interior-painting.jpg` | Interior room with blue painter's tape |
+| Exterior Painting service card | `service-exterior-painting.jpg` | Painter rolling exterior siding |
+| Staining service card | `service-wood-staining.jpg` | Close-up of brush staining wood deck |
 
-## Fix
-Change the mobile content container from `items-end` to `items-center` so the text, CTA, and trust indicators are vertically centered over the background image. Also adjust padding so there's balanced space above and below.
+## Steps
+
+1. Copy all 5 uploaded images into `src/assets/` with clean filenames:
+   - `hero-home-colorado.webp` (the beautiful home)
+   - `crew-exterior-ladder.webp` (painter on ladder — Why Choose Us)
+   - `service-interior-taping.webp` (interior with blue tape)
+   - `service-exterior-rolling.webp` (exterior painting)
+   - `service-staining-deck.webp` (wood staining close-up)
+
+2. Update import in `src/components/home/HeroSection.tsx` — change from `hero-split-right.jpg` to `hero-home-colorado.webp`
+
+3. Update import in `src/components/home/WhyChooseUs.tsx` — change from `hero-painting-crew.jpg` to `crew-exterior-ladder.webp`
+
+4. Update imports in `src/components/home/ServicesPreview.tsx` — change the three service image imports to the new webp files
+
+5. Force a clean re-render of the hero section by ensuring the component structure is correct (the hero not loading in preview is likely a hot-reload issue that will resolve with the file changes)
 
 ## Technical Details
 
-### File: `src/components/home/HeroSection.tsx`
-
-**Line 50** — Change mobile content alignment:
-- From: `flex items-end min-h-[100dvh]`
-- To: `flex items-center min-h-[100dvh]`
-
-**Line 51** — Adjust padding to balance around center:
-- From: `px-5 pb-10 pt-32`
-- To: `px-5 pb-8 pt-24`
-
-These two small changes will vertically center all hero content over the background image on mobile, eliminating the large empty gap at the top.
+- All 5 files are `.webp` format (better compression than jpg)
+- Only import lines change in each component — no structural changes needed
+- The hero section code structure remains the same (full-bleed mobile background + split desktop layout)
