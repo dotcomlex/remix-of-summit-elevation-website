@@ -36,20 +36,20 @@ export function Navigation() {
   return (
     <>
       <header className="absolute top-0 left-0 right-0 z-50">
-        <div className="container mx-auto px-4 lg:px-8 py-3 lg:py-4">
+        <div className="container mx-auto px-4 lg:px-8 py-2 lg:py-4">
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-start justify-between">
+          <div className="hidden lg:flex items-center justify-between">
             <Link to="/" className="flex items-center">
               <img
                 src={logoEmerald}
                 alt="Emerald Paints"
-                className="h-48 xl:h-56 w-auto"
+                className="h-24 xl:h-28 w-auto"
                 style={{ filter: logoFilter, maxWidth: "none" }}
               />
             </Link>
 
-            <nav className="pt-6">
+            <nav>
               <ul className="flex items-center gap-2">
                 {navLinks.map((link) => (
                   <li key={link.path}>
@@ -80,7 +80,7 @@ export function Navigation() {
               <img
                 src={logoEmerald}
                 alt="Emerald Paints"
-                className="h-40 sm:h-44 w-auto"
+                className="h-20 sm:h-24 w-auto"
                 style={{ filter: logoFilter, maxWidth: "none" }}
               />
             </Link>
