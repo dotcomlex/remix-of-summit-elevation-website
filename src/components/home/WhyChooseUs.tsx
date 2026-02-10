@@ -2,7 +2,7 @@ import { CheckCircle2, Star, ArrowRight } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import paintingCrewImage from "@/assets/hero-painting-crew.jpg";
+import paintingCrewImage from "@/assets/crew-exterior-ladder.webp";
 
 
 const reasons = [

@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
-import interiorImage from "@/assets/service-interior-painting.jpg";
-import exteriorImage from "@/assets/service-exterior-painting.jpg";
-import woodStainImage from "@/assets/service-wood-staining.jpg";
+import interiorImage from "@/assets/service-interior-taping.webp";
+import exteriorImage from "@/assets/service-exterior-rolling.webp";
+import woodStainImage from "@/assets/service-staining-deck.webp";
 
 const services = [
   { 

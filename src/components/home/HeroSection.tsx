@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Star, Award, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-split-right.jpg";
+import heroImage from "@/assets/hero-home-colorado.webp";
 
 export function HeroSection() {
   return (
