@@ -1,85 +1,88 @@
 
-
-# Services Page Images + Footer + Logo + Homepage Refresh
-
----
-
-## Part 1: Generate Unique Images for Every Service Card
-
-The Services page (`src/pages/Services.tsx`) has 8 service cards, but they reuse kitchen, bathroom, concrete, construction, HVAC, and electrical images that have nothing to do with painting. Each card will get a brand-new AI-generated image that actually represents the painting service described.
-
-| Service Card | New Asset File | AI Image Prompt |
-|---|---|---|
-| **Interior Painting** | `src/assets/service-interior-painting.jpg` | Professional painter rolling soft white paint on a living room wall, drop cloths on floor, clean crisp lines, warm natural light |
-| **Exterior Painting** | `src/assets/service-exterior-painting.jpg` | Painter on a ladder painting the exterior siding of a Colorado home, bright blue sky, professional equipment visible |
-| **Wood Staining** | `src/assets/service-wood-staining.jpg` | Close-up of someone staining a wooden deck with rich cedar stain, brush strokes visible, Colorado backyard with trees |
-| **Vinyl & Aluminum Painting** | `src/assets/service-vinyl-painting.jpg` | Freshly painted vinyl siding on a suburban home, crisp clean finish, before-and-after feel, bright daylight |
-| **Commercial Painting** | `src/assets/service-commercial-painting.jpg` | Painters working inside a modern commercial office space, rolling paint on walls, professional lighting, clean workspace |
-| **Touch-Ups & Repairs** | `src/assets/service-touchups.jpg` | Close-up of a painter patching and repainting a wall section, putty knife and paint brush, detailed repair work |
-| **Custom Finishes & Specialty Coatings** | `src/assets/service-custom-finishes.jpg` | Textured accent wall being painted with a specialty roller, dramatic color, artistic finish technique |
-| **Free Color Consultation** | `src/assets/service-color-consultation.jpg` | Paint color swatches and fan decks spread out on a table, someone selecting colors, warm inviting setting |
-
-Also update the 3 service preview cards on the homepage (`ServicesPreview.tsx`) with appropriate new images from the ones generated above.
+# Fix Footer Desktop, Service Images, Homepage Layout, and Why Choose Us
 
 ---
 
-## Part 2: Footer Overhaul
+## 1. Footer: Desktop vs Mobile Layout
 
-Changes to `src/components/layout/Footer.tsx`:
+**Problem**: The footer currently centers the logo AND the description text on desktop. User wants desktop footer to look like a normal left-aligned layout -- only apply the centered large logo treatment on mobile.
 
-- **Remove** the "Emerald Paints" text next to the logo
-- **Remove** phone number and email completely from footer
-- **Center the logo** at the top of the footer, large and prominent (h-32 to h-40, matching the brand memory)
-- Keep the existing layout below it (Service Areas, Quick Links, Quote Form, Social Links, Bottom Bar)
-- Remove any remaining phone/email references throughout
-
----
-
-## Part 3: Increase Navigation Logo Size
-
-In `src/components/layout/Navigation.tsx`:
-
-- Desktop logo: increase from `h-32 xl:h-36` to `h-36 xl:h-44`
-- Mobile logo: increase from `h-28 sm:h-32` to `h-32 sm:h-36`
+**Changes to `src/components/layout/Footer.tsx`**:
+- On **desktop (md+)**: Logo stays at its normal size in the top-left area, description text left-aligned, standard 3-column grid below -- essentially the traditional footer layout
+- On **mobile**: Keep the centered, large logo (h-36), description below it, stacked content
+- Use responsive classes: `flex justify-center md:justify-start` for logo, and adjust text alignment with `text-left`
 
 ---
 
-## Part 4: Homepage Layout Refresh
+## 2. Navigation Logo: Increase Size More
 
-To differentiate from the Fortuner Renovations template, make these changes:
+**Problem**: User wants it even bigger (3x was mentioned).
 
-1. **Reorder homepage sections** — swap the position of "Why Choose Us" and "Gallery" so the flow becomes:
-   - Hero -> Logo Cloud -> Services Preview -> **Why Choose Us** -> **Gallery Carousel** -> Testimonials -> FAQ -> CTA
+**Changes to `src/components/layout/Navigation.tsx`**:
+- Desktop logo: Keep current `h-48 xl:h-56` or go slightly bigger -- these are already very large. Since user says 3x and it was originally around h-16, the current h-48 is already 3x. Will keep as-is or bump to `h-52 xl:h-60` for extra prominence.
+- No changes to mobile (user said "do not center it etc, just apply for mobile only" about footer -- but for the nav logo, increase applies to desktop too).
 
-2. **Add a new "Our Process" section** between Services Preview and Why Choose Us — a simple 3-step horizontal layout (Consult -> Paint -> Enjoy) with icons and brief text, giving the page a unique section the original didn't have.
+---
 
-3. **Restyle the Services Preview cards** — change from the current 3-column equal grid to a layout where the first card spans full width (hero-style) and the bottom two sit side by side. This creates visual variety.
+## 3. Services Preview Cards: Fix Layout and Regenerate Images
 
-4. **Update the CTA section** — change the copy and add a secondary "View Our Work" button alongside the primary estimate button to differentiate.
+**Problems identified from screenshots**:
+- The 1-over-2 grid layout looks bad on desktop (giant horizontal card on top)
+- The AI-generated images are poor quality (interior painting image has artifacts, exterior shows someone spray-painting what looks like a roofline against pure blue sky)
+- The green title text ("Interior Painting") has poor contrast against the dark overlay
+
+**Changes to `src/components/home/ServicesPreview.tsx`**:
+- Change layout to **3 equal columns on desktop** (md:grid-cols-3) instead of the 1-over-2 layout. Remove the `md:col-span-2` on the first card
+- Make all cards the same height
+- Fix text color: change the title hover color from `text-primary` (dark green, hard to read) to keep it `text-snow-white` with a subtle underline or glow effect instead
+- Regenerate all 3 service preview images with better, more realistic prompts
+
+**New images to generate**:
+- `service-interior-painting.jpg` -- Bright, well-lit living room with freshly painted walls, paint roller on tray in foreground, natural warm light
+- `service-exterior-painting.jpg` -- Beautiful Colorado home exterior with fresh paint, mountains in background, professional ladder setup
+- `service-wood-staining.jpg` -- Rich wood deck being stained, warm tones, backyard setting with greenery
+
+---
+
+## 4. Move Gallery Section Higher on Homepage
+
+**Problem**: User loves the 3D circular gallery but wants it closer to the top, not buried at the bottom.
+
+**Changes to `src/pages/Index.tsx`** -- new section order:
+1. HeroSection
+2. LogoCloud
+3. **GallerySection** (moved up from position 6)
+4. ServicesPreview
+5. ProcessSection
+6. WhyChooseUs (redesigned -- see below)
+7. TestimonialsSection
+8. FAQSection
+9. CTASection
+
+---
+
+## 5. Redesign "Why Choose Us" Section
+
+**Problem**: The 4 stat blocks (1,000+ Homes, 5.0 Rating, 8+ Years, 100% Satisfaction) with emoji icons look redundant and childish. The whole section feels cluttered.
+
+**Changes to `src/components/home/WhyChooseUs.tsx`**:
+- **Remove the 4 stat cards entirely** (the emoji blocks at the top)
+- Keep the two-column layout (reasons on left, image + testimonial on right)
+- Instead of the stat blocks, incorporate the key numbers inline within the heading or as a subtle single-line trust strip (e.g., "1,000+ Homes | 5.0 Stars | 8+ Years") below the subheading -- clean and not redundant
+- This declutters the section significantly
 
 ---
 
 ## Technical Summary
 
 ### Files modified:
-- `src/pages/Services.tsx` — replace all 8 image imports with new generated assets
-- `src/components/home/ServicesPreview.tsx` — update 3 image imports + change layout to 1-over-2 grid
-- `src/components/layout/Footer.tsx` — center logo, remove text label, remove phone/email
-- `src/components/layout/Navigation.tsx` — increase logo sizes
-- `src/pages/Index.tsx` — reorder sections, add new OurProcess component
-- `src/components/home/CTASection.tsx` — update copy and add secondary button
+- `src/components/layout/Footer.tsx` -- responsive layout: left-aligned on desktop, centered on mobile
+- `src/components/layout/Navigation.tsx` -- bump desktop logo size slightly larger
+- `src/components/home/ServicesPreview.tsx` -- 3-column equal grid, fix text contrast, update images
+- `src/pages/Index.tsx` -- reorder: move GallerySection up to position 3
+- `src/components/home/WhyChooseUs.tsx` -- remove 4 stat cards, replace with inline trust strip
 
-### New files:
-- `src/components/home/ProcessSection.tsx` — new 3-step process section
-- 8 new AI-generated service images in `src/assets/`
-
-### Assets generated (8 total, all fresh, no recycling):
-- `service-interior-painting.jpg`
-- `service-exterior-painting.jpg`
-- `service-wood-staining.jpg`
-- `service-vinyl-painting.jpg`
-- `service-commercial-painting.jpg`
-- `service-touchups.jpg`
-- `service-custom-finishes.jpg`
-- `service-color-consultation.jpg`
-
+### Assets regenerated (3 new images):
+- `src/assets/service-interior-painting.jpg`
+- `src/assets/service-exterior-painting.jpg`
+- `src/assets/service-wood-staining.jpg`
