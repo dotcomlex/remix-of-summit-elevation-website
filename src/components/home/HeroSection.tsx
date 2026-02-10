@@ -1,6 +1,6 @@
 import { ArrowRight, Star, Award, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-clean-home.jpg";
+import heroImage from "@/assets/hero-home-new.webp";
 
 export function HeroSection() {
   return (

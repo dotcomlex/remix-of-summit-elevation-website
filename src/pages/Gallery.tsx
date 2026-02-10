@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 
 // Import hero/CTA background
-import heroImage from "@/assets/services-hero-bg.jpg";
+import heroImage from "@/assets/hero-gallery.jpg";
 
 interface GalleryImage {
   id: number;
