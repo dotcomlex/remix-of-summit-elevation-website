@@ -47,8 +47,8 @@ export function HeroSection() {
       </div>
 
       {/* Mobile Content (positioned over background image) */}
-      <div className="relative z-10 lg:hidden flex items-end min-h-[100dvh]">
-        <div className="w-full px-5 pb-10 pt-32">
+      <div className="relative z-10 lg:hidden flex items-center min-h-[100dvh]">
+        <div className="w-full px-5 pb-8 pt-24">
           <HeroContent />
         </div>
       </div>
