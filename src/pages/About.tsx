@@ -85,25 +85,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-20 md:py-28 bg-[hsl(var(--charcoal))] text-white">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="text-center p-6">
-              <p className="font-heading text-4xl md:text-5xl font-bold text-white mb-2">1,000+</p>
-              <p className="text-white/60 text-sm">Homes Painted</p>
-            </div>
-            <div className="text-center p-6">
-              <p className="font-heading text-4xl md:text-5xl font-bold text-white mb-2">5.0</p>
-              <p className="text-white/60 text-sm">Star Rating</p>
-            </div>
-            <div className="text-center p-6">
-              <p className="font-heading text-4xl md:text-5xl font-bold text-white mb-2">8+</p>
-              <p className="text-white/60 text-sm">Years Experience</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
     </Layout>
   );
