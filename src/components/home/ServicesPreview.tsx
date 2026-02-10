@@ -2,28 +2,28 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
-import kitchenImage from "@/assets/kitchen-remodel.jpg";
-import concreteImage from "@/assets/concrete-patio.jpg";
-import bathroomImage from "@/assets/bathroom-remodel.jpg";
+import interiorImage from "@/assets/service-interior-painting.jpg";
+import exteriorImage from "@/assets/service-exterior-painting.jpg";
+import woodStainImage from "@/assets/service-wood-staining.jpg";
 
 const services = [
   { 
     title: "Interior Painting", 
     description: "Transform your living spaces with smooth, clean finishes. We handle everything from single accent walls to full-home interiors — with furniture protection, detailed prep, and zero mess.", 
     link: "/services", 
-    image: kitchenImage 
+    image: interiorImage 
   },
   { 
     title: "Exterior Painting", 
     description: "Boost your curb appeal and protect your home from Colorado's harsh weather. Our durable, weather-resistant exterior finishes are built to last through sun, snow, and everything in between.", 
     link: "/services", 
-    image: concreteImage 
+    image: exteriorImage 
   },
   { 
     title: "Staining & Specialty Finishes", 
     description: "Bring out the natural beauty of wood with expert deck, fence, and trim staining. We also offer custom finishes, accent walls, and protective coatings tailored to your vision.", 
     link: "/services", 
-    image: bathroomImage 
+    image: woodStainImage 
   },
 ];
 
@@ -51,12 +51,12 @@ export function ServicesPreview() {
         </AnimatedSection>
 
         {/* Service Cards - Image Background with Text Overlay */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
           {services.map((service, index) => (
-            <StaggerItem key={index}>
+            <StaggerItem key={index} className={index === 0 ? "md:col-span-2" : ""}>
               <Link 
                 to={service.link} 
-                className="group block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-[380px] md:h-[420px]"
+                className={`group block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${index === 0 ? "h-[380px] md:h-[480px]" : "h-[380px] md:h-[420px]"}`}
               >
                 {/* Background Image */}
                 <img 

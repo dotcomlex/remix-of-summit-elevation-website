@@ -2,8 +2,9 @@ import { Layout } from "@/components/layout/Layout";
 import { HeroSection } from "@/components/home/HeroSection";
 import { LogoCloud } from "@/components/home/LogoCloud";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
-import { GallerySection } from "@/components/home/GallerySection";
+import { ProcessSection } from "@/components/home/ProcessSection";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
+import { GallerySection } from "@/components/home/GallerySection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
@@ -30,8 +31,9 @@ const Index = () => {
       <HeroSection />
       <LogoCloud logos={partnerLogos} />
       <ServicesPreview />
-      <GallerySection />
+      <ProcessSection />
       <WhyChooseUs />
+      <GallerySection />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
