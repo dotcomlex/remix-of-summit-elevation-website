@@ -75,19 +75,18 @@ export function Navigation() {
           </div>
 
           {/* Mobile Header */}
-          <div className="lg:hidden grid grid-cols-3 items-center">
-            <div />
-            <Link to="/" className="flex items-center justify-self-center">
+          <div className="lg:hidden relative flex items-center justify-center px-4">
+            <Link to="/" className="flex items-center pr-14">
               <img
                 src={logoEmerald}
                 alt="Emerald Paints"
-                className="h-44 sm:h-48 w-auto -my-12 sm:-my-14"
+                className="h-48 sm:h-52 w-auto -my-12 sm:-my-14"
                 style={{ filter: logoFilter, maxWidth: "none" }}
               />
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="justify-self-end flex items-center justify-center w-12 h-12 text-snow-white hover:text-white/80 transition-colors"
+              className="absolute right-4 flex items-center justify-center w-12 h-12 text-snow-white hover:text-white/80 transition-colors"
               style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.8))" }}
               aria-label="Toggle menu"
             >
