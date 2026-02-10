@@ -1,42 +1,68 @@
 
 
-# Hero Section Fix — Structure and Responsiveness
+# Hero Section — Mobile-First Redesign + Desktop Nav Fix
 
-## Problems Identified
+## Problems from Screenshots
 
-### Mobile
-- Image section (`h-[45vh]`) is too tall, pushing content down
-- Trust indicators and "8+ years" text get cut off below the fold
-- Too much spacing between elements (mt-10, mt-8, mt-6)
-- Content padding is too generous for small screens
+### Mobile (Primary Concern)
+- The image block at top and the dark content block below look like **two separate sections** — there's a hard visual break between them
+- The logo is barely visible against the bright image background
+- The gradient fade from image to dark background isn't smooth enough
 
 ### Desktop
-- Image panel uses `absolute inset-4` which clips the image awkwardly on the right edge
-- Left content panel isn't properly vertically centered
-- Too much bottom dead space — trust indicators feel disconnected
-- The green accent line on the left of the image feels random
+- Nav links ("Services", "Gallery", etc.) are nearly invisible where they overlap the bright sky portion of the image
+- The image panel feels oversized and the `left-4` gap creates an awkward seam
 
-## Fixes
+## Solution
 
-### Mobile Adjustments
-- Reduce mobile image height from `h-[45vh]` to `h-[35vh]`
-- Tighten spacing: reduce margins between badge, headline, subtext, CTA, and trust indicators
-- Reduce padding on the content area for mobile
-- Ensure all elements (including trust badges and "8+ years" text) fit above the fold
+### Mobile: Unified Full-Bleed Hero
+Instead of stacking a separate image block on top of a dark content block, use the image as a **full background** on mobile with a strong dark gradient overlay. This makes it feel like one cohesive section:
 
-### Desktop Adjustments
-- Change image container from `absolute inset-4` to `absolute inset-0` with padding only on top/bottom/left (let image bleed to the right edge for a cleaner look)
-- Better vertical centering of the left content panel
-- Remove the decorative green accent line (it looks out of place)
-- Tighten the spacing between elements so content feels more cohesive
+```text
++---------------------------+
+| [Logo]           [Menu]   |
+|                           |
+|  (image background with   |
+|   dark gradient overlay)  |
+|                           |
+|  [Badge]                  |
+|  Beautiful Homes          |
+|  Start with Great Paint   |
+|  Subheadline...           |
+|  [Get Free Estimate -->]  |
+|  [5.0] [1,000+ Homes]    |
+|  8+ years...              |
++---------------------------+
+```
 
-### File to modify
-- `src/components/home/HeroSection.tsx` — Adjust spacing, image container, and responsive breakpoints
+- Image covers the entire mobile hero as a background (not a separate block)
+- Strong gradient overlay (bottom 60% dark) ensures text readability
+- Content is vertically centered or pushed to the lower portion
+- Everything feels like ONE section
 
-### Key changes
-- Mobile image: `h-[45vh]` changed to `h-[35vh] min-h-[220px]`
-- Mobile spacing: `mt-10` to `mt-6`, `mt-8` to `mt-4`, `mt-6` to `mt-3`, `mb-8` to `mb-5`
-- Desktop image container: remove `inset-4 xl:inset-6 rounded-2xl` and use a cleaner edge-to-edge approach with rounding only on the left side
-- Remove the green accent line div
-- Add `lg:min-h-screen` to ensure proper height on desktop
-- Content panel: add proper vertical centering with `lg:py-20`
+### Desktop: Keep Split Layout (with fixes)
+- Nav links get a subtle dark backdrop/shadow so they're readable over the bright image
+- Image container: change `left-4` to `left-0` with only `rounded-l-2xl` — cleaner edge
+- Slightly reduce image panel from 45% to 40% or add a dark overlay strip at the top of the image where nav overlaps
+
+## Technical Details
+
+### Files to modify
+
+**`src/components/home/HeroSection.tsx`**
+- Remove the separate mobile image div (`lg:hidden h-[35vh]`)
+- Replace with a full-background approach on mobile: absolute-positioned image behind content with gradient overlay
+- Keep the desktop split grid (`lg:grid lg:grid-cols-[55%_45%]`)
+- On mobile, content gets `pt-32` (to clear the nav) and is positioned over the background image
+- Add stronger gradient: `bg-gradient-to-t from-section-dark via-section-dark/90 to-section-dark/30`
+
+**`src/components/layout/Navigation.tsx`**
+- Add a subtle dark text shadow or semi-transparent backdrop to desktop nav links so they remain readable over bright image areas
+- Add `text-shadow` or a `bg-black/20 backdrop-blur-sm` behind the nav bar area on desktop
+
+### Key Changes Summary
+1. Mobile hero becomes a single full-bleed image with dark gradient overlay and content on top — no more "two sections" feel
+2. Desktop nav gets improved contrast over the bright image panel
+3. Desktop image panel cleanup (remove `left-4` gap)
+4. Logo visibility improves on mobile because the gradient ensures a darker area behind it
+
