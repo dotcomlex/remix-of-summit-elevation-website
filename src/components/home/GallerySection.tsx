@@ -103,7 +103,7 @@ export function GallerySection() {
       <div className="relative flex flex-col items-center pt-16 pb-12 px-4 md:min-h-screen md:py-16">
         {/* Header */}
         <AnimatedSection className="text-center mb-2 md:mb-16 relative z-40">
-          <span className="inline-block text-primary font-semibold text-xs md:text-sm tracking-widest uppercase mb-2">
+          <span className="inline-block text-white/80 font-semibold text-xs md:text-sm tracking-widest uppercase mb-2">
             Our Work
           </span>
           <h2 className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">

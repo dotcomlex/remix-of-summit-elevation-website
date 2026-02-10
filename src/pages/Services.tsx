@@ -92,7 +92,7 @@ const Services = () => {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-16 sm:pb-20 text-center">
-          <span className="inline-block text-primary font-semibold text-xs sm:text-sm tracking-widest uppercase mb-3 sm:mb-4">
+          <span className="inline-block text-white/80 font-semibold text-xs sm:text-sm tracking-widest uppercase mb-3 sm:mb-4">
             — Our Services —
           </span>
 
@@ -112,7 +112,7 @@ const Services = () => {
 
           <div className="flex items-center justify-center text-snow-white/90 text-[11px] sm:text-sm">
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <Shield className="h-3.5 w-3.5 sm:h-5 sm:w-5 text-primary" />
+              <Shield className="h-3.5 w-3.5 sm:h-5 sm:w-5 text-snow-white/90" />
               <span>Licensed & Insured</span>
             </div>
           </div>

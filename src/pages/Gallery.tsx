@@ -100,7 +100,7 @@ export default function Gallery() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-block text-primary font-semibold text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-4"
+            className="inline-block text-white/80 font-semibold text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-4"
           >
             — Our Portfolio —
           </motion.span>

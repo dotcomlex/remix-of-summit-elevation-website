@@ -32,7 +32,7 @@ export function HeroSection() {
             Beautiful Homes
           </span>
           <span
-            className="block text-primary font-extrabold tracking-tight leading-[1.05]"
+            className="block text-snow-white font-extrabold tracking-tight leading-[1.05]"
             style={{ fontSize: "clamp(2.2rem, 8vw, 3.5rem)" }}
           >
             Start with Paint
@@ -44,7 +44,7 @@ export function HeroSection() {
           className="hidden lg:block font-heading text-shadow-strong animate-fade-up text-snow-white font-extrabold tracking-tight leading-[1.05]"
           style={{ fontSize: "clamp(3.5rem, 5vw, 5.5rem)" }}
         >
-          Beautiful Homes Start with <span className="text-primary">Great Paint</span>
+          Beautiful Homes Start with <span className="text-snow-white">Great Paint</span>
         </h1>
 
         {/* Subheadline */}

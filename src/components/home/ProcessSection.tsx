@@ -36,7 +36,7 @@ export function ProcessSection() {
             <div className="w-3 h-3 rotate-45 border-2 border-primary" />
             <div className="w-16 md:w-24 h-px bg-primary/40" />
           </div>
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-3">How It Works</span>
+          <span className="inline-block text-white/80 font-semibold text-sm uppercase tracking-wider mb-3">How It Works</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-snow-white mb-4">
             Simple as 1-2-3
           </h2>
