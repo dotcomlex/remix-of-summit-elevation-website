@@ -1,88 +1,27 @@
 
-# Fix Footer Desktop, Service Images, Homepage Layout, and Why Choose Us
+# Update Gallery Section Background
 
----
+## What Changes
 
-## 1. Footer: Desktop vs Mobile Layout
+Replace the current dark navy/blue background of the 3D gallery section with a calm, textured green theme that matches the rest of the site's forest green and cream aesthetic.
 
-**Problem**: The footer currently centers the logo AND the description text on desktop. User wants desktop footer to look like a normal left-aligned layout -- only apply the centered large logo treatment on mobile.
+## Approach
 
-**Changes to `src/components/layout/Footer.tsx`**:
-- On **desktop (md+)**: Logo stays at its normal size in the top-left area, description text left-aligned, standard 3-column grid below -- essentially the traditional footer layout
-- On **mobile**: Keep the centered, large logo (h-36), description below it, stacked content
-- Use responsive classes: `flex justify-center md:justify-start` for logo, and adjust text alignment with `text-left`
+Modify `src/components/home/GallerySection.tsx` -- specifically the 4 background overlay `div` layers (lines 93-112):
 
----
+- **Base gradient**: Change from dark navy (`#0a1628` / `#0d1f3c`) to deep forest greens (`#0f2419` via `#132e1f` to `#0a1a10`) -- rich, dark emerald tones
+- **Radial glow**: Shift from blue tint to a warm green/gold glow using the brand's primary green
+- **Mesh gradient**: Update the radial spots to use forest greens and warm gold accents instead of blue/purple
+- **Add paper texture overlay**: Layer the existing `paper-texture-light.jpg` asset on top with low opacity (`opacity-[0.04]`) and `mix-blend-mode: overlay` to give it a subtle organic, textured feel -- matching how the Services and Contact pages use texture
+- **Vignette**: Keep as-is (it's neutral black, works with any base)
 
-## 2. Navigation Logo: Increase Size More
+Also update the text colors that reference blue-ish tones (the instruction text `text-white/40` stays fine since it's neutral).
 
-**Problem**: User wants it even bigger (3x was mentioned).
+### Technical Details
 
-**Changes to `src/components/layout/Navigation.tsx`**:
-- Desktop logo: Keep current `h-48 xl:h-56` or go slightly bigger -- these are already very large. Since user says 3x and it was originally around h-16, the current h-48 is already 3x. Will keep as-is or bump to `h-52 xl:h-60` for extra prominence.
-- No changes to mobile (user said "do not center it etc, just apply for mobile only" about footer -- but for the nav logo, increase applies to desktop too).
+**File**: `src/components/home/GallerySection.tsx`
+- Replace the 4 background layers with forest-green equivalents
+- Add a 5th layer: `<div>` with the paper texture image as a background, low opacity, for that calm textured feel
+- Import `paperTexture from "@/assets/paper-texture-light.jpg"` at the top
 
----
-
-## 3. Services Preview Cards: Fix Layout and Regenerate Images
-
-**Problems identified from screenshots**:
-- The 1-over-2 grid layout looks bad on desktop (giant horizontal card on top)
-- The AI-generated images are poor quality (interior painting image has artifacts, exterior shows someone spray-painting what looks like a roofline against pure blue sky)
-- The green title text ("Interior Painting") has poor contrast against the dark overlay
-
-**Changes to `src/components/home/ServicesPreview.tsx`**:
-- Change layout to **3 equal columns on desktop** (md:grid-cols-3) instead of the 1-over-2 layout. Remove the `md:col-span-2` on the first card
-- Make all cards the same height
-- Fix text color: change the title hover color from `text-primary` (dark green, hard to read) to keep it `text-snow-white` with a subtle underline or glow effect instead
-- Regenerate all 3 service preview images with better, more realistic prompts
-
-**New images to generate**:
-- `service-interior-painting.jpg` -- Bright, well-lit living room with freshly painted walls, paint roller on tray in foreground, natural warm light
-- `service-exterior-painting.jpg` -- Beautiful Colorado home exterior with fresh paint, mountains in background, professional ladder setup
-- `service-wood-staining.jpg` -- Rich wood deck being stained, warm tones, backyard setting with greenery
-
----
-
-## 4. Move Gallery Section Higher on Homepage
-
-**Problem**: User loves the 3D circular gallery but wants it closer to the top, not buried at the bottom.
-
-**Changes to `src/pages/Index.tsx`** -- new section order:
-1. HeroSection
-2. LogoCloud
-3. **GallerySection** (moved up from position 6)
-4. ServicesPreview
-5. ProcessSection
-6. WhyChooseUs (redesigned -- see below)
-7. TestimonialsSection
-8. FAQSection
-9. CTASection
-
----
-
-## 5. Redesign "Why Choose Us" Section
-
-**Problem**: The 4 stat blocks (1,000+ Homes, 5.0 Rating, 8+ Years, 100% Satisfaction) with emoji icons look redundant and childish. The whole section feels cluttered.
-
-**Changes to `src/components/home/WhyChooseUs.tsx`**:
-- **Remove the 4 stat cards entirely** (the emoji blocks at the top)
-- Keep the two-column layout (reasons on left, image + testimonial on right)
-- Instead of the stat blocks, incorporate the key numbers inline within the heading or as a subtle single-line trust strip (e.g., "1,000+ Homes | 5.0 Stars | 8+ Years") below the subheading -- clean and not redundant
-- This declutters the section significantly
-
----
-
-## Technical Summary
-
-### Files modified:
-- `src/components/layout/Footer.tsx` -- responsive layout: left-aligned on desktop, centered on mobile
-- `src/components/layout/Navigation.tsx` -- bump desktop logo size slightly larger
-- `src/components/home/ServicesPreview.tsx` -- 3-column equal grid, fix text contrast, update images
-- `src/pages/Index.tsx` -- reorder: move GallerySection up to position 3
-- `src/components/home/WhyChooseUs.tsx` -- remove 4 stat cards, replace with inline trust strip
-
-### Assets regenerated (3 new images):
-- `src/assets/service-interior-painting.jpg`
-- `src/assets/service-exterior-painting.jpg`
-- `src/assets/service-wood-staining.jpg`
+No other files need changes.
