@@ -27,24 +27,24 @@ export default function About() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroAbout} alt="Colorado home painting" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/50" />
         </div>
 
-        <div className="relative container mx-auto px-4 lg:px-8 pt-28 pb-16 text-center">
-          <span className="inline-block bg-white/15 backdrop-blur-sm text-white text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full mb-6 border border-white/10">
+        <div className="relative container mx-auto px-4 lg:px-8 pt-24 md:pt-28 pb-12 md:pb-16 text-center">
+          <span className="inline-block bg-white/15 backdrop-blur-sm text-white text-xs md:text-sm font-semibold tracking-wider uppercase px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-4 md:mb-6 border border-white/10">
             Colorado's Painting Professionals
           </span>
 
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="font-heading text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
             Meet the Team Behind
             <br />
             <span className="text-white">1,000+ Beautiful Homes</span>
           </h1>
 
-          <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
+          <p className="text-white/80 text-base md:text-xl max-w-2xl mx-auto">
             Since 2017, we've been Colorado's go-to painting professionals.
           </p>
         </div>
