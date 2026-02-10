@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { CircularGallery, GalleryItem } from "@/components/ui/circular-gallery";
+import paperTexture from "@/assets/paper-texture-light.jpg";
 
 
 export function GallerySection() {
@@ -90,21 +91,32 @@ export function GallerySection() {
       className="relative w-full overflow-hidden md:min-h-screen"
     >
       {/* Premium multi-layer background */}
-      {/* Base gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a0f1a]" />
+      {/* Base gradient — deep forest greens */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0f2419] via-[#132e1f] to-[#0a1a10]" />
       
-      {/* Radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.08)_0%,transparent_70%)]" />
+      {/* Radial glow — warm green/gold */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(27,67,50,0.12)_0%,transparent_70%)]" />
       
-      {/* Mesh gradient overlay */}
+      {/* Mesh gradient overlay — forest greens & gold accents */}
       <div 
         className="absolute inset-0 opacity-30"
         style={{
           backgroundImage: `
-            radial-gradient(at 20% 80%, rgba(27,67,50,0.20) 0%, transparent 50%),
-            radial-gradient(at 80% 20%, rgba(59,130,246,0.1) 0%, transparent 50%),
-            radial-gradient(at 50% 50%, rgba(139,92,246,0.08) 0%, transparent 60%)
+            radial-gradient(at 20% 80%, rgba(27,67,50,0.25) 0%, transparent 50%),
+            radial-gradient(at 80% 20%, rgba(163,138,76,0.10) 0%, transparent 50%),
+            radial-gradient(at 50% 50%, rgba(34,85,52,0.12) 0%, transparent 60%)
           `,
+        }}
+      />
+
+      {/* Paper texture overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: `url(${paperTexture})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          mixBlendMode: "overlay",
         }}
       />
       
