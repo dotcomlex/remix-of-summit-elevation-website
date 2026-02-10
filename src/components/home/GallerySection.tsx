@@ -5,6 +5,14 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { CircularGallery, GalleryItem } from "@/components/ui/circular-gallery";
 
+import interiorLivingRoom from "@/assets/gallery/interior-living-room.jpg";
+import exteriorCraftsman from "@/assets/gallery/exterior-craftsman.jpg";
+import stainingDeck from "@/assets/gallery/staining-deck.jpg";
+import cabinetsKitchenWhite from "@/assets/gallery/cabinets-kitchen-white.jpg";
+import interiorBedroomNavy from "@/assets/gallery/interior-bedroom-navy.jpg";
+import commercialLobby from "@/assets/gallery/commercial-lobby.jpg";
+import stainingFence from "@/assets/gallery/staining-fence.jpg";
+import exteriorTrimDetail from "@/assets/gallery/exterior-trim-detail.jpg";
 
 
 export function GallerySection() {
@@ -40,14 +48,14 @@ export function GallerySection() {
 
   const items: GalleryItem[] = useMemo(
     () => [
-      { common: "Living Room Refresh", binomial: "Denver, CO", photo: { url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80", text: "Modern living room interior paint", by: "Emerald Paints" } },
-      { common: "Exterior Repaint", binomial: "Lakewood, CO", photo: { url: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", text: "Full home exterior repaint", by: "Emerald Paints" } },
-      { common: "Deck Staining", binomial: "Boulder, CO", photo: { url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", text: "Cedar deck staining project", by: "Emerald Paints" } },
-      { common: "Kitchen Cabinet Paint", binomial: "Aurora, CO", photo: { url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80", text: "White kitchen cabinet refinish", by: "Emerald Paints" } },
-      { common: "Bedroom Makeover", binomial: "Arvada, CO", photo: { url: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80", text: "Master bedroom accent wall", by: "Emerald Paints" } },
-      { common: "Commercial Office", binomial: "Westminster, CO", photo: { url: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80", text: "Commercial office painting", by: "Emerald Paints" } },
-      { common: "Fence Staining", binomial: "Thornton, CO", photo: { url: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80", text: "Cedar fence staining", by: "Emerald Paints" } },
-      { common: "Exterior Trim Work", binomial: "Centennial, CO", photo: { url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", text: "Detailed exterior trim painting", by: "Emerald Paints" } },
+      { common: "Living Room Refresh", binomial: "Denver, CO", photo: { url: interiorLivingRoom, text: "Freshly painted white living room", by: "Emerald Paints" } },
+      { common: "Craftsman Exterior", binomial: "Boulder, CO", photo: { url: exteriorCraftsman, text: "Colorado craftsman home exterior paint", by: "Emerald Paints" } },
+      { common: "Cedar Deck Staining", binomial: "Evergreen, CO", photo: { url: stainingDeck, text: "Cedar deck staining project", by: "Emerald Paints" } },
+      { common: "Kitchen Cabinets", binomial: "Denver, CO", photo: { url: cabinetsKitchenWhite, text: "White kitchen cabinet refinish", by: "Emerald Paints" } },
+      { common: "Navy Accent Wall", binomial: "Arvada, CO", photo: { url: interiorBedroomNavy, text: "Master bedroom accent wall", by: "Emerald Paints" } },
+      { common: "Office Lobby", binomial: "Denver, CO", photo: { url: commercialLobby, text: "Commercial office lobby painting", by: "Emerald Paints" } },
+      { common: "Fence Staining", binomial: "Aurora, CO", photo: { url: stainingFence, text: "Cedar fence staining", by: "Emerald Paints" } },
+      { common: "Exterior Trim Work", binomial: "Thornton, CO", photo: { url: exteriorTrimDetail, text: "Detailed exterior trim painting", by: "Emerald Paints" } },
     ],
     []
   );
