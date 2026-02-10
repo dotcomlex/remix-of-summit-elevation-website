@@ -39,19 +39,19 @@ export function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
 
       <div className="container px-4 md:px-6 py-12 md:py-16">
-        {/* Centered Logo */}
-        <div className="flex justify-center mb-10">
+        {/* Logo - centered on mobile, left-aligned on desktop */}
+        <div className="flex justify-center md:justify-start mb-6 md:mb-10">
           <Link to="/">
             <img
               src={logoEmerald}
               alt="Emerald Paints"
-              className="h-36 md:h-40 w-auto"
+              className="h-36 md:h-24 w-auto"
               style={{ filter: "brightness(110%) drop-shadow(0 4px 20px rgba(0,0,0,0.6))", maxWidth: "none" }}
             />
           </Link>
         </div>
 
-        <p className="text-sm text-white/60 leading-relaxed max-w-lg mx-auto mb-10">
+        <p className="text-sm text-white/60 leading-relaxed max-w-lg text-center md:text-left mx-auto md:mx-0 mb-10">
           Colorado's trusted painting professionals since 2017. Quality interior, exterior, and commercial painting services that stand the test of time.
         </p>
 

@@ -50,33 +50,26 @@ export function ServicesPreview() {
           </p>
         </AnimatedSection>
 
-        {/* Service Cards - Image Background with Text Overlay */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
+        {/* Service Cards - 3 equal columns */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
           {services.map((service, index) => (
-            <StaggerItem key={index} className={index === 0 ? "md:col-span-2" : ""}>
+            <StaggerItem key={index}>
               <Link 
                 to={service.link} 
-                className={`group block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${index === 0 ? "h-[380px] md:h-[480px]" : "h-[380px] md:h-[420px]"}`}
+                className="group block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-[380px] md:h-[440px]"
               >
-                {/* Background Image */}
                 <img 
                   src={service.image} 
                   alt={service.title} 
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                 />
-                
-                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-mountain-charcoal via-mountain-charcoal/40 to-transparent" />
-                
-                {/* Hover brightness overlay */}
                 <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500" />
-                
-                {/* Content at Bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-snow-white mb-2 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl md:text-2xl font-bold text-snow-white mb-2 group-hover:underline underline-offset-4 transition-all duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-snow-white/80 text-sm md:text-base leading-relaxed mb-4">
+                  <p className="text-snow-white/80 text-sm leading-relaxed mb-4">
                     {service.description}
                   </p>
                   <div className="inline-flex items-center gap-2 text-primary font-semibold text-sm">

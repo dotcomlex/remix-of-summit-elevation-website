@@ -4,12 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import paintingCrewImage from "@/assets/hero-painting-crew.jpg";
 
-const stats = [
-  { number: "1,000+", label: "Homes Transformed", icon: "🏠" },
-  { number: "5.0", label: "Star Rating", icon: "⭐" },
-  { number: "8+", label: "Years Experience", icon: "📅" },
-  { number: "100%", label: "Satisfaction Rate", icon: "✅" },
-];
 
 const reasons = [
   {
@@ -36,26 +30,6 @@ export function WhyChooseUs() {
 
       <div className="container relative z-10 px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Stats Row */}
-          <AnimatedSection className="mb-12 md:mb-16">
-            <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-              {stats.map((stat) => (
-                <StaggerItem
-                  key={stat.label}
-                  className="bg-white rounded-xl p-4 md:p-5 text-center shadow-soft"
-                >
-                  <span className="text-2xl mb-1 block">{stat.icon}</span>
-                  <span className="text-xl md:text-2xl font-bold text-charcoal block">
-                    {stat.number}
-                  </span>
-                  <span className="text-mountain-slate text-xs md:text-sm">
-                    {stat.label}
-                  </span>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </AnimatedSection>
-
           {/* Two-Column Layout */}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             {/* Left: Content */}
@@ -70,10 +44,19 @@ export function WhyChooseUs() {
                   <span className="text-primary">It's Peace of Mind</span>
                 </h2>
 
-                <p className="text-mountain-slate text-base sm:text-lg mb-8 max-w-xl">
+                <p className="text-mountain-slate text-base sm:text-lg mb-4 max-w-xl">
                   We've painted over 1,000 homes across Colorado. Here's what
                   sets us apart from the rest.
                 </p>
+                <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-mountain-slate/70 uppercase tracking-wider mb-8">
+                  <span>1,000+ Homes</span>
+                  <span className="w-1 h-1 rounded-full bg-primary" />
+                  <span>5.0 ★ Rating</span>
+                  <span className="w-1 h-1 rounded-full bg-primary" />
+                  <span>8+ Years</span>
+                  <span className="w-1 h-1 rounded-full bg-primary" />
+                  <span>100% Satisfaction</span>
+                </div>
               </AnimatedSection>
 
               {/* Reasons */}

@@ -30,10 +30,10 @@ const Index = () => {
     <Layout>
       <HeroSection />
       <LogoCloud logos={partnerLogos} />
+      <GallerySection />
       <ServicesPreview />
       <ProcessSection />
       <WhyChooseUs />
-      <GallerySection />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
