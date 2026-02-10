@@ -1,7 +1,6 @@
 import { ArrowRight, Star, Award, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoEmerald from "@/assets/logo-emerald.png";
-import heroImage from "@/assets/hero-painting-crew.jpg";
+import heroImage from "@/assets/hero-clean-home.jpg";
 
 export function HeroSection() {
   return (
@@ -17,16 +16,6 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 container mx-auto px-6 pt-32 pb-24 flex flex-col items-center text-center">
-        {/* Large Centered Logo */}
-        <div className="flex justify-center mb-8 animate-fade-up">
-          <img
-            src={logoEmerald}
-            alt="Emerald Paints"
-            className="h-40 md:h-48 lg:h-56 xl:h-64 w-auto"
-            style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.5)) brightness(1.1)" }}
-          />
-        </div>
-
         {/* Trust Badge */}
         <div className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full text-sm font-medium mb-8 shadow-lg animate-fade-up">
           <Shield className="w-4 h-4 text-primary" />
