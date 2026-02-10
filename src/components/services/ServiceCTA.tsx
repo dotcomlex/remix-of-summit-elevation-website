@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import denverImage from "@/assets/denver-skyline.jpg";
 
 interface ServiceCTAProps {
@@ -31,19 +32,11 @@ export function ServiceCTA({
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button asChild size="lg" className="w-full sm:w-auto">
-            <a href="tel:+17208189678">
+            <Link to="/contact">
               Get Your Free Estimate
               <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
+            </Link>
           </Button>
-          
-          <a 
-            href="tel:+17208189678" 
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 text-snow-white hover:text-primary transition-colors font-semibold"
-          >
-            <Phone className="h-5 w-5" />
-            (720) 818-9678
-          </a>
         </div>
       </div>
     </section>

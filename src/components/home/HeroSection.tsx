@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowRight, Star, Award, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-home-premium.jpg";
@@ -61,10 +62,10 @@ export function HeroSection() {
             size="lg"
             className="text-base lg:text-lg font-semibold h-14 lg:h-16 px-10 lg:px-12 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
           >
-            <a href="tel:+17204475654">
+            <Link to="/contact">
               Get Free Estimate
               <ArrowRight className="ml-2 h-5 w-5 lg:h-6 lg:w-6" />
-            </a>
+            </Link>
           </Button>
         </div>
 

@@ -91,27 +91,27 @@ export function GallerySection() {
       className="relative w-full overflow-hidden md:min-h-screen"
     >
       {/* Premium multi-layer background */}
-      {/* Base gradient — deep forest greens */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0f2419] via-[#132e1f] to-[#0a1a10]" />
+      {/* Base gradient — medium forest greens (lighter) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1a3a2a] via-[#1e4433] to-[#162f22]" />
       
       {/* Radial glow — warm green/gold */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(27,67,50,0.12)_0%,transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,85,52,0.15)_0%,transparent_70%)]" />
       
       {/* Mesh gradient overlay — forest greens & gold accents */}
       <div 
         className="absolute inset-0 opacity-30"
         style={{
           backgroundImage: `
-            radial-gradient(at 20% 80%, rgba(27,67,50,0.25) 0%, transparent 50%),
-            radial-gradient(at 80% 20%, rgba(163,138,76,0.10) 0%, transparent 50%),
-            radial-gradient(at 50% 50%, rgba(34,85,52,0.12) 0%, transparent 60%)
+            radial-gradient(at 20% 80%, rgba(34,85,52,0.25) 0%, transparent 50%),
+            radial-gradient(at 80% 20%, rgba(163,138,76,0.12) 0%, transparent 50%),
+            radial-gradient(at 50% 50%, rgba(42,100,60,0.12) 0%, transparent 60%)
           `,
         }}
       />
 
       {/* Paper texture overlay */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.08]"
         style={{
           backgroundImage: `url(${paperTexture})`,
           backgroundSize: "cover",
@@ -120,8 +120,8 @@ export function GallerySection() {
         }}
       />
       
-      {/* Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.6)_100%)]" />
+      {/* Vignette (softer) */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.3)_100%)]" />
 
       {/* Content */}
       <div className="relative flex flex-col items-center pt-16 pb-12 px-4 md:min-h-screen md:py-16">

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ArrowRight, Grid3X3, Home, TreePine, Building2, PaintBucket, DoorOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -235,9 +236,9 @@ export default function Gallery() {
               Let's bring your vision to life. Get a free consultation and estimate from our expert team.
             </p>
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 shadow-warm">
-              <a href="tel:+17204475654">
+              <Link to="/contact">
                 Get Your Free Estimate <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-              </a>
+              </Link>
             </Button>
           </motion.div>
         </div>

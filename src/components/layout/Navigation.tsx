@@ -49,34 +49,28 @@ export function Navigation() {
               />
             </Link>
 
-            <div className="flex items-center gap-8">
-              <nav>
-                <ul className="flex items-center gap-2">
-                  {navLinks.map((link) => (
-                    <li key={link.path}>
-                      <Link
-                        to={link.path}
-                        className={cn(
-                          "relative px-5 py-3 font-semibold text-base transition-all duration-300 rounded-lg backdrop-blur-sm",
-                          location.pathname === link.path
-                            ? "text-primary bg-white/10"
-                            : "text-snow-white/90 hover:text-snow-white hover:bg-white/10"
-                        )}
-                      >
-                        {link.name}
-                        {location.pathname === link.path && (
-                          <span className="absolute bottom-1 left-5 right-5 h-0.5 bg-primary rounded-full" />
-                        )}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-
-              <Button asChild size="lg" className="font-semibold px-6 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
-                <a href="tel:+17204475654">Free Estimate</a>
-              </Button>
-            </div>
+            <nav>
+              <ul className="flex items-center gap-2">
+                {navLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link
+                      to={link.path}
+                      className={cn(
+                        "relative px-5 py-3 font-semibold text-base transition-all duration-300 rounded-lg backdrop-blur-sm",
+                        location.pathname === link.path
+                          ? "text-snow-white bg-white/15"
+                          : "text-snow-white/90 hover:text-snow-white hover:bg-white/10"
+                      )}
+                    >
+                      {link.name}
+                      {location.pathname === link.path && (
+                        <span className="absolute bottom-1 left-5 right-5 h-0.5 bg-gold rounded-full" />
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           {/* Mobile Header */}
@@ -132,7 +126,7 @@ export function Navigation() {
                     className={cn(
                       "flex items-center px-5 py-4 rounded-xl font-semibold text-lg transition-colors",
                       location.pathname === link.path
-                        ? "bg-primary/20 text-primary"
+                        ? "bg-white/15 text-snow-white"
                         : "text-snow-white hover:bg-white/10"
                     )}
                   >
@@ -144,12 +138,9 @@ export function Navigation() {
 
             <div className="mt-8 pt-6 border-t border-white/10">
               <Button asChild className="w-full font-semibold h-14 text-base" size="lg">
-                <a href="tel:+17204475654" onClick={() => setIsOpen(false)}>Get Your Free Estimate</a>
+                <Link to="/contact" onClick={() => setIsOpen(false)}>Get Your Free Estimate</Link>
               </Button>
-              <a href="tel:+17204475654" className="flex items-center justify-center gap-3 mt-4 py-4 text-snow-white hover:text-primary transition-colors">
-                <span className="font-semibold">(720) 447-5654</span>
-              </a>
-              <p className="text-center text-snow-white/50 text-sm mt-2">
+              <p className="text-center text-snow-white/50 text-sm mt-4">
                 Licensed & Insured · Serving Colorado Since 2017
               </p>
             </div>
@@ -158,8 +149,8 @@ export function Navigation() {
       </div>
 
       {/* Floating CTA */}
-      <a
-        href="tel:+17204475654"
+      <Link
+        to="/contact"
         className={cn(
           "fixed bottom-6 right-6 z-40",
           "bg-primary hover:bg-primary/90",
@@ -171,7 +162,7 @@ export function Navigation() {
         )}
       >
         Free Color Consult
-      </a>
+      </Link>
     </>
   );
 }

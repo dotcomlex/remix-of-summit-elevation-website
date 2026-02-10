@@ -104,7 +104,7 @@ export function ServicesPreview() {
               size="lg" 
               className="text-base font-semibold h-12 px-8 border-mountain-charcoal bg-mountain-charcoal text-snow-white hover:bg-mountain-charcoal/90 hover:text-snow-white hover:-translate-y-0.5 transition-all duration-300"
             >
-              <a href="tel:+17204475654">Get a Free Estimate</a>
+              <Link to="/contact">Get a Free Estimate</Link>
             </Button>
           </div>
         </AnimatedSection>

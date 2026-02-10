@@ -52,10 +52,10 @@ export function CTASection() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg shadow-warm"
             >
-              <a href="tel:+17204475654">
+              <Link to="/contact">
                 Get Your Free Estimate
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              </Link>
             </Button>
             <Button
               asChild

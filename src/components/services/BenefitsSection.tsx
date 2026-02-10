@@ -1,7 +1,6 @@
-import { CheckCircle2, LucideIcon } from "lucide-react";
-
+import { Link } from "react-router-dom";
+import { CheckCircle2, LucideIcon, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 
 interface Benefit {
   title: string;
@@ -73,10 +72,10 @@ export function BenefitsSection({
             </div>
             
             <Button asChild size="lg">
-              <a href="tel:+17204475654">
+              <Link to="/contact">
                 {ctaText}
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

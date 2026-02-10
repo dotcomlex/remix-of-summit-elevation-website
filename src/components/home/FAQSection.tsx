@@ -1,4 +1,5 @@
-import { Phone } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AnimatedSection } from "@/components/ui/animated-section";
 
@@ -77,13 +78,13 @@ export function FAQSection() {
         {/* CTA below FAQ */}
         <AnimatedSection delay={0.4} className="text-center mt-12">
           <p className="text-charcoal font-semibold text-lg mb-3">Still have questions?</p>
-          <a
-            href="tel:+17204475654"
+          <Link
+            to="/contact"
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg transition-colors"
           >
-            <Phone className="w-5 h-5" />
-            Call us at (720) 447-5654
-          </a>
+            Contact us
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </AnimatedSection>
       </div>
     </section>
