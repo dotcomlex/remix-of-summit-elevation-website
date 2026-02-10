@@ -77,46 +77,18 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Quote Form + Social */}
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-base font-bold mb-2">Request Free Quote</h3>
-              <p className="text-xs text-white/50 mb-3">Enter your email and we'll send you a quote form</p>
-              <form onSubmit={handleEstimateRequest} className="relative">
-                <div className="flex gap-2">
-                  <Input
-                    type="email"
-                    placeholder="Your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={isSubmitting || subscriptionStatus !== 'idle'}
-                    required
-                    className="bg-gray-700 border-gray-600 text-white placeholder:text-gray-400"
-                  />
-                  <Button type="submit" size="sm" disabled={isSubmitting || subscriptionStatus !== 'idle'}>
-                    {isSubmitting ? '...' : <ArrowRight className="w-4 h-4" />}
-                  </Button>
-                </div>
-                {subscriptionStatus !== 'idle' && (
-                  <p className={`text-xs mt-2 ${subscriptionStatus === 'success' ? 'text-green-400' : 'text-red-400'}`}>
-                    {subscriptionStatus === 'success' ? 'Quote form sent! 📧' : 'Failed. Try again.'}
-                  </p>
-                )}
-              </form>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-semibold mb-3">Follow Us</h4>
-              <div className="flex gap-3">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors" aria-label={social.label}>
-                      <Icon className="w-4 h-4" />
-                    </a>
-                  );
-                })}
-              </div>
+          {/* Social */}
+          <div>
+            <h4 className="text-sm font-semibold mb-3">Follow Us</h4>
+            <div className="flex gap-3">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" aria-label={social.label}>
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
