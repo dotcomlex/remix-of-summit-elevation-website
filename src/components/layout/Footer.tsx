@@ -107,15 +107,9 @@ export function Footer() {
                 <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Since 2017
               </span>
             </div>
-            <div className="text-xs text-white/40">
-              <p>© {new Date().getFullYear()} Emerald Paints LLC. All rights reserved.</p>
-              <p className="mt-1">
-                Powered by{" "}
-                <a href="https://frostmediallc.com" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">
-                  Frost Media LLC
-                </a>
-              </p>
-            </div>
+            <p className="text-xs text-white/40">
+              © {new Date().getFullYear()} Emerald Paints LLC. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
